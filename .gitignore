@@ -1,4 +1,1 @@
-*.lib
-*.[ao]
-logs/*.txt
 build
