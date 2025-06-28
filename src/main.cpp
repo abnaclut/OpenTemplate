@@ -1,25 +1,40 @@
+//COMMENT FOR RELEASE
+//UNCOMMENT FOR DEBUG
+#define DEBUG
+
+#pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-int main(void)
-{
-    GLFWwindow* window;
+//NULL = nullptr because of GLFWindow*
+#define NULL nullptr
 
+
+int main()
+{
     /* Initialize the library */
     if (!glfwInit())
+    {
+
+#ifdef DEBUG
+        std::cout << "Cannot initialize GLFW!\n";
+        std::cout << "line 17: glfwInit() failed!\n";
+#endif
+
         return -1;
+    }
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
+    GLFWwindow* pWindow = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!pWindow)
     {
         glfwTerminate();
         return -1;
     }
 
     /* Make the window's context current */
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(pWindow);
 
     if (!gladLoadGL())
     {
@@ -33,13 +48,13 @@ int main(void)
 
 
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(pWindow))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
-        glfwSwapBuffers(window);
+        glfwSwapBuffers(pWindow);
 
         /* Poll for and process events */
         glfwPollEvents();
