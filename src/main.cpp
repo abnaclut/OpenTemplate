@@ -15,6 +15,12 @@ void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(pWindow, GLFW_TRUE);
+}
+
 int main()
 {
     /* Initialize the library */
@@ -46,6 +52,10 @@ int main()
         return -1;
     }
 
+    //CALLBACKS
+    glfwSetWindowSizeCallback(pWindow, glfwWindowSizeCallback);
+    glfwSetKeyCallback(pWindow, glfwKeyCallback);
+
     /* Make the window's context current */
     glfwMakeContextCurrent(pWindow);
 
@@ -55,10 +65,10 @@ int main()
 		return -1;
     }
 
-
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
+    //set colour
     glClearColor(0, 1, 0, 1);
 
 
