@@ -1,7 +1,19 @@
 
+#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
+
+//global variables
+int g_windowSizeX = 640;
+int g_windowSizeY = 480;
+//global variables
+
+void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
+{
+    g_windowSizeX = width;
+    g_windowSizeY = height;
+    glViewport(0, 0, width, height);
+}
 
 int main()
 {
@@ -23,7 +35,7 @@ int main()
     //VERSION SPECIFICATION
 
     /* Create a windowed mode window and its OpenGL context */
-    GLFWwindow* pWindow = glfwCreateWindow(640, 480, "babka", nullptr, nullptr);
+    GLFWwindow* pWindow = glfwCreateWindow(g_windowSizeX, g_windowSizeY, "babka", nullptr, nullptr);
     if (!pWindow)
     {
         //debug info
