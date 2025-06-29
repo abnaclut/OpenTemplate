@@ -1,10 +1,9 @@
 //main.cpp
 
 //INCLUDE
-#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-//
+#include <iostream>
 
 
 //global variables
@@ -55,7 +54,7 @@ const char* fragment_shader =
     "in vec3 color;"
     "out vec4 frag_color;"
     "void main() {"
-    "frag color = vec4(color, 1.0)"
+    "frag_color = vec4(color, 1.0);"
     "}";
 
 int main()
