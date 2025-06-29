@@ -1,34 +1,35 @@
-//COMMENT FOR RELEASE
-//UNCOMMENT FOR DEBUG
-#define DEBUG
 
-#pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-
-//NULL = nullptr because of GLFWindow*
-#define NULL nullptr
-
 
 int main()
 {
     /* Initialize the library */
     if (!glfwInit())
     {
-
-#ifdef DEBUG
+        //debug info
         std::cout << "Cannot initialize GLFW!\n";
-        std::cout << "line 17: glfwInit() failed!\n";
-#endif
+        std::cout << "glfwInit() failed!\n";
+        //debug info
 
         return -1;
     }
 
+    //VERSION SPECIFICATION
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    //VERSION SPECIFICATION
+
     /* Create a windowed mode window and its OpenGL context */
-    GLFWwindow* pWindow = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    GLFWwindow* pWindow = glfwCreateWindow(640, 480, "babka", nullptr, nullptr);
     if (!pWindow)
     {
+        //debug info
+        std::cout << "Cannot create GLFW window!\n";
+        std::cout << "glfwCreateWindow() failed!\n";
+        //debug info
         glfwTerminate();
         return -1;
     }
@@ -42,7 +43,9 @@ int main()
 		return -1;
     }
 
-    std::cout << "OpenGL " << GLVersion.major << "." << GLVersion.minor << std::endl;
+
+    std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
     glClearColor(0, 1, 0, 1);
 
