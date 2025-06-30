@@ -1,0 +1,38 @@
+#pragma once
+
+#include <string>
+#include <glad/glad.h>
+
+namespace Renderer
+{
+    class ShaderProgram
+    {
+    public:
+        //CONSTRUCTORS
+        ShaderProgram(const std::string& vertexShader, const std::string& fragmentShader);
+        //NOT ALLOWING EMPTY SHADER
+        ShaderProgram() = delete;
+        //NOT ALLOWING SHADER-COPY / SAME IDs
+        ShaderProgram(ShaderProgram&) = delete;
+        //NOT ALLOWING SHADER ASSIGMENT / SAME IDs
+        ShaderProgram& operator=(const ShaderProgram&) = delete;
+        //moving operators
+        ShaderProgram& operator=(ShaderProgram&& shaderProgram) noexcept;
+        ShaderProgram(ShaderProgram&& shaderProgram) noexcept;
+
+        //DESTRUCTORS
+        ~ShaderProgram();
+
+        [[nodiscard]] bool isCompiled() const { return m_isCompiled; };
+        void use() const;
+        static void unuse();
+
+    private:
+        static bool createShader(const std::string& source, GLenum shaderType, GLuint& shaderID);
+        bool m_isCompiled = false;
+        GLuint m_ID = 0;
+    };
+
+
+
+}
