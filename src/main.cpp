@@ -105,7 +105,7 @@ int main()
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
     //set colour
-    glClearColor(0, 1, 0, 1);
+    glClearColor(1, 1, 0, 1);
 
     GLuint vs = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vs, 1, &vertex_shader, nullptr);
