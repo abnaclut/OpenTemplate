@@ -1,2 +1,1 @@
-Nothing, yet
-But this will be something in the future
+Will be an OpenGL, GLAD template creator with several renderers when finished.
