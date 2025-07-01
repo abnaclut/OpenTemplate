@@ -78,7 +78,7 @@ int main()
     //VERSION SPECIFICATION
 
     /* Create a windowed mode window and its OpenGL context */
-    GLFWwindow* pWindow = glfwCreateWindow(g_windowSizeX, g_windowSizeY, "babka", nullptr, nullptr);
+    GLFWwindow* pWindow = glfwCreateWindow(g_windowSizeX, g_windowSizeY, "openTemplate", nullptr, nullptr);
     if (!pWindow)
     {
         //debug info
