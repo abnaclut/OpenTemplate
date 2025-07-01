@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "Renderer/ShaderProgram.h"
+#include "Resources/ResourceManager.h"
 
 
 //global variables
@@ -39,26 +40,7 @@ GLfloat colors[] = {
     0.0f, 0.0f, 1.0f
 };
 
-const char* vertex_shader =
-
-    "#version 460\n"
-    "layout(location = 0) in vec3 vertex_position;"
-    "layout(location = 1) in vec3 vertex_color;"
-    "out vec3 color;"
-    "void main() {"
-    "   color = vertex_color;"
-    "gl_Position = vec4(vertex_position, 1.0);"
-    "}";
-
-const char* fragment_shader =
-    "#version 460\n"
-    "in vec3 color;"
-    "out vec4 frag_color;"
-    "void main() {"
-    "frag_color = vec4(color, 1.0);"
-    "}";
-
-int main()
+int main(int argc, char** argv)
 {
     /* Initialize the library */
     if (!glfwInit())
@@ -98,8 +80,8 @@ int main()
 
     if (!gladLoadGL())
     {
-    	std::cout << "Cannot load GLAD!\n";
-		return -1;
+        std::cout << "Cannot load GLAD!\n";
+        return -1;
     }
 
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
@@ -108,15 +90,13 @@ int main()
     //set color
     glClearColor(1, 1, 0, 1);
 
-    //SHADER CREATION
-    const std::string vertexShader(vertex_shader);
-    const std::string fragmentShader(fragment_shader);
-    //SHADER PROGRAM CREATION
-    const Renderer::ShaderProgram shaderProgram(vertexShader, fragmentShader);
 
-    if (shaderProgram.isCompiled() == false)
+{ //ADDED SCOPE SO THAT GL CONTEXT IS DESTROYED PROPERLY
+    ResourceManager ResourceManager(argv[0]);
+    const auto pDefaultShaderProgram = ResourceManager.loadShaders("Default shader", "res/shaders/vertex.txt", "res/shaders/fragment.txt");
+    if (!pDefaultShaderProgram)
     {
-        std::cerr << "Shader program is not compiled!\n";
+        std::cerr << "Cannot create shader program!\n";
         return -1;
     }
 
@@ -148,7 +128,7 @@ int main()
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        shaderProgram.use();
+        pDefaultShaderProgram->use();
         glBindVertexArray(vao);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
@@ -158,7 +138,7 @@ int main()
         /* Poll for and process events */
         glfwPollEvents();
     }
-
+}
     glfwTerminate();
     return 0;
 }
