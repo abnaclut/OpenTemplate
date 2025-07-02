@@ -200,9 +200,11 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /home/user/openTemplate/external/glad/include/glad/glad.h \
   /home/user/openTemplate/src/Renderer/ShaderProgram.h \
   /home/user/openTemplate/src/Resources/ResourceManager.h \
+  /home/user/openTemplate/src/Resources/stb_image.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -266,6 +268,7 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
+  /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/stl_algobase.h \
@@ -292,6 +295,7 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/cmath \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
@@ -321,6 +325,7 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/c++/13/limits \
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
+  /usr/include/c++/13/math.h \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/ostream \
@@ -330,10 +335,23 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/tr1/bessel_function.tcc \
+  /usr/include/c++/13/tr1/beta_function.tcc \
+  /usr/include/c++/13/tr1/ell_integral.tcc \
+  /usr/include/c++/13/tr1/exp_integral.tcc \
+  /usr/include/c++/13/tr1/gamma.tcc \
+  /usr/include/c++/13/tr1/hypergeometric.tcc \
+  /usr/include/c++/13/tr1/legendre_function.tcc \
+  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/13/tr1/poly_hermite.tcc \
+  /usr/include/c++/13/tr1/poly_laguerre.tcc \
+  /usr/include/c++/13/tr1/riemann_zeta.tcc \
+  /usr/include/c++/13/tr1/special_function_util.h \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -343,14 +361,19 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/math.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
@@ -363,9 +386,21 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -411,11 +446,13 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
@@ -437,9 +474,15 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/open
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h
 
 CMakeFiles/openTemplate.dir/src/main.cpp.o: /home/user/openTemplate/src/main.cpp \
   /home/user/openTemplate/external/glad/include/KHR/khrplatform.h \
@@ -685,17 +728,11 @@ bin/openTemplate: /lib/x86_64-linux-gnu/libc.so.6 \
   external/glfw/src/libglfw3.a
 
 
-external/glfw/src/libglfw3.a:
-
-/usr/lib/x86_64-linux-gnu/librt.a:
-
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
-
-/usr/lib/x86_64-linux-gnu/libdl.a:
 
 /usr/lib/x86_64-linux-gnu/crtn.o:
 
@@ -707,7 +744,49 @@ external/glfw/src/libglfw3.a:
 
 /home/user/openTemplate/src/main.cpp:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:
+
+external/glfw/src/libglfw3.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/lib/x86_64-linux-gnu/librt.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/string.h:
+
+/usr/include/c++/13/tr1/riemann_zeta.tcc:
+
+/usr/include/c++/13/tr1/poly_hermite.tcc:
+
+/usr/include/c++/13/tr1/legendre_function.tcc:
+
+/usr/include/c++/13/tr1/hypergeometric.tcc:
+
+/usr/include/c++/13/tr1/beta_function.tcc:
+
+/usr/include/c++/13/tr1/bessel_function.tcc:
+
+/usr/lib/x86_64-linux-gnu/libdl.a:
+
+/usr/include/c++/13/stdlib.h:
 
 /usr/include/c++/13/sstream:
 
@@ -727,6 +806,8 @@ external/glfw/src/libglfw3.a:
 
 /usr/include/c++/13/ctime:
 
+/usr/include/c++/13/cmath:
+
 /usr/include/c++/13/bits/stl_tempbuf.h:
 
 /usr/include/c++/13/bits/shared_ptr.h:
@@ -741,6 +822,8 @@ external/glfw/src/libglfw3.a:
 
 /usr/include/c++/13/bits/locale_facets_nonio.tcc:
 
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
 /usr/include/c++/13/bits/locale_facets_nonio.h:
 
 /usr/include/c++/13/bits/locale_conv.h:
@@ -751,17 +834,23 @@ external/glfw/src/libglfw3.a:
 
 /usr/include/c++/13/bits/fs_fwd.h:
 
-/usr/include/c++/13/bits/fs_dir.h:
-
 /usr/include/c++/13/bits/atomic_base.h:
 
 /usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/tr1/gamma.tcc:
 
 /usr/include/c++/13/bits/align.h:
 
 CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
 /usr/include/c++/13/backward/auto_ptr.h:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/home/user/openTemplate/src/Resources/stb_image.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
 
@@ -803,6 +892,8 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
@@ -814,6 +905,8 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 /usr/include/c++/13/bits/locale_classes.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h:
 
 /usr/include/c++/13/pstl/glue_memory_defs.h:
 
@@ -833,6 +926,8 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
 /usr/include/c++/13/clocale:
 
+/usr/include/assert.h:
+
 /usr/include/c++/13/debug/assertions.h:
 
 /usr/include/c++/13/bits/fs_ops.h:
@@ -847,6 +942,8 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/crti.o:
 
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
@@ -856,6 +953,8 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /lib64/ld-linux-x86-64.so.2:
+
+/usr/include/c++/13/tr1/modified_bessel_func.tcc:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
@@ -867,9 +966,13 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
 /usr/include/c++/13/stdexcept:
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
 /usr/include/c++/13/bits/stl_iterator.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/linux/limits.h:
 
 /usr/include/c++/13/iosfwd:
 
@@ -879,6 +982,10 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
+/usr/include/c++/13/tr1/special_function_util.h:
+
+/usr/include/c++/13/bits/specfun.h:
+
 /usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/backward/binders.h:
@@ -887,9 +994,13 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 
 /usr/include/c++/13/bits/ostream.tcc:
 
+/usr/include/c++/13/tr1/exp_integral.tcc:
+
 /usr/include/stdc-predef.h:
 
 /usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/include/c++/13/bits/stl_algobase.h:
 
@@ -904,6 +1015,8 @@ CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o:
 /usr/include/c++/13/ios:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/math.h:
 
 /usr/include/c++/13/bits/memoryfwd.h:
 
@@ -957,6 +1070,8 @@ external/glad/libglad.a:
 
 /usr/include/c++/13/bits/exception.h:
 
+/usr/include/strings.h:
+
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
@@ -964,6 +1079,8 @@ external/glad/libglad.a:
 CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 
 /usr/include/c++/13/bits/char_traits.h:
+
+/usr/include/c++/13/tr1/ell_integral.tcc:
 
 /usr/include/c++/13/bits/locale_facets.tcc:
 
@@ -1033,6 +1150,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 
 /usr/include/c++/13/bits/exception_defines.h:
 
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
 /usr/include/c++/13/codecvt:
 
 /home/user/openTemplate/src/Resources/ResourceManager.cpp:
@@ -1064,6 +1183,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 /usr/include/c++/13/bits/uses_allocator.h:
 
 /usr/include/c++/13/ext/type_traits.h:
+
+/usr/include/c++/13/tr1/poly_laguerre.tcc:
 
 /usr/include/c++/13/bits/ostream_insert.h:
 
@@ -1113,6 +1234,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 
 /usr/include/sched.h:
 
+/usr/include/limits.h:
+
 /usr/include/stdint.h:
 
 /usr/include/stdio.h:
@@ -1121,6 +1244,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
+/usr/include/c++/13/math.h:
+
 /usr/include/stdlib.h:
 
 /usr/include/c++/13/bits/shared_ptr_base.h:
@@ -1128,6 +1253,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 /home/user/openTemplate/src/Resources/ResourceManager.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
@@ -1190,6 +1317,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/13/bits/erase_if.h:
 

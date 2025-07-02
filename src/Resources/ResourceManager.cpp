@@ -4,10 +4,14 @@
 #include <fstream>
 #include <iostream>
 #include <filesystem>
+#define STB_IMAGE_IMPLEMENTATION
+#define STBI_ONLY_PNG
+   #include "stb_image.h"
+
 
 ResourceManager::ResourceManager(const std::string& executablePath)
 {
-    size_t lastSlash = executablePath.find_last_of("/\\");
+    const size_t lastSlash = executablePath.find_last_of("/\\");
     ResourceManager::m_path = executablePath.substr(0, lastSlash);
 }
 
@@ -18,7 +22,7 @@ std::string ResourceManager::getFileString(const std::string& relativeFilePath) 
     if (!f.is_open())
     {
         std::cerr << "Error: failed to open path: " << fullPath << std::endl;
-        return std::string();
+        return {};
     }
     
     std::string content((std::istreambuf_iterator<char>(f)),
@@ -56,11 +60,33 @@ std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std:
 
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::getShader(const std::string& shaderName)
 {
-    ShaderProgramsMap::const_iterator it = m_shaderPrograms.find(shaderName);
-    if (it != m_shaderPrograms.end())
+    if (const auto it = m_shaderPrograms.find(shaderName); it != m_shaderPrograms.end())
     {
         return it->second;
     }
         std::cerr << "Shader not found: " << shaderName << std::endl;
         return nullptr;
 }
+
+void ResourceManager::loadTexture(const std::string& textureName, const std::string& texturePath)
+{
+    if (textureName.empty() || texturePath.empty()) {
+        std::cerr << "Texture name or path is empty" << std::endl;
+        return;
+    }
+
+    int channels = 0;
+    int width = 0;
+    int height = 0;
+
+    stbi_set_flip_vertically_on_load(true);
+    auto fullPath = std::filesystem::path(texturePath);
+    unsigned char* pixels = stbi_load(texturePath.c_str(), &width, &height, &channels, 0);
+    if (pixels == nullptr)
+    {
+        std::cerr << "Failed to load texture: " << texturePath << std::endl;
+        return;
+    };
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+};
