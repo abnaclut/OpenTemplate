@@ -114,11 +114,26 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/openTemplate/src/Resources/ResourceManager.cpp -o CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.s
 
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o: CMakeFiles/openTemplate.dir/flags.make
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o: /home/user/openTemplate/src/Renderer/Texture2D.cpp
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o: CMakeFiles/openTemplate.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o -MF CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o.d -o CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o -c /home/user/openTemplate/src/Renderer/Texture2D.cpp
+
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/openTemplate/src/Renderer/Texture2D.cpp > CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.i
+
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/openTemplate/src/Renderer/Texture2D.cpp -o CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.s
+
 # Object files for target openTemplate
 openTemplate_OBJECTS = \
 "CMakeFiles/openTemplate.dir/src/main.cpp.o" \
 "CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o" \
-"CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o"
+"CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o" \
+"CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o"
 
 # External object files for target openTemplate
 openTemplate_EXTERNAL_OBJECTS =
@@ -126,6 +141,7 @@ openTemplate_EXTERNAL_OBJECTS =
 bin/openTemplate: CMakeFiles/openTemplate.dir/src/main.cpp.o
 bin/openTemplate: CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o
 bin/openTemplate: CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o
+bin/openTemplate: CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o
 bin/openTemplate: CMakeFiles/openTemplate.dir/build.make
 bin/openTemplate: CMakeFiles/openTemplate.dir/compiler_depend.ts
 bin/openTemplate: external/glfw/src/libglfw3.a
@@ -133,7 +149,7 @@ bin/openTemplate: external/glad/libglad.a
 bin/openTemplate: /usr/lib/x86_64-linux-gnu/librt.a
 bin/openTemplate: /usr/lib/x86_64-linux-gnu/libm.so
 bin/openTemplate: CMakeFiles/openTemplate.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bin/openTemplate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/openTemplate"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/openTemplate.dir/link.txt --verbose=$(VERBOSE)
 	/snap/clion/359/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/user/openTemplate/res /home/user/openTemplate/cmake-build-debug/bin/res
 

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/user/openTemplate/src/Renderer/ShaderProgram.cpp" "CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o" "gcc" "CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o.d"
+  "/home/user/openTemplate/src/Renderer/Texture2D.cpp" "CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o" "gcc" "CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o.d"
   "/home/user/openTemplate/src/Resources/ResourceManager.cpp" "CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o" "gcc" "CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o.d"
   "/home/user/openTemplate/src/main.cpp" "CMakeFiles/openTemplate.dir/src/main.cpp.o" "gcc" "CMakeFiles/openTemplate.dir/src/main.cpp.o.d"
   "" "bin/openTemplate" "gcc" "CMakeFiles/openTemplate.dir/link.d"

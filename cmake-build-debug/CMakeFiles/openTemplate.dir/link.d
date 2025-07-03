@@ -5,6 +5,7 @@ bin/openTemplate: \
   CMakeFiles/openTemplate.dir/src/main.cpp.o \
   CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o \
   CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o \
+  CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o \
   external/glfw/src/libglfw3.a \
   external/glad/libglad.a \
   /usr/lib/x86_64-linux-gnu/librt.a \
@@ -48,6 +49,8 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o:
 CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o:
 
 CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
+
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o:
 
 external/glfw/src/libglfw3.a:
 

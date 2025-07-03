@@ -192,6 +192,30 @@ src/Renderer/ShaderProgram.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.s
 .PHONY : src/Renderer/ShaderProgram.cpp.s
 
+src/Renderer/Texture2D.o: src/Renderer/Texture2D.cpp.o
+.PHONY : src/Renderer/Texture2D.o
+
+# target to build an object file
+src/Renderer/Texture2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o
+.PHONY : src/Renderer/Texture2D.cpp.o
+
+src/Renderer/Texture2D.i: src/Renderer/Texture2D.cpp.i
+.PHONY : src/Renderer/Texture2D.i
+
+# target to preprocess a source file
+src/Renderer/Texture2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.i
+.PHONY : src/Renderer/Texture2D.cpp.i
+
+src/Renderer/Texture2D.s: src/Renderer/Texture2D.cpp.s
+.PHONY : src/Renderer/Texture2D.s
+
+# target to generate assembly for a file
+src/Renderer/Texture2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.s
+.PHONY : src/Renderer/Texture2D.cpp.s
+
 src/Resources/ResourceManager.o: src/Resources/ResourceManager.cpp.o
 .PHONY : src/Resources/ResourceManager.o
 
@@ -255,6 +279,9 @@ help:
 	@echo "... src/Renderer/ShaderProgram.o"
 	@echo "... src/Renderer/ShaderProgram.i"
 	@echo "... src/Renderer/ShaderProgram.s"
+	@echo "... src/Renderer/Texture2D.o"
+	@echo "... src/Renderer/Texture2D.i"
+	@echo "... src/Renderer/Texture2D.s"
 	@echo "... src/Resources/ResourceManager.o"
 	@echo "... src/Resources/ResourceManager.i"
 	@echo "... src/Resources/ResourceManager.s"
