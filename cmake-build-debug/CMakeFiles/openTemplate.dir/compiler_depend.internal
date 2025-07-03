@@ -196,6 +196,10 @@ CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o
+ /home/user/openTemplate/src/Renderer/Texture2D.cpp
+ /usr/include/stdc-predef.h
+
 CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o
  /home/user/openTemplate/src/Resources/ResourceManager.cpp
  /home/user/openTemplate/external/glad/include/KHR/khrplatform.h
@@ -726,6 +730,7 @@ bin/openTemplate
  /usr/lib/x86_64-linux-gnu/libc_nonshared.a
  /usr/lib/x86_64-linux-gnu/librt.a
  /home/user/openTemplate/cmake-build-debug/CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o
+ /home/user/openTemplate/cmake-build-debug/CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o
  /home/user/openTemplate/cmake-build-debug/CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o
  /home/user/openTemplate/cmake-build-debug/CMakeFiles/openTemplate.dir/src/main.cpp.o
  /home/user/openTemplate/cmake-build-debug/external/glad/libglad.a

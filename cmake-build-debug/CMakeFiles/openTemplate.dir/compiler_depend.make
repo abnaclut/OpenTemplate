@@ -195,6 +195,9 @@ CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o: /home/user/openTem
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o: /home/user/openTemplate/src/Renderer/Texture2D.cpp \
+  /usr/include/stdc-predef.h
+
 CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: /home/user/openTemplate/src/Resources/ResourceManager.cpp \
   /home/user/openTemplate/external/glad/include/KHR/khrplatform.h \
   /home/user/openTemplate/external/glad/include/glad/glad.h \
@@ -722,6 +725,7 @@ bin/openTemplate: /lib/x86_64-linux-gnu/libc.so.6 \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
   /usr/lib/x86_64-linux-gnu/librt.a \
   CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o \
+  CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o \
   CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o \
   CMakeFiles/openTemplate.dir/src/main.cpp.o \
   external/glad/libglad.a \
@@ -783,6 +787,8 @@ external/glfw/src/libglfw3.a:
 /usr/include/c++/13/tr1/beta_function.tcc:
 
 /usr/include/c++/13/tr1/bessel_function.tcc:
+
+CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libdl.a:
 
@@ -1271,6 +1277,8 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/home/user/openTemplate/src/Renderer/Texture2D.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
