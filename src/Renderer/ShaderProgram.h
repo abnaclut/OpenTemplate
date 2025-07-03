@@ -23,6 +23,7 @@ namespace Renderer
         //DESTRUCTORS
         ~ShaderProgram();
 
+        void setInt(const std::string& name, GLint value) const;
         [[nodiscard]] bool isCompiled() const { return m_isCompiled; };
         void use() const;
         static void unuse();

@@ -637,6 +637,7 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o: /home/user/openTemplate/src/main.cpp
   /home/user/openTemplate/external/glad/include/glad/glad.h \
   /home/user/openTemplate/external/glfw/include/GLFW/glfw3.h \
   /home/user/openTemplate/src/Renderer/ShaderProgram.h \
+  /home/user/openTemplate/src/Renderer/Texture2D.h \
   /home/user/openTemplate/src/Resources/ResourceManager.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

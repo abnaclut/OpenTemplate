@@ -9,6 +9,8 @@ namespace Renderer
                          const GLenum filter,
                          const GLenum wrapMode)
     {
+        width > 0 ? m_width = width : m_width = 1;
+        height > 0 ? m_height = height : m_height = 1;
         switch (channels)
         {
         case 4:
@@ -23,6 +25,7 @@ namespace Renderer
         }
 
         glGenTextures(1, &m_textureID);
+        glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, m_textureID);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
@@ -61,9 +64,10 @@ namespace Renderer
         glDeleteTextures(1, &m_textureID);
     }
 
-    void Texture2D::bind(const GLuint slot)
+    void Texture2D::bind(const GLuint slot) const
     {
-
+        glActiveTexture(GL_TEXTURE0 + slot);
+        glBindTexture(GL_TEXTURE_2D, m_textureID);
     }
 
 

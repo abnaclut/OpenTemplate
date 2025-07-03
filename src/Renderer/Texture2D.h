@@ -21,7 +21,7 @@ namespace Renderer
         Texture2D& operator=(Texture2D&&) noexcept;
         Texture2D(Texture2D&& texture2d) noexcept;
 
-        static void bind(const GLuint slot = 0);
+        void bind(const GLuint slot = 0) const;
 
 
         ~Texture2D();
