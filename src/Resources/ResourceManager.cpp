@@ -1,5 +1,6 @@
 #include "ResourceManager.h"
 #include "../Renderer/ShaderProgram.h"
+#include "../Renderer/Texture2D.h"
 #include <sstream>
 #include <fstream>
 #include <iostream>
@@ -24,7 +25,7 @@ std::string ResourceManager::getFileString(const std::string& relativeFilePath) 
         std::cerr << "Error: failed to open path: " << fullPath << std::endl;
         return {};
     }
-    
+
     std::string content((std::istreambuf_iterator<char>(f)),
                         std::istreambuf_iterator<char>());
     f.close();
@@ -68,11 +69,11 @@ std::shared_ptr<Renderer::ShaderProgram> ResourceManager::getShader(const std::s
         return nullptr;
 }
 
-void ResourceManager::loadTexture(const std::string& textureName, const std::string& texturePath)
+std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::string& textureName, const std::string& texturePath)
 {
     if (textureName.empty() || texturePath.empty()) {
         std::cerr << "Texture name or path is empty" << std::endl;
-        return;
+        return nullptr;
     }
 
     int channels = 0;
@@ -85,8 +86,25 @@ void ResourceManager::loadTexture(const std::string& textureName, const std::str
     if (pixels == nullptr)
     {
         std::cerr << "Failed to load texture: " << texturePath << std::endl;
-        return;
+        return nullptr;
     };
-    GLuint textureID;
-    glGenTextures(1, &textureID);
+
+    std::shared_ptr<Renderer::Texture2D> newTexture = m_textures.emplace(textureName,std::make_shared<Renderer::Texture2D>(width,
+                                                                                                                             height,
+                                                                                                                             reinterpret_cast<const char*>(pixels),
+                                                                                                                             channels,
+                                                                                                                             GL_NEAREST,
+                                                                                                                             GL_CLAMP_TO_EDGE)).first->second;
+    stbi_image_free(pixels);
+    return newTexture;
+}
+
+std::shared_ptr<Renderer::Texture2D> ResourceManager::getTexture(const std::string& textureName)
+{
+    if (const auto it = m_textures.find(textureName); it != m_textures.end())
+    {
+        return it->second;
+    }
+        std::cerr << "Texture not found: " << textureName << std::endl;
+        return nullptr;
 };

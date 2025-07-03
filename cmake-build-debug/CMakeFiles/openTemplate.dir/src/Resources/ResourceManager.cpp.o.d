@@ -160,6 +160,7 @@ CMakeFiles/openTemplate.dir/src/Resources/ResourceManager.cpp.o: \
  /home/user/openTemplate/src/Resources/../Renderer/ShaderProgram.h \
  /home/user/openTemplate/external/glad/include/glad/glad.h \
  /home/user/openTemplate/external/glad/include/KHR/khrplatform.h \
+ /home/user/openTemplate/src/Resources/../Renderer/Texture2D.h \
  /usr/include/c++/13/sstream /usr/include/c++/13/istream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
