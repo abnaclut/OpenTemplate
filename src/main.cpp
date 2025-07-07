@@ -10,15 +10,14 @@
 #include "Renderer/Texture2D.h"
 
 //global variables
-int g_windowSizeX = 640;
-int g_windowSizeY = 480;
+glm::ivec2 g_windowSize = glm::ivec2(640, 480);
 //global variables
 
 //glfw window size callback function
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
-    g_windowSizeX = width;
-    g_windowSizeY = height;
+    g_windowSize.x = width;
+    g_windowSize.y = height;
     glViewport(0, 0, width, height);
 }
 
@@ -67,7 +66,7 @@ int main(int argc, char** argv)
     //VERSION SPECIFICATION
 
     /* Create a windowed mode window and its OpenGL context */
-    GLFWwindow* pWindow = glfwCreateWindow(g_windowSizeX, g_windowSizeY, "openTemplate", nullptr, nullptr);
+    GLFWwindow* pWindow = glfwCreateWindow(g_windowSize.x, g_windowSize.y, "openTemplate", nullptr, nullptr);
     if (!pWindow)
     {
         //debug info
