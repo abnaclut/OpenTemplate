@@ -10,3 +10,8 @@
 /home/user/openTemplate/cmake-build-debug/external/glad/CMakeFiles/glad.dir
 /home/user/openTemplate/cmake-build-debug/external/glad/CMakeFiles/edit_cache.dir
 /home/user/openTemplate/cmake-build-debug/external/glad/CMakeFiles/rebuild_cache.dir
+/home/user/openTemplate/cmake-build-debug/external/glm/CMakeFiles/edit_cache.dir
+/home/user/openTemplate/cmake-build-debug/external/glm/CMakeFiles/rebuild_cache.dir
+/home/user/openTemplate/cmake-build-debug/external/glm/glm/CMakeFiles/glm.dir
+/home/user/openTemplate/cmake-build-debug/external/glm/glm/CMakeFiles/edit_cache.dir
+/home/user/openTemplate/cmake-build-debug/external/glm/glm/CMakeFiles/rebuild_cache.dir

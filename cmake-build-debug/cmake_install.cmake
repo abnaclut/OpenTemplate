@@ -46,6 +46,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/user/openTemplate/cmake-build-debug/external/glfw/cmake_install.cmake")
   include("/home/user/openTemplate/cmake-build-debug/external/glad/cmake_install.cmake")
+  include("/home/user/openTemplate/cmake-build-debug/external/glm/cmake_install.cmake")
 
 endif()
 

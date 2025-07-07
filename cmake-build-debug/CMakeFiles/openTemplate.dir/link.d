@@ -8,6 +8,7 @@ bin/openTemplate: \
   CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o \
   external/glfw/src/libglfw3.a \
   external/glad/libglad.a \
+  external/glm/glm/libglm.a \
   /usr/lib/x86_64-linux-gnu/librt.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
@@ -55,6 +56,8 @@ CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o:
 external/glfw/src/libglfw3.a:
 
 external/glad/libglad.a:
+
+external/glm/glm/libglm.a:
 
 /usr/lib/x86_64-linux-gnu/librt.a:
 

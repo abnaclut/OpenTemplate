@@ -16,6 +16,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/user/openTemplate/external/glfw/CMake/glfw3Config.cmake.in"
   "/home/user/openTemplate/external/glfw/CMakeLists.txt"
   "/home/user/openTemplate/external/glfw/src/CMakeLists.txt"
+  "/home/user/openTemplate/external/glm/CMakeLists.txt"
+  "/home/user/openTemplate/external/glm/glm/CMakeLists.txt"
   "/snap/clion/359/bin/cmake/linux/x64/share/cmake-3.31/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/snap/clion/359/bin/cmake/linux/x64/share/cmake-3.31/Modules/CMakeCInformation.cmake"
   "/snap/clion/359/bin/cmake/linux/x64/share/cmake-3.31/Modules/CMakeCXXInformation.cmake"
@@ -77,6 +79,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "external/glfw/src/glfw3.pc"
   "external/glfw/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/glad/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "external/glm/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "external/glm/glm/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -85,4 +89,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "external/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
   "external/glad/CMakeFiles/glad.dir/DependInfo.cmake"
+  "external/glm/glm/CMakeFiles/glm.dir/DependInfo.cmake"
   )

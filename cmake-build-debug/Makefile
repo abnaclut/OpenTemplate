@@ -168,6 +168,19 @@ glad/fast:
 	$(MAKE) $(MAKESILENT) -f external/glad/CMakeFiles/glad.dir/build.make external/glad/CMakeFiles/glad.dir/build
 .PHONY : glad/fast
 
+#=============================================================================
+# Target rules for targets named glm
+
+# Build rule for target.
+glm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glm
+.PHONY : glm
+
+# fast build rule for target.
+glm/fast:
+	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/build
+.PHONY : glm/fast
+
 src/Renderer/ShaderProgram.o: src/Renderer/ShaderProgram.cpp.o
 .PHONY : src/Renderer/ShaderProgram.o
 
@@ -275,6 +288,7 @@ help:
 	@echo "... update_mappings"
 	@echo "... glad"
 	@echo "... glfw"
+	@echo "... glm"
 	@echo "... openTemplate"
 	@echo "... src/Renderer/ShaderProgram.o"
 	@echo "... src/Renderer/ShaderProgram.i"

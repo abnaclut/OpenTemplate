@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/user/openTemplate/external/glfw/include -I/home/user/openTemplate/external/glad/include
+CXX_INCLUDES = -I/home/user/openTemplate/external/glm/glm -I/home/user/openTemplate/external/glfw/include -I/home/user/openTemplate/external/glad/include -I/home/user/openTemplate/external/glm
 
 CXX_FLAGS = -g -fdiagnostics-color=always
 

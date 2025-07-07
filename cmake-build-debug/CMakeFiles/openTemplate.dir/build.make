@@ -146,6 +146,7 @@ bin/openTemplate: CMakeFiles/openTemplate.dir/build.make
 bin/openTemplate: CMakeFiles/openTemplate.dir/compiler_depend.ts
 bin/openTemplate: external/glfw/src/libglfw3.a
 bin/openTemplate: external/glad/libglad.a
+bin/openTemplate: external/glm/glm/libglm.a
 bin/openTemplate: /usr/lib/x86_64-linux-gnu/librt.a
 bin/openTemplate: /usr/lib/x86_64-linux-gnu/libm.so
 bin/openTemplate: CMakeFiles/openTemplate.dir/link.txt

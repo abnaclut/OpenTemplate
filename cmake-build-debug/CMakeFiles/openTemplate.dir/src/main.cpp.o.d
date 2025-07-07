@@ -20,13 +20,38 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /home/user/openTemplate/external/glfw/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
+ /home/user/openTemplate/external/glm/glm/vec2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/qualifier.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/setup.hpp \
+ /usr/include/c++/13/cassert \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
- /usr/include/c++/13/pstl/pstl_config.h /usr/include/c++/13/ostream \
- /usr/include/c++/13/ios /usr/include/c++/13/iosfwd \
- /usr/include/c++/13/bits/stringfwd.h \
+ /usr/include/c++/13/pstl/pstl_config.h /usr/include/assert.h \
+ /usr/include/c++/13/cstddef \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../simd/platform.h \
+ /usr/include/c++/13/cstdint /usr/include/c++/13/type_traits \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec2.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/./compute_vector_relational.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/./setup.hpp \
+ /usr/include/c++/13/limits \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int2_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../ext/scalar_int_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../ext/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint2_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../ext/scalar_uint_sized.hpp \
+ /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
+ /usr/include/c++/13/ostream /usr/include/c++/13/ios \
+ /usr/include/c++/13/iosfwd /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/memoryfwd.h /usr/include/c++/13/bits/postypes.h \
  /usr/include/c++/13/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -45,7 +70,6 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/hash_bytes.h \
  /usr/include/c++/13/new /usr/include/c++/13/bits/move.h \
- /usr/include/c++/13/type_traits \
  /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/localefwd.h \
@@ -137,7 +161,7 @@ CMakeFiles/openTemplate.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
- /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
+ /usr/include/c++/13/bits/memory_resource.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
  /usr/include/c++/13/bits/locale_classes.tcc \

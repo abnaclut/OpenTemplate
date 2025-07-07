@@ -66,23 +66,27 @@ CMAKE_BINARY_DIR = /home/user/openTemplate/cmake-build-debug
 all: CMakeFiles/openTemplate.dir/all
 all: external/glfw/all
 all: external/glad/all
+all: external/glm/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/openTemplate.dir/codegen
 codegen: external/glfw/codegen
 codegen: external/glad/codegen
+codegen: external/glm/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: external/glfw/preinstall
 preinstall: external/glad/preinstall
+preinstall: external/glm/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/openTemplate.dir/clean
 clean: external/glfw/clean
 clean: external/glad/clean
+clean: external/glm/clean
 .PHONY : clean
 
 #=============================================================================
@@ -144,19 +148,58 @@ external/glfw/src/clean: external/glfw/src/CMakeFiles/update_mappings.dir/clean
 .PHONY : external/glfw/src/clean
 
 #=============================================================================
+# Directory level rules for directory external/glm
+
+# Recursive "all" directory target.
+external/glm/all: external/glm/glm/all
+.PHONY : external/glm/all
+
+# Recursive "codegen" directory target.
+external/glm/codegen: external/glm/glm/codegen
+.PHONY : external/glm/codegen
+
+# Recursive "preinstall" directory target.
+external/glm/preinstall: external/glm/glm/preinstall
+.PHONY : external/glm/preinstall
+
+# Recursive "clean" directory target.
+external/glm/clean: external/glm/glm/clean
+.PHONY : external/glm/clean
+
+#=============================================================================
+# Directory level rules for directory external/glm/glm
+
+# Recursive "all" directory target.
+external/glm/glm/all: external/glm/glm/CMakeFiles/glm.dir/all
+.PHONY : external/glm/glm/all
+
+# Recursive "codegen" directory target.
+external/glm/glm/codegen: external/glm/glm/CMakeFiles/glm.dir/codegen
+.PHONY : external/glm/glm/codegen
+
+# Recursive "preinstall" directory target.
+external/glm/glm/preinstall:
+.PHONY : external/glm/glm/preinstall
+
+# Recursive "clean" directory target.
+external/glm/glm/clean: external/glm/glm/CMakeFiles/glm.dir/clean
+.PHONY : external/glm/glm/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/openTemplate.dir
 
 # All Build rule for target.
-CMakeFiles/openTemplate.dir/all: external/glad/CMakeFiles/glad.dir/all
 CMakeFiles/openTemplate.dir/all: external/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/openTemplate.dir/all: external/glad/CMakeFiles/glad.dir/all
+CMakeFiles/openTemplate.dir/all: external/glm/glm/CMakeFiles/glm.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=48,49,50,51,52 "Built target openTemplate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=50,51,52,53,54 "Built target openTemplate"
 .PHONY : CMakeFiles/openTemplate.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/openTemplate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/openTemplate/cmake-build-debug/CMakeFiles 52
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/openTemplate/cmake-build-debug/CMakeFiles 54
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/openTemplate.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/openTemplate/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/openTemplate.dir/rule
@@ -168,7 +211,7 @@ openTemplate: CMakeFiles/openTemplate.dir/rule
 # codegen rule for target.
 CMakeFiles/openTemplate.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/openTemplate.dir/build.make CMakeFiles/openTemplate.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=48,49,50,51,52 "Finished codegen for target openTemplate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=50,51,52,53,54 "Finished codegen for target openTemplate"
 .PHONY : CMakeFiles/openTemplate.dir/codegen
 
 # clean rule for target.
@@ -215,7 +258,7 @@ external/glfw/src/CMakeFiles/glfw.dir/clean:
 external/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f external/glfw/src/CMakeFiles/update_mappings.dir/build.make external/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/glfw/src/CMakeFiles/update_mappings.dir/build.make external/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=53 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=55 "Built target update_mappings"
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -232,7 +275,7 @@ update_mappings: external/glfw/src/CMakeFiles/update_mappings.dir/rule
 # codegen rule for target.
 external/glfw/src/CMakeFiles/update_mappings.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f external/glfw/src/CMakeFiles/update_mappings.dir/build.make external/glfw/src/CMakeFiles/update_mappings.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=53 "Finished codegen for target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=55 "Finished codegen for target update_mappings"
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/codegen
 
 # clean rule for target.
@@ -271,6 +314,38 @@ external/glad/CMakeFiles/glad.dir/codegen:
 external/glad/CMakeFiles/glad.dir/clean:
 	$(MAKE) $(MAKESILENT) -f external/glad/CMakeFiles/glad.dir/build.make external/glad/CMakeFiles/glad.dir/clean
 .PHONY : external/glad/CMakeFiles/glad.dir/clean
+
+#=============================================================================
+# Target rules for target external/glm/glm/CMakeFiles/glm.dir
+
+# All Build rule for target.
+external/glm/glm/CMakeFiles/glm.dir/all:
+	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/depend
+	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=48,49 "Built target glm"
+.PHONY : external/glm/glm/CMakeFiles/glm.dir/all
+
+# Build rule for subdir invocation for target.
+external/glm/glm/CMakeFiles/glm.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/openTemplate/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/glm/glm/CMakeFiles/glm.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/openTemplate/cmake-build-debug/CMakeFiles 0
+.PHONY : external/glm/glm/CMakeFiles/glm.dir/rule
+
+# Convenience name for target.
+glm: external/glm/glm/CMakeFiles/glm.dir/rule
+.PHONY : glm
+
+# codegen rule for target.
+external/glm/glm/CMakeFiles/glm.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/openTemplate/cmake-build-debug/CMakeFiles --progress-num=48,49 "Finished codegen for target glm"
+.PHONY : external/glm/glm/CMakeFiles/glm.dir/codegen
+
+# clean rule for target.
+external/glm/glm/CMakeFiles/glm.dir/clean:
+	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/clean
+.PHONY : external/glm/glm/CMakeFiles/glm.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
