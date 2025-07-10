@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <glm/glm.hpp>
 #include <glad/glad.h>
 
 namespace Renderer
@@ -27,6 +28,8 @@ namespace Renderer
         [[nodiscard]] bool isCompiled() const { return m_isCompiled; };
         void use() const;
         static void unuse();
+
+        void setMatrix4(const std::string& name, const glm::mat4& matrix) const;
 
     private:
         static bool createShader(const std::string& source, GLenum shaderType, GLuint& shaderID);

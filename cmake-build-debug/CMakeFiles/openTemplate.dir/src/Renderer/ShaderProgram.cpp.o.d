@@ -116,16 +116,212 @@ CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /home/user/openTemplate/external/glad/include/glad/glad.h \
- /home/user/openTemplate/external/glad/include/KHR/khrplatform.h \
+ /home/user/openTemplate/external/glm/glm/glm.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/_fixes.hpp \
+ /usr/include/c++/13/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/13/bits/specfun.h /usr/include/c++/13/limits \
+ /usr/include/c++/13/tr1/gamma.tcc \
+ /usr/include/c++/13/tr1/special_function_util.h \
+ /usr/include/c++/13/tr1/bessel_function.tcc \
+ /usr/include/c++/13/tr1/beta_function.tcc \
+ /usr/include/c++/13/tr1/ell_integral.tcc \
+ /usr/include/c++/13/tr1/exp_integral.tcc \
+ /usr/include/c++/13/tr1/hypergeometric.tcc \
+ /usr/include/c++/13/tr1/legendre_function.tcc \
+ /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/13/tr1/poly_hermite.tcc \
+ /usr/include/c++/13/tr1/poly_laguerre.tcc \
+ /usr/include/c++/13/tr1/riemann_zeta.tcc \
+ /home/user/openTemplate/external/glm/glm/detail/setup.hpp \
+ /usr/include/c++/13/cassert /usr/include/assert.h \
+ /home/user/openTemplate/external/glm/glm/detail/../simd/platform.h \
+ /usr/include/c++/13/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/13/climits \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/c++/13/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
+ /home/user/openTemplate/external/glm/glm/fwd.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/qualifier.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/vec2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec2.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/./compute_vector_relational.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/./setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int2_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../ext/scalar_int_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../ext/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint2_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../ext/scalar_uint_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/vec3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec3.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/compute_vector_decl.hpp \
+ /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
+ /usr/include/c++/13/typeinfo /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
+ /usr/include/c++/13/bits/hashtable.h \
+ /usr/include/c++/13/bits/hashtable_policy.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/enable_special_members.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/array \
+ /usr/include/c++/13/compare /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/_vectorize.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int3_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint3_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/vec4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_vec4.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_bool4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_float4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_double4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_int4_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/vector_uint4_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/mat2x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/matrix_double2x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_mat2x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/type_mat2x2.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../matrix.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat2x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double2x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x3.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double2x3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float2x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float2x3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat2x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double2x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x4.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double2x4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float2x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float2x4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat3x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double3x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x2.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double3x2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float3x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float3x2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat3x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double3x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x3.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../common.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/_fixes.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/func_common.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/../vector_relational.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/../detail/func_vector_relational.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/compute_common.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/type_vec1.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/type_vec1.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double3x3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float3x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float3x3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat3x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double3x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x4.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double3x4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float3x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float3x4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat4x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double4x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x2.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double4x2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float4x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float4x2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat4x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double4x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x3.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double4x3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float4x3.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float4x3_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../mat4x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double4x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x4.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../geometric.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/func_geometric.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/../exponential.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/../detail/../detail/../detail/func_exponential.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_double4x4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float4x4.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/.././ext/matrix_float4x4_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/../detail/../detail/func_matrix.inl \
+ /home/user/openTemplate/external/glm/glm/./ext/matrix_double2x2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/matrix_float2x2.hpp \
+ /home/user/openTemplate/external/glm/glm/./ext/matrix_float2x2_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/trigonometric.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/func_trigonometric.inl \
+ /home/user/openTemplate/external/glm/glm/packing.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/func_packing.inl \
+ /home/user/openTemplate/external/glm/glm/detail/type_half.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/type_half.inl \
+ /home/user/openTemplate/external/glm/glm/integer.hpp \
+ /home/user/openTemplate/external/glm/glm/detail/func_integer.inl \
+ /home/user/openTemplate/external/glad/include/glad/glad.h \
+ /home/user/openTemplate/external/glad/include/KHR/khrplatform.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/exception \
  /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
- /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
+ /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
@@ -139,7 +335,6 @@ CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
  /usr/include/c++/13/bits/locale_classes.h \
@@ -157,4 +352,56 @@ CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc
+ /usr/include/c++/13/bits/istream.tcc \
+ /home/user/openTemplate/external/glm/glm/gtc/type_ptr.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/quaternion.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/constants.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/scalar_constants.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/scalar_constants.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/constants.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/matrix_transform.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/matrix_projection.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/matrix_projection.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/matrix_clip_space.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/matrix_clip_space.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/matrix_transform.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/../ext/matrix_transform.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../gtc/matrix_transform.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_relational.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_relational.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../detail/type_float.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_common.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../ext/quaternion_geometric.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../ext/quaternion_geometric.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_common.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_float.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../detail/type_quat.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../detail/../ext/quaternion_relational.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../detail/../ext/quaternion_relational.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/../detail/type_quat.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_float_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_double.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_double_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_trigonometric.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_trigonometric.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_transform.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/quaternion_transform.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/quaternion.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/epsilon.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../detail/setup.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/epsilon.inl \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/vec1.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_bool1.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_bool1_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_float1.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_float1_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_double1.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_double1_precision.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_int1.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_int1_sized.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_uint1.hpp \
+ /home/user/openTemplate/external/glm/glm/gtc/../gtc/../ext/vector_uint1_sized.hpp \
+ /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
+ /home/user/openTemplate/external/glm/glm/gtc/type_ptr.inl

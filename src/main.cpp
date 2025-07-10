@@ -4,6 +4,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include "Renderer/ShaderProgram.h"
 #include "Resources/ResourceManager.h"
@@ -29,9 +31,9 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
 }
 
 GLfloat point[] = {
-    0.0f, 0.5f, 0.0f,
-    0.5f, -0.5f, 0.0f,
-    -0.5f, -0.5f, 0.0f
+    0.0f, -150.0f, 0.0f,
+    50.0f, -50.0f, 0.0f,
+    -50.0f, -50.0f, 0.0f
 };
 
 GLfloat colors[] = {
@@ -145,7 +147,16 @@ int main(int argc, char** argv)
 
     pDefaultShaderProgram->use();
         pDefaultShaderProgram->setInt("tex", 0);
-    
+
+        //MODEL MATRIX
+    auto modeMatrix = glm::mat4(1.f);
+    modeMatrix = glm::translate(modeMatrix, glm::vec3(100.0f, 200.0f, 0.0f));
+//NO VIEW MATRIX DUE TO 2D
+        //PROJECTION MATRIX
+        glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(g_windowSize.x), static_cast<float>(g_windowSize.y), 0.0f, -100.0f, 100.0f);
+
+    pDefaultShaderProgram->setMatrix4("projectionMat", projectionMatrix);
+
         /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(pWindow))
     {
@@ -155,8 +166,10 @@ int main(int argc, char** argv)
         pDefaultShaderProgram->use();
         glBindVertexArray(vao);
         tex->bind();
+//draws a triangle
+        pDefaultShaderProgram->setMatrix4("modelMat", modeMatrix);
         glDrawArrays(GL_TRIANGLES, 0, 3);
-
+//
         /* Swap front and back buffers */
         glfwSwapBuffers(pWindow);
 

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <ostream>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Renderer
 {
@@ -113,6 +114,11 @@ namespace Renderer
     void ShaderProgram::setInt(const std::string& name, const GLint value) const
     {
         glUniform1i(glGetUniformLocation(m_ID, name.c_str()), value);
+    }
+
+    void ShaderProgram::setMatrix4(const std::string& name, const glm::mat4& matrix) const
+    {
+        glUniformMatrix4fv(glGetUniformLocation(m_ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
 }
