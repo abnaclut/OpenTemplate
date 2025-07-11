@@ -1,19 +1,35 @@
-//main.cpp
+//----------------------------------------------------//
+//  main.cpp
+//  read LICENSE (LGPL v2.1) in the LICENSE file.
+//----------------------------------------------------//
 
 //INCLUDE
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/vec2.hpp>
-#include <glm/mat4x4.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
-#include "Renderer/ShaderProgram.h"
-#include "Resources/ResourceManager.h"
-#include "Renderer/Texture2D.h"
+    //I added tabs for easier scaling and error tracking.
 
-//global variables
-glm::ivec2 g_windowSize = glm::ivec2(640, 480);
-//global variables
+    //standart
+        #include <iostream>
+
+    //external
+        #include <glad/glad.h>
+        #include <GLFW/glfw3.h>
+        #include <glm/vec2.hpp>
+        #include <glm/mat4x4.hpp>
+        #include <glm/gtc/matrix_transform.hpp>
+
+    //local
+        #include "Renderer/ShaderProgram.h"
+        #include "Resources/ResourceManager.h"
+        #include "Renderer/Texture2D.h"
+//INCLUDE
+
+//----------------------------------------------------//
+
+//GLOBAL VARIABLES
+auto g_windowSize = glm::ivec2(640, 480);
+//GLOBAL VARIABLES
+
+//----------------------------------------------------//
+
 
 //glfw window size callback function
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
@@ -48,6 +64,7 @@ GLfloat texCoord[] = {
     0.0f, 0.0f
 };
 
+//MAIN
 int main(int argc, char** argv)
 {
     /* Initialize the library */
@@ -177,6 +194,8 @@ int main(int argc, char** argv)
         glfwPollEvents();
     }
 }
+    //PROGRAM CLOSED, clean the memory
     glfwTerminate();
     return 0;
 }
+//END | Why did I add this comment? It's so obvious.
