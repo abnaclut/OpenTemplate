@@ -1,35 +1,41 @@
 //----------------------------------------------------//
 //  main.cpp
-//  read LICENSE (LGPL v2.1) in the LICENSE file.
+//  Read LICENSE file (LGPL v2.1).
 //----------------------------------------------------//
 
-//INCLUDE
-    //I added tabs for easier scaling and error tracking.
-
-    //standart
-        #include <iostream>
-
-    //external
-        #include <glad/glad.h>
-        #include <GLFW/glfw3.h>
-        #include <glm/vec2.hpp>
-        #include <glm/mat4x4.hpp>
-        #include <glm/gtc/matrix_transform.hpp>
-
-    //local
-        #include "Renderer/ShaderProgram.h"
-        #include "Resources/ResourceManager.h"
-        #include "Renderer/Texture2D.h"
+//----------------------------------------------------//
 //INCLUDE
 
+//standart
+
+#include <iostream>
+
+//external
+
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <glm/vec2.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
+//local
+
+#include "Renderer/ShaderProgram.h"
+#include "Resources/ResourceManager.h"
+#include "Renderer/Texture2D.h"
+
+//INCLUDE
 //----------------------------------------------------//
 
+//----------------------------------------------------//
 //GLOBAL VARIABLES
+
 auto g_windowSize = glm::ivec2(640, 480);
-//GLOBAL VARIABLES
 
+//GLOBAL VARIABLES
 //----------------------------------------------------//
 
+//----------------------------------------------------//
 
 //glfw window size callback function
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
@@ -64,6 +70,7 @@ GLfloat texCoord[] = {
     0.0f, 0.0f
 };
 
+//----------------------------------------------------//
 //MAIN
 int main(int argc, char** argv)
 {
@@ -168,10 +175,9 @@ int main(int argc, char** argv)
         //MODEL MATRIX
     auto modeMatrix = glm::mat4(1.f);
     modeMatrix = glm::translate(modeMatrix, glm::vec3(100.0f, 200.0f, 0.0f));
-//NO VIEW MATRIX DUE TO 2D
-        //PROJECTION MATRIX
-        glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(g_windowSize.x), static_cast<float>(g_windowSize.y), 0.0f, -100.0f, 100.0f);
-
+    //NO VIEW MATRIX DUE TO 2D
+    ////PROJECTION MATRIX
+    glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(g_windowSize.x), static_cast<float>(g_windowSize.y), 0.0f, -100.0f, 100.0f);
     pDefaultShaderProgram->setMatrix4("projectionMat", projectionMatrix);
 
         /* Loop until the user closes the window */
@@ -183,10 +189,10 @@ int main(int argc, char** argv)
         pDefaultShaderProgram->use();
         glBindVertexArray(vao);
         tex->bind();
-//draws a triangle
+        //draws a triangle
         pDefaultShaderProgram->setMatrix4("modelMat", modeMatrix);
         glDrawArrays(GL_TRIANGLES, 0, 3);
-//
+
         /* Swap front and back buffers */
         glfwSwapBuffers(pWindow);
 
@@ -194,8 +200,7 @@ int main(int argc, char** argv)
         glfwPollEvents();
     }
 }
-    //PROGRAM CLOSED, clean the memory
+    //END PROGRAM (check for memory leaks here if detected)
     glfwTerminate();
     return 0;
 }
-//END | Why did I add this comment? It's so obvious.

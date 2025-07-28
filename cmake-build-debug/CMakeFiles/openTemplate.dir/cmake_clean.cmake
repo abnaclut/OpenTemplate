@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/openTemplate.dir/link.d"
   "CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o"
   "CMakeFiles/openTemplate.dir/src/Renderer/ShaderProgram.cpp.o.d"
   "CMakeFiles/openTemplate.dir/src/Renderer/Texture2D.cpp.o"
