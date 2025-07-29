@@ -1,130 +1,154 @@
-//----------------------------------------------------//
+//----------------------------------------------------//some info
 //  main.cpp
 //  Read LICENSE file (LGPL v2.1).
-//----------------------------------------------------//
+//  Logging is done between "debug logs" comments for better readability. (read docs)
+//  Major sections are marked with //---//<name> and end with //---//end
+//  In case some file grows too large, this might help.
+//----------------------------------------------------//end
 
-//----------------------------------------------------//
+//----------------------------------------------------//include
 //INCLUDE
-
 //standart
-
 #include <iostream>
-
 //external
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
 //local
-
 #include "Renderer/ShaderProgram.h"
 #include "Resources/ResourceManager.h"
 #include "Renderer/Texture2D.h"
-
 //INCLUDE
-//----------------------------------------------------//
+//----------------------------------------------------//end
 
-//----------------------------------------------------//
+//----------------------------------------------------//global variables
 //GLOBAL VARIABLES
-
 auto g_windowSize = glm::ivec2(640, 480);
-
-//GLOBAL VARIABLES
-//----------------------------------------------------//
-
-//----------------------------------------------------//
-
-//glfw window size callback function
-void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
-{
-    g_windowSize.x = width;
-    g_windowSize.y = height;
-    glViewport(0, 0, width, height);
-}
-
-//glfw key callback function
-void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int mods)
-{
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-        glfwSetWindowShouldClose(pWindow, GLFW_TRUE);
-}
-
+//TODO: REMOVE THE ONES BENEATH FOR RELEASE
+//triangle vertex coords
 GLfloat point[] = {
     0.0f, -150.0f, 0.0f,
     50.0f, -50.0f, 0.0f,
     -50.0f, -50.0f, 0.0f
 };
-
+//colors
 GLfloat colors[] = {
     1.0f, 0.0f, 0.0f,
     0.0f, 1.0f, 0.0f,
     0.0f, 0.0f, 1.0f
 };
-
+//texture coords
 GLfloat texCoord[] = {
     0.5f, 1.0f,
     1.0f, 0.0f,
     0.0f, 0.0f
 };
+//GLOBAL VARIABLES
+//----------------------------------------------------//end
 
-//----------------------------------------------------//
+//----------------------------------------------------//callbacks
+//CALLBACK FUNCTIONS
+//TODO: this will be modified a lot in the future to support GLFW alternatives.
+//window resizing
+void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
+{
+    //nullptr check
+    if (pWindow == nullptr)
+    {
+        //debug logs
+        std::cerr << "NULL WINDOW POINTER IN glfwWindowSizeCallback()!\n";
+        //debug logs
+    }
+
+    g_windowSize.x = width;
+    g_windowSize.y = height;
+    glViewport(0, 0, width, height);
+}
+//key processing
+void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int mods)
+{
+    //TODO: REMOvE THIS IN FUTURE! (create an exit button)
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(pWindow, GLFW_TRUE);
+    //
+}
+//other stuff, TODO: move this to a separate cpp/header files
+void glfwSpecifyVersion(const int major, const int minor)
+{
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+}
+//temporarily here, I will TODO: create a separate logger.cpp+.h hater
+void logLocalMachineInfo()
+{
+    std::cout << "LOCAL MACHINE INFO: " << std::endl;
+    std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
+    std::cout << "Vendor: " << glGetString(GL_VENDOR) << std::endl;
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+    std::cout << "GLSL Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
+};
+//CALLBACK FUNCTIONS
+//----------------------------------------------------//end
+
+//----------------------------------------------------//main
 //MAIN
 int main(int argc, char** argv)
 {
-    /* Initialize the library */
+    // Initialize the GLFW library
     if (!glfwInit())
     {
-        //debug info
+        //debug logs
         std::cout << "Cannot initialize GLFW!\n";
         std::cout << "glfwInit() failed!\n";
-        //debug info
-
+        //debug logs
         return -1;
     }
-
-    //VERSION SPECIFICATION
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    //VERSION SPECIFICATION
-
-    /* Create a windowed mode window and its OpenGL context */
+    //debug logs
+    std::cout << "GLFW initialized successfully!\n";
+    //debug logs
+    //VERSION SPECIFICATION, *opengl core profile is forced, change glSpecifyVersion if that is a problem.
+    glfwSpecifyVersion(4, 6);
+    // Create a windowed mode window and its OpenGL context
     GLFWwindow* pWindow = glfwCreateWindow(g_windowSize.x, g_windowSize.y, "openTemplate", nullptr, nullptr);
     if (!pWindow)
     {
-        //debug info
+        //debug logs
         std::cout << "Cannot create GLFW window!\n";
         std::cout << "glfwCreateWindow() failed!\n";
-        //debug info
+        //debug logs
         glfwTerminate();
         return -1;
     }
-
+    //debug logs
+    std::cout << "GLFW window created successfully!\n";
+    //debug logs
     //CALLBACKS
     glfwSetWindowSizeCallback(pWindow, glfwWindowSizeCallback);
     glfwSetKeyCallback(pWindow, glfwKeyCallback);
-
-    /* Make the window's context current */
+    // Make the window's context current
     glfwMakeContextCurrent(pWindow);
-
     if (!gladLoadGL())
     {
+        //debug logs
         std::cout << "Cannot load GLAD!\n";
+        //debug logs
         return -1;
     }
-
-    std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
-    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
-
+    //debug logs
+    std::cout << "GLAD loaded successfully!\n";
+    //debug logs
+    //local machine info
+    logLocalMachineInfo();
     //set color
     glClearColor(1, 1, 0, 1);
-
-
-{ //ADDED SCOPE SO THAT GL CONTEXT IS DESTROYED PROPERLY
+    //ADDED SCOPE SO THAT GL CONTEXT IS DESTROYED PROPERLY
+{
+    //initialize ResourceManager, TODO: do logging in ResourceManager.cpp
     ResourceManager ResourceManager(argv[0]);
+    //create the shader program
     const auto pDefaultShaderProgram = ResourceManager.loadShaders("Default shader", "res/shaders/vertex.txt", "res/shaders/fragment.txt");
     if (!pDefaultShaderProgram)
     {
