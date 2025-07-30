@@ -61,6 +61,18 @@ namespace tools
             return;
         }
         //
+        if (Function == "gladLoadGL")
+        {
+            if (initializedSuccessfully)
+            {
+                //debug logs
+                std::cout << "GLAD loaded successfully!\n";
+                return;
+            }
+            //error logs
+            std::cout << "Cannot load GLAD!\n";
+        }
+        //
         if (Function.empty())
         {
             if (initializedSuccessfully)

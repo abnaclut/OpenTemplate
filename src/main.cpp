@@ -122,14 +122,10 @@ int main(int argc, char** argv)
     glfwMakeContextCurrent(pWindow);
     if (!gladLoadGL())
     {
-        //debug logs
-        std::cout << "Cannot load GLAD!\n";
-        //debug logs
+        tools::initLog("gladLoadGL", g_bFAILURE);
         return -1;
     }
-    //debug logs
-    std::cout << "GLAD loaded successfully!\n";
-    //debug logs
+    tools::initLog("gladLoadGL", g_bSUCCESS);
     //local machine info
     tools::localMachineLog();
     //set color
