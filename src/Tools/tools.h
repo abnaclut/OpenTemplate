@@ -14,6 +14,6 @@
 namespace tools
 {
     void initLog(const std::string& Function, bool initializedSuccessfully);
-    void glfwSpecifyVersion(const int major, const int minor);
+    void glfwSpecifyVersion(int major, int minor);
     void localMachineLog();
 }

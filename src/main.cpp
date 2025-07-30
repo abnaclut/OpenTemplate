@@ -7,7 +7,7 @@
 //  VARIABLE NAMES EXPLANATION:
 //  <f>_<t><NAME>
 //     f == flag; g == global, m == member of a class, s == static member(of a class).
-//     t == type prefix; It is the first letter of the type, Hungarian notation is more confusing.
+//     t == type prefix; It is the first letter of the type, Hungarian notation is used, unfortunately.
 //        g_iv2NAME means "global 2D vector of ints NAME", this was necessary due to long type names that can be replaced with auto.
 //----------------------------------------------------//end
 
@@ -35,7 +35,7 @@
 auto g_iv2WindowSize = glm::ivec2(640, 480);
 GLFWmonitor* g_pMonitor = nullptr;
 GLFWwindow* g_pShare = nullptr;
-const char* g_pTitle = "OpenTemplate";
+const char* g_pszTitle = "OpenTemplate";
 bool g_bSUCCESS = true;
 bool g_bFAILURE = false;
 //TODO: REMOVE THE ONES BENEATH FOR RELEASE
@@ -63,7 +63,10 @@ GLfloat texCoord[] = {
 //----------------------------------------------------//callbacks
 //CALLBACK FUNCTIONS
 //TODO: this will be modified a lot in the future to support GLFW alternatives.
+
 //window resizing
+// ReSharper disable once CppParameterMayBeConstPtrOrRef
+//GLFWwindow* cannot be a pointer to const due to a conversion error!!!
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
     //null window check
@@ -103,7 +106,7 @@ int main(int argc, char** argv)
     tools::glfwSpecifyVersion(4, 6);
 
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* pWindow = glfwCreateWindow(g_iv2WindowSize.x, g_iv2WindowSize.y, g_pTitle, g_pMonitor, g_pShare);
+    GLFWwindow* pWindow = glfwCreateWindow(g_iv2WindowSize.x, g_iv2WindowSize.y, g_pszTitle, g_pMonitor, g_pShare);
     if (!pWindow)
     {
         tools::initLog("glfwCreateWindow", g_bFAILURE);
@@ -188,7 +191,7 @@ int main(int argc, char** argv)
     modeMatrix = glm::translate(modeMatrix, glm::vec3(100.0f, 200.0f, 0.0f));
     //NO VIEW MATRIX DUE TO 2D
     ////PROJECTION MATRIX
-    glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(g_windowSize.x), static_cast<float>(g_windowSize.y), 0.0f, -100.0f, 100.0f);
+    glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(g_iv2WindowSize.x), static_cast<float>(g_iv2WindowSize.y), 0.0f, -100.0f, 100.0f);
     pDefaultShaderProgram->setMatrix4("projectionMat", projectionMatrix);
 
         /* Loop until the user closes the window */
