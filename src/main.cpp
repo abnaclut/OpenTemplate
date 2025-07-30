@@ -31,7 +31,7 @@
 
 //----------------------------------------------------//global variables
 //GLOBAL VARIABLES
-//TODO: encapsulate this in a class, especially the title
+//TODO: encapsulate this in a class, especially the title= 640;
 auto g_iv2WindowSize = glm::ivec2(640, 480);
 GLFWmonitor* g_pMonitor = nullptr;
 GLFWwindow* g_pShare = nullptr;
@@ -126,86 +126,107 @@ int main(int argc, char** argv)
         return -1;
     }
     tools::initLog("gladLoadGL", g_bSUCCESS);
-    //local machine info
     tools::localMachineLog();
-    //set color
-    glClearColor(1, 1, 0, 1);
+    constexpr float red = 1;
+    constexpr float green = 1;
+    constexpr float blue = 0;
+    constexpr float alpha = 1;
+    glClearColor(red, green, blue, alpha);
     //ADDED SCOPE SO THAT GL CONTEXT IS DESTROYED PROPERLY
-{
-    //initialize ResourceManager, TODO: do logging in ResourceManager.cpp
-    ResourceManager ResourceManager(argv[0]);
-    //create the shader program
-    const auto pDefaultShaderProgram = ResourceManager.loadShaders("Default shader", "res/shaders/vertex.txt", "res/shaders/fragment.txt");
-    if (!pDefaultShaderProgram)
     {
-        std::cerr << "Cannot create shader program!\n";
+        //initialize ResourceManager, TODO: do logging in ResourceManager.cpp
+        ResourceManager ResourceManager(argv[0]);
+        //create the shader program
+        const std::string& defaultShaderName            = "Default shader";
+        const std::string& defaultVertexShaderPath      = "res/shaders/vertex.txt";
+        const std::string& defaultFragmentShaderPath    = "res/shaders/fragment.txt";
+        const auto pDefaultShaderProgram = ResourceManager.loadShaders(defaultShaderName, defaultVertexShaderPath, defaultFragmentShaderPath);
+        if (!pDefaultShaderProgram)
+        {
+            std::cerr << "Cannot create shader program!\n";
+            return -1;
+        }
+        const std::string& defaultTextureName = "Default texture";
+        const std::string& defaultTexturePath = "res/textures/textureSample.png";
+        auto tex = ResourceManager.loadTexture(defaultTextureName, defaultTexturePath);
+        if (!tex) {
+        std::cerr << "Could not load texture!\n";
         return -1;
     }
-
-    auto tex = ResourceManager.loadTexture("DefaultTexture", "res/textures/textureSample.png");
-    if (!tex) {
-    std::cerr << "Could not load texture!\n";
-    return -1;
-}
-
-    GLuint points_vbo = 0;
-    glGenBuffers(1, &points_vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, points_vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(point), point, GL_STATIC_DRAW);
-
-    GLuint colors_vbo = 0;
-    glGenBuffers(1, &colors_vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, colors_vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
-
+        constexpr int target = GL_ARRAY_BUFFER;
+        constexpr uint16_t nBuffer = 1; // the prefix n means amount, so nBuffer is the number of buffers.
+        constexpr int usage = GL_STATIC_DRAW; //TODO: this part of the code will be fully reworked.
+        constexpr int normalized = GL_FALSE;
+        constexpr int stride = 0;
+        constexpr auto pointer = nullptr;
+        constexpr int type = GL_FLOAT;
+        int index = 0;
+        int size = 0;
+        GLuint points_vbo = 0;
+        glGenBuffers(nBuffer, &points_vbo);
+        glBindBuffer(target, points_vbo);
+        glBufferData(target, sizeof(point), point, usage);
+        GLuint colors_vbo = 0;
+        glGenBuffers(1, &colors_vbo);
+        glBindBuffer(target, colors_vbo);
+        glBufferData(target, sizeof(colors), colors, usage);
         GLuint texCoord_vbo = 0;
-        glGenBuffers(1, &texCoord_vbo);
-        glBindBuffer(GL_ARRAY_BUFFER, texCoord_vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(texCoord), texCoord, GL_STATIC_DRAW);
-
-    GLuint vao = 0;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-
-    glEnableVertexArrayAttrib(vao, 0);
-    glBindBuffer(GL_ARRAY_BUFFER, points_vbo);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
-
-    glEnableVertexArrayAttrib(vao, 1);
-    glBindBuffer(GL_ARRAY_BUFFER, colors_vbo);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
-
-        glEnableVertexArrayAttrib(vao, 2);
-        glBindBuffer(GL_ARRAY_BUFFER, texCoord_vbo);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
-
-    pDefaultShaderProgram->use();
+        glGenBuffers(nBuffer, &texCoord_vbo);
+        glBindBuffer(target, texCoord_vbo);
+        glBufferData(target, sizeof(texCoord), texCoord, usage);
+        //
+        GLuint vao = 0;
+        glGenVertexArrays(1, &vao);
+        glBindVertexArray(vao);
+        //
+        glEnableVertexArrayAttrib(vao, index);
+        glBindBuffer(target, points_vbo);
+        size = 3; //3 because it is a 3D vector
+        glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        index++;
+        glEnableVertexArrayAttrib(vao, index);
+        glBindBuffer(target, colors_vbo);
+        size = 3; //3 because it is a 3D vector
+        glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        index++;
+        glEnableVertexArrayAttrib(vao, index);
+        glBindBuffer(target, texCoord_vbo);
+        size = 2; //2 because it is a 2D vector
+        glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        //use the default shader program
+        pDefaultShaderProgram->use();
         pDefaultShaderProgram->setInt("tex", 0);
-
         //MODEL MATRIX
-    auto modeMatrix = glm::mat4(1.f);
-    modeMatrix = glm::translate(modeMatrix, glm::vec3(100.0f, 200.0f, 0.0f));
-    //NO VIEW MATRIX DUE TO 2D
-    ////PROJECTION MATRIX
-    glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(g_iv2WindowSize.x), static_cast<float>(g_iv2WindowSize.y), 0.0f, -100.0f, 100.0f);
-    pDefaultShaderProgram->setMatrix4("projectionMat", projectionMatrix);
-
+        auto modeMatrix = glm::mat4(1.f);
+        modeMatrix = glm::translate(modeMatrix, glm::vec3(100.0f, 200.0f, 0.0f));
+        //NO VIEW MATRIX DUE TO 2D
+        ////PROJECTION MATRIX
+        const auto right = static_cast<float>(g_iv2WindowSize.x);
+        const auto bottom = static_cast<float>(g_iv2WindowSize.y);
+        constexpr float left = 0.0f;
+        constexpr float top = 0.0f;
+        constexpr float zNear = 0.0f;
+        constexpr float zFar = 100.0f;
+        // ReSharper disable once CppLocalVariableMayBeConst
+        glm::mat4 projectionMatrix = glm::ortho(left, right, bottom, top, zNear, zFar);
+        pDefaultShaderProgram->setMatrix4("projectionMat", projectionMatrix);
+        // ReSharper disable once CppTooWideScope
+        constexpr int mode = GL_TRIANGLES;
+        // ReSharper disable once CppTooWideScope
+        constexpr int count = 3;
         /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(pWindow))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
-
         pDefaultShaderProgram->use();
         glBindVertexArray(vao);
         tex->bind();
         //draws a triangle
         pDefaultShaderProgram->setMatrix4("modelMat", modeMatrix);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-
+        glDrawArrays(mode, 0, count);
         /* Swap front and back buffers */
         glfwSwapBuffers(pWindow);
-
         /* Poll for and process events */
         glfwPollEvents();
     }

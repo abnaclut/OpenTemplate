@@ -7,17 +7,18 @@
 #include <filesystem>
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_ONLY_PNG
-   #include "stb_image.h"
-
+#include "stb_image.h"
 
 ResourceManager::ResourceManager(const std::string& executablePath)
 {
+    if (executablePath.empty()) { std::cerr << "Error empty executable path!" << std::endl; }
     const size_t lastSlash = executablePath.find_last_of("/\\");
     ResourceManager::m_path = executablePath.substr(0, lastSlash);
 }
 
 std::string ResourceManager::getFileString(const std::string& relativeFilePath) const
 {
+    if (relativeFilePath.empty()) { std::cerr << "Error empty relative path!" << std::endl; }
     std::filesystem::path fullPath = std::filesystem::path(m_path) / relativeFilePath;
     std::ifstream f(fullPath, std::ios::in | std::ios::binary);
     if (!f.is_open())
@@ -27,13 +28,18 @@ std::string ResourceManager::getFileString(const std::string& relativeFilePath) 
     }
 
     std::string content((std::istreambuf_iterator<char>(f)),
-                        std::istreambuf_iterator<char>());
+                         std::istreambuf_iterator<char>());
     f.close();
     return content;
 }
 
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std::string& shaderName, const std::string& vertexPath, const std::string& fragmentPath)
 {
+    //error checks
+    if (shaderName.empty())   { std::cerr << "Error empty shader name!" << std::endl; }
+    if (vertexPath.empty())   { std::cerr << "Error empty vertex path!" << std::endl; }
+    if (fragmentPath.empty()) { std::cerr << "Error empty fragment path!" << std::endl; }
+    //checks for empty shader
     std::string vertexString = getFileString(vertexPath);
     if (vertexString.empty())
     {
@@ -61,6 +67,7 @@ std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std:
 
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::getShader(const std::string& shaderName)
 {
+    if (shaderName.empty()) { std::cerr << "Error empty shader name, cannot get Shader!" << std::endl; }
     if (const auto it = m_shaderPrograms.find(shaderName); it != m_shaderPrograms.end())
     {
         return it->second;
