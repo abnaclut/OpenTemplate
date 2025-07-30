@@ -1,9 +1,14 @@
 //----------------------------------------------------//some info
 //  main.cpp
 //  Read LICENSE file (LGPL v2.1).
-//  Logging is done between "debug logs" comments for better readability. (read docs)
 //  Major sections are marked with //---//<name> and end with //---//end
 //  In case some file grows too large, this might help.
+//
+//  VARIABLE NAMES EXPLANATION:
+//  <f>_<t><NAME>
+//     f == flag; g == global, m == member of a class, s == static member(of a class).
+//     t == type prefix; It is the first letter of the type, Hungarian notation is more confusing.
+//        g_iv2NAME means "global 2D vector of ints NAME", this was necessary due to long type names that can be replaced with auto.
 //----------------------------------------------------//end
 
 //----------------------------------------------------//include
@@ -20,12 +25,19 @@
 #include "Renderer/ShaderProgram.h"
 #include "Resources/ResourceManager.h"
 #include "Renderer/Texture2D.h"
+#include "Tools/tools.h"
 //INCLUDE
 //----------------------------------------------------//end
 
 //----------------------------------------------------//global variables
 //GLOBAL VARIABLES
-auto g_windowSize = glm::ivec2(640, 480);
+//TODO: encapsulate this in a class, especially the title
+auto g_iv2WindowSize = glm::ivec2(640, 480);
+GLFWmonitor* g_pMonitor = nullptr;
+GLFWwindow* g_pShare = nullptr;
+const char* g_pTitle = "OpenTemplate";
+bool g_bSUCCESS = true;
+bool g_bFAILURE = false;
 //TODO: REMOVE THE ONES BENEATH FOR RELEASE
 //triangle vertex coords
 GLfloat point[] = {
@@ -54,16 +66,14 @@ GLfloat texCoord[] = {
 //window resizing
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
-    //nullptr check
+    //null window check
     if (pWindow == nullptr)
     {
-        //debug logs
-        std::cerr << "NULL WINDOW POINTER IN glfwWindowSizeCallback()!\n";
-        //debug logs
+        tools::initLog("glfwWindowSizeCallback", g_bFAILURE);
     }
 
-    g_windowSize.x = width;
-    g_windowSize.y = height;
+    g_iv2WindowSize.x = width;
+    g_iv2WindowSize.y = height;
     glViewport(0, 0, width, height);
 }
 //key processing
@@ -74,22 +84,6 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
         glfwSetWindowShouldClose(pWindow, GLFW_TRUE);
     //
 }
-//other stuff, TODO: move this to a separate cpp/header files
-void glfwSpecifyVersion(const int major, const int minor)
-{
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-}
-//temporarily here, I will TODO: create a separate logger.cpp+.h hater
-void logLocalMachineInfo()
-{
-    std::cout << "LOCAL MACHINE INFO: " << std::endl;
-    std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
-    std::cout << "Vendor: " << glGetString(GL_VENDOR) << std::endl;
-    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
-    std::cout << "GLSL Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
-};
 //CALLBACK FUNCTIONS
 //----------------------------------------------------//end
 
@@ -100,32 +94,25 @@ int main(int argc, char** argv)
     // Initialize the GLFW library
     if (!glfwInit())
     {
-        //debug logs
-        std::cout << "Cannot initialize GLFW!\n";
-        std::cout << "glfwInit() failed!\n";
-        //debug logs
+        tools::initLog("glfwInit", g_bFAILURE);
         return -1;
     }
-    //debug logs
-    std::cout << "GLFW initialized successfully!\n";
-    //debug logs
+    tools::initLog("glfwInit", g_bSUCCESS);
+
     //VERSION SPECIFICATION, *opengl core profile is forced, change glSpecifyVersion if that is a problem.
-    glfwSpecifyVersion(4, 6);
+    tools::glfwSpecifyVersion(4, 6);
+
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* pWindow = glfwCreateWindow(g_windowSize.x, g_windowSize.y, "openTemplate", nullptr, nullptr);
+    GLFWwindow* pWindow = glfwCreateWindow(g_iv2WindowSize.x, g_iv2WindowSize.y, g_pTitle, g_pMonitor, g_pShare);
     if (!pWindow)
     {
-        //debug logs
-        std::cout << "Cannot create GLFW window!\n";
-        std::cout << "glfwCreateWindow() failed!\n";
-        //debug logs
+        tools::initLog("glfwCreateWindow", g_bFAILURE);
         glfwTerminate();
         return -1;
     }
-    //debug logs
-    std::cout << "GLFW window created successfully!\n";
-    //debug logs
-    //CALLBACKS
+    tools::initLog("glfwCreateWindow", g_bSUCCESS);
+
+    //set callbacks
     glfwSetWindowSizeCallback(pWindow, glfwWindowSizeCallback);
     glfwSetKeyCallback(pWindow, glfwKeyCallback);
     // Make the window's context current
@@ -141,7 +128,7 @@ int main(int argc, char** argv)
     std::cout << "GLAD loaded successfully!\n";
     //debug logs
     //local machine info
-    logLocalMachineInfo();
+    tools::localMachineLog();
     //set color
     glClearColor(1, 1, 0, 1);
     //ADDED SCOPE SO THAT GL CONTEXT IS DESTROYED PROPERLY
