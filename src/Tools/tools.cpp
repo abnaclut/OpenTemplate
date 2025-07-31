@@ -94,4 +94,34 @@ namespace tools
         }
         //noone is going to pass nullptr into this, right? hope so.
     };
+    template<typename T>
+    T* AssignArray(T* dest, T* src, size_t size, bool canOverlap = false)
+    {
+        //size = number of values of type T * size of T in bytes
+        //nullptr check
+        if (!dest || !src || size == 0) { return dest; }
+        //for trivial types do memmove/memcpy
+        if constexpr (std::is_trivially_copyable_v<T>)
+        {
+            if (canOverlap)
+                { std::memmove(dest, src, size * sizeof(T)); }
+            else
+                { std::memcpy(dest, src, size * sizeof(T)); }
+        }
+        else
+        {
+            if (canOverlap && (dest >= src && dest < src + size)) {
+                // Handle overlap manually (rare for non-POD types)
+                for (size_t i = size; i-- > 0; ) {
+                    dest[i] = src[i];
+                }
+            } else {
+                //for non-trivial types like std::string
+                std::copy(src, src + size, dest);
+            }
+        }
+
+        return dest;
+        //and then hope no memory is leaked...
+    }
 }

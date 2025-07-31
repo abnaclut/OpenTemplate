@@ -1,7 +1,8 @@
 #pragma once
-
+#ifndef TEXTURE_2D_H
+#define TEXTURE_2D_H
+#endif //TEXTURE_2D_H
 #include <glad/glad.h>
-#include <string>
 
 namespace Renderer
 {
@@ -9,10 +10,10 @@ namespace Renderer
     {
     public:
         Texture2D(
-            const GLuint width,
-            const GLuint height,
+            GLuint width,
+            GLuint height,
             const char* data,
-            const unsigned int channels = 4,
+            unsigned int channels = 4,
             const GLenum filter = GL_LINEAR,
             const GLenum wrapMode = GL_CLAMP_TO_EDGE);
         Texture2D() = delete;
@@ -21,7 +22,7 @@ namespace Renderer
         Texture2D& operator=(Texture2D&&) noexcept;
         Texture2D(Texture2D&& texture2d) noexcept;
 
-        void bind(const GLuint slot = 0) const;
+        void bind(GLuint slot = 0) const;
 
 
         ~Texture2D();

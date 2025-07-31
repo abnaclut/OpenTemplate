@@ -2,12 +2,12 @@
 
 namespace Renderer
 {
-    Texture2D::Texture2D(const GLuint width,
-                         const GLuint height,
-                         const char* data,
-                         const unsigned int channels,
-                         const GLenum filter,
-                         const GLenum wrapMode)
+    Texture2D::Texture2D(const GLuint           width,
+                         const GLuint           height,
+                         const char*            data,
+                         const unsigned int     channels,
+                         const GLenum           filter,
+                         const GLenum           wrapMode)
     {
         width > 0 ? m_width = width : m_width = 1;
         height > 0 ? m_height = height : m_height = 1;

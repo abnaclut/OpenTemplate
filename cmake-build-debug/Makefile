@@ -205,6 +205,30 @@ src/Renderer/ShaderProgram.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/ShaderProgram.cpp.s
 .PHONY : src/Renderer/ShaderProgram.cpp.s
 
+src/Renderer/Sprite.o: src/Renderer/Sprite.cpp.o
+.PHONY : src/Renderer/Sprite.o
+
+# target to build an object file
+src/Renderer/Sprite.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Sprite.cpp.o
+.PHONY : src/Renderer/Sprite.cpp.o
+
+src/Renderer/Sprite.i: src/Renderer/Sprite.cpp.i
+.PHONY : src/Renderer/Sprite.i
+
+# target to preprocess a source file
+src/Renderer/Sprite.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Sprite.cpp.i
+.PHONY : src/Renderer/Sprite.cpp.i
+
+src/Renderer/Sprite.s: src/Renderer/Sprite.cpp.s
+.PHONY : src/Renderer/Sprite.s
+
+# target to generate assembly for a file
+src/Renderer/Sprite.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Sprite.cpp.s
+.PHONY : src/Renderer/Sprite.cpp.s
+
 src/Renderer/Texture2D.o: src/Renderer/Texture2D.cpp.o
 .PHONY : src/Renderer/Texture2D.o
 
@@ -317,6 +341,9 @@ help:
 	@echo "... src/Renderer/ShaderProgram.o"
 	@echo "... src/Renderer/ShaderProgram.i"
 	@echo "... src/Renderer/ShaderProgram.s"
+	@echo "... src/Renderer/Sprite.o"
+	@echo "... src/Renderer/Sprite.i"
+	@echo "... src/Renderer/Sprite.s"
 	@echo "... src/Renderer/Texture2D.o"
 	@echo "... src/Renderer/Texture2D.i"
 	@echo "... src/Renderer/Texture2D.s"
