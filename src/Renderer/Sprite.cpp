@@ -1,6 +1,10 @@
 #include "Sprite.h"
 #include <utility>
 #include <iostream>
+#include "ShaderProgram.h"
+#include "Texture2D.h"
+#include "glm/mat4x4.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 namespace Renderer
 {
@@ -12,7 +16,7 @@ namespace Renderer
                    const GLuint                     VAO,
                    const GLsizei                    nVertex,          //n - number (of vertex arrays)
                    const GLsizei                    nVertexBuffers,   //n - number (of vertex buffers)
-                   const GLsizei                    nTextureBuffers
+                   const GLsizei                    nTextureBuffers   //n - number (of texture buffers)
                    )
     {
         //INITIALIZE FIELDS
@@ -21,11 +25,10 @@ namespace Renderer
         setPosition(position);
         setSize(size);
         setRotation(rotation);
-
-        m_VAO = VAO;
-        m_nVertex = nVertex;
-        m_nVertexBuffers = nVertexBuffers;
-        m_nTextureBuffers = nTextureBuffers;
+        setVAO(VAO);
+        setNVertex(nVertex);
+        setNVertexBuffers(nVertexBuffers);
+        setNTextureBuffers(nTextureBuffers);
 
         //GENERATE STUFF
         glGenVertexArrays(nVertex, &m_VAO);
@@ -59,26 +62,14 @@ namespace Renderer
     // ReSharper disable once CppMemberFunctionMayBeStatic
     bool Sprite::render() const // NOLINT(*-convert-member-functions-to-static)
     {
+        m_pShaderProgram->use();
+
+        glm::mat4 model = glm::mat4(1.0f);
+
         return true;
     }
-    bool Sprite::setPosition(const glm::vec2& position)
-    {
-        //FIXME: add out of bounds checks.
-        m_position = position;
-        //hope your machine executes a = b properly
-        return true;
-    }
-    bool Sprite::setSize(const glm::vec2& size)
-    {
-        if (size.x == 0 || size.y == 0)
-        {
-            std::cerr << "WARNING: zero sized sprite!\n";
-            return false;
-        }
-        m_size = size;
-        //hope your machine executes a = b properly
-        return true;
-    }
+
+    //SETTERS
     bool Sprite::setTexture(std::shared_ptr<Texture2D> pTexture)
     {
         //move the texture to the sprite, so it can be deleted when the sprite is deleted, prevents unnecessary copying.
@@ -104,6 +95,24 @@ namespace Renderer
         std::cout << "WARNING: Shader program was not assigned, expect issues!\n";
         return false;
     }
+    bool Sprite::setPosition(const glm::vec2& position)
+    {
+        //FIXME: add out of bounds checks.
+        m_position = position;
+        //hope your machine executes a = b properly
+        return true;
+    }
+    bool Sprite::setSize(const glm::vec2& size)
+    {
+        if (size.x == 0 || size.y == 0)
+        {
+            std::cerr << "WARNING: zero sized sprite!\n";
+            return false;
+        }
+        m_size = size;
+        //hope your machine executes a = b properly
+        return true;
+    }
     bool Sprite::setRotation(const float rotation)
     {
         if (rotation == 0)
@@ -112,6 +121,50 @@ namespace Renderer
             return false;  // Well, it is technically correct with rot==0, make it return true if you want it to.
         }
         m_rotation = rotation;
+        //hope your machine executes a = b properly
+        return true;
+    }
+    bool Sprite::setVAO(const GLuint VAO)
+    {
+        if (VAO == 0)
+        {
+            std::cerr << "ERROR: null VAO!\n";
+            return false;
+        }
+        m_VAO = VAO;
+        //hope your machine executes a = b properly
+        return true;
+    }
+    bool Sprite::setNVertex(const GLsizei nVertex)
+    {
+        if (nVertex == 0)
+        {
+            std::cerr << "ERROR: null nVertex!\n";
+            return false;
+        }
+        m_nVertex = nVertex;
+        //hope your machine executes a = b properly
+        return true;
+    }
+    bool Sprite::setNVertexBuffers(const GLsizei nVertexBuffers)
+    {
+        if (nVertexBuffers == 0)
+        {
+            std::cerr << "ERROR: null nVertexBuffers!\n";
+            return false;
+        }
+        m_nVertexBuffers = nVertexBuffers;
+        //hope your machine executes a = b properly
+        return true;
+    }
+    bool Sprite::setNTextureBuffers(const GLsizei nTextureBuffers)
+    {
+        if (nTextureBuffers == 0)
+        {
+            std::cerr << "ERROR: null nTextureBuffers!\n";
+            return false;
+        }
+        m_nTextureBuffers = nTextureBuffers;
         //hope your machine executes a = b properly
         return true;
     }

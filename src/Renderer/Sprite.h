@@ -45,23 +45,24 @@ namespace Renderer
         static bool setTextureCoords(const GLfloat textureCoords[]);
 
     private:
-        std::shared_ptr<Texture2D>      m_pTexture{};
-        std::shared_ptr<ShaderProgram>  m_pShaderProgram{};
-        glm::vec2                       m_position{};
-        glm::vec2                       m_size{};
-        float                           m_rotation{};
-        GLuint                          m_VAO{};
-        GLuint                          m_vertexCoordsVBO{};
-        GLuint                          m_textureCoordsVBO{};
-        GLsizei                         m_nVertex{};            //n - number (of vertex arrays)
-        GLsizei                         m_nVertexBuffers{};     //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
-        GLsizei                         m_nTextureBuffers{};    //n - number (of texture buffers)
+        //*NOTE* initialization before setters is done here
+        std::shared_ptr<Texture2D>      m_pTexture          {}; //init to nullptr
+        std::shared_ptr<ShaderProgram>  m_pShaderProgram    {}; //init to nullptr
+        glm::vec2                       m_position          {}; //init to 0
+        glm::vec2                       m_size              {}; //init to 0
+        float                           m_rotation          {}; //init to 0
+        GLuint                          m_VAO               {}; //init to empty
+        GLuint                          m_vertexCoordsVBO   {}; //init to empty
+        GLuint                          m_textureCoordsVBO  {}; //init to empty
+        GLsizei                         m_nVertex           {}; //n - number (of vertex arrays)
+        GLsizei                         m_nVertexBuffers    {}; //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
+        GLsizei                         m_nTextureBuffers   {}; //n - number (of texture buffers)
         GLfloat                         m_vertexCoords[];
         static GLfloat                  m_textureCoords[];
         //DEFAULT VALUES
-        static constexpr GLsizei m_nVertexCoordsVertexesDefault = 12;  //number of vertexes by default (2D) in vertexCoords
-        static constexpr GLsizei m_nTextureCoordsVertexesDefault = 12; //number of vertexes by default (2D) in textureCoords
-        const GLfloat m_defaultVertexCoords[m_nVertexCoordsVertexesDefault] =
+        static constexpr GLsizei m_nVertexCoordsVertexesDefault = 6;  //number of vertexes by default (2D) in vertexCoords
+        static constexpr GLsizei m_nTextureCoordsVertexesDefault = 6; //number of vertexes by default (2D) in textureCoords
+        const GLfloat m_defaultVertexCoords[m_nVertexCoordsVertexesDefault * 2] =
             {
             // 2--3-  -1
             // | /   / |

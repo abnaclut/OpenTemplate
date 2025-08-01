@@ -27,6 +27,7 @@
 #include "Resources/ResourceManager.h"
 #include "Renderer/Texture2D.h"
 #include "Tools/tools.h"
+#include "Renderer/Sprite.h"
 //INCLUDE
 //----------------------------------------------------//end
 
@@ -136,7 +137,7 @@ int main(int argc, char** argv)
         return -1;
     }
         //generate stuff
-
+        Renderer::Sprite sprite();
 
 
         //use the default shader program
