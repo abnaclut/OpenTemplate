@@ -3,9 +3,14 @@
 #define TOOLS_H
 #include <string>
 #include <iostream>
+// ReSharper disable once CppUnusedIncludeDirective //USED
 #include <cstring>   // For memcpy, memmove
+// ReSharper disable once CppUnusedIncludeDirective //USED
 #include <algorithm> // For std::copy
+// ReSharper disable once CppUnusedIncludeDirective //USED
 #include <type_traits> // For std::is_trivially_copyable
+// ReSharper disable once CppUnusedIncludeDirective //USED
+#include "../glfw/include/GLFW/glfw3.h""
 #endif //TOOLS_H
 
 namespace tools
@@ -15,5 +20,5 @@ namespace tools
     void localMachineLog();
     //
     template<typename T>
-    T* AssignArray(T* dest, T* src, size_t size, bool canOverlap);
+    T AssignArray(T* dest, T* src, size_t size, bool canOverlap);
 }
