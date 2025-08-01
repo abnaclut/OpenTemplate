@@ -1,7 +1,6 @@
 #include "Sprite.h"
 #include <utility>
 #include <iostream>
-#include "gtx/quaternion.hpp"
 
 namespace Renderer
 {
