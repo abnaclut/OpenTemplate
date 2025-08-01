@@ -39,26 +39,6 @@ GLFWwindow* g_pShare = nullptr;
 const char* g_pszTitle = "OpenTemplate";
 bool g_bSUCCESS = true;
 bool g_bFAILURE = false;
-//TODO: REMOVE THE ONES BENEATH FOR RELEASE
-//triangle vertex coords
-//TODO: move this into the texture processing class.
-GLfloat point[] = {
-    0.0f, -150.0f, 0.0f,
-    50.0f, -50.0f, 0.0f,
-    -50.0f, -50.0f, 0.0f
-};
-//colors
-GLfloat colors[] = {
-    1.0f, 0.0f, 0.0f,
-    0.0f, 1.0f, 0.0f,
-    0.0f, 0.0f, 1.0f
-};
-//texture coords
-GLfloat texCoord[] = {
-    0.5f, 1.0f,
-    1.0f, 0.0f,
-    0.0f, 0.0f
-};
 //GLOBAL VARIABLES
 //----------------------------------------------------//end
 

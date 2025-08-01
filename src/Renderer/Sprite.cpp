@@ -1,5 +1,4 @@
 #include "Sprite.h"
-
 #include <utility>
 #include <iostream>
 #include "gtx/quaternion.hpp"
@@ -10,11 +9,11 @@ namespace Renderer
                    std::shared_ptr<ShaderProgram>   pShaderProgram,
                    const glm::vec2&                 position,
                    const glm::vec2&                 size,
-                   float                            rotation,
-                   GLuint                           VAO,
-                   GLsizei                          nVertex,          //n - number (of vertex arrays)
-                   GLsizei                          nVertexBuffers,   //n - number (of vertex buffers)
-                   GLsizei                          nTextureBuffers
+                   const float                            rotation,
+                   const GLuint                           VAO,
+                   const GLsizei                          nVertex,          //n - number (of vertex arrays)
+                   const GLsizei                          nVertexBuffers,   //n - number (of vertex buffers)
+                   const GLsizei                          nTextureBuffers
                    )
     {
         //INITIALIZE FIELDS
@@ -23,6 +22,7 @@ namespace Renderer
         setPosition(position);
         setSize(size);
         setRotation(rotation);
+
         m_VAO = VAO;
         m_nVertex = nVertex;
         m_nVertexBuffers = nVertexBuffers;
@@ -57,12 +57,10 @@ namespace Renderer
         glDeleteBuffers(m_nVertexBuffers, &m_vertexCoordsVBO);
         glDeleteBuffers(m_nTextureBuffers, &m_textureCoordsVBO);
     }
-
     bool Sprite::render() const
     {
 
     }
-
     bool Sprite::setPosition(const glm::vec2& position)
     {
         //FIXME: add out of bounds checks.
@@ -70,7 +68,6 @@ namespace Renderer
         //hope your machine executes a = b properly
         return true;
     }
-
     bool Sprite::setSize(const glm::vec2& size)
     {
         if (size.x == 0 || size.y == 0)
@@ -82,7 +79,6 @@ namespace Renderer
         //hope your machine executes a = b properly
         return true;
     }
-
     bool Sprite::setTexture(std::shared_ptr<Texture2D> pTexture)
     {
         //move the texture to the sprite, so it can be deleted when the sprite is deleted, prevents unnecessary copying.
@@ -96,7 +92,6 @@ namespace Renderer
         std::cout << "WARNING: Texture was not assigned, expect issues!\n";
         return false;
     }
-
     bool Sprite::setShaderProgram(std::shared_ptr<ShaderProgram> pShaderProgram)
     {
         if (pShaderProgram == nullptr)
@@ -109,13 +104,12 @@ namespace Renderer
         std::cout << "WARNING: Shader program was not assigned, expect issues!\n";
         return false;
     }
-
     bool Sprite::setRotation(const float rotation)
     {
         if (rotation == 0)
         {
             std::cerr << "WARNING: zero rotation!\n"; //Why would anyone do this anyway, and yet, someone will?
-            return false;
+            return false;  // Well, it is technically correct with rot==0, make it return true if you want it to.
         }
         m_rotation = rotation;
         //hope your machine executes a = b properly
@@ -133,6 +127,22 @@ namespace Renderer
             std::memmove(m_textureCoords, textureCoords, sizeOfArray * sizeof(GLfloat));
         }
         return true;
+    }
+
+    bool Sprite::setVertexCoords(const GLfloat vertexCoords[])
+    {
+        if (vertexCoords == nullptr)
+        {
+            std::cerr << "ERROR: null vertex coords!\n";
+            return false;
+        }
+        else
+        {
+            if (std::memmove(m_vertexCoords, vertexCoords, (m_nVertexCoordsVertexesDefault * sizeof(GLfloat)))) { return true; }
+            // in this case a non-null pointer evaluates to true, nullptr == false
+        }
+        std::cout << "WARNING: vertex coords were not assigned, expect issues!\n";
+        return false;
     }
 
 }
