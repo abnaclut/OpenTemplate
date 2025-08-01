@@ -8,11 +8,11 @@ namespace Renderer
                    std::shared_ptr<ShaderProgram>   pShaderProgram,
                    const glm::vec2&                 position,
                    const glm::vec2&                 size,
-                   const float                            rotation,
-                   const GLuint                           VAO,
-                   const GLsizei                          nVertex,          //n - number (of vertex arrays)
-                   const GLsizei                          nVertexBuffers,   //n - number (of vertex buffers)
-                   const GLsizei                          nTextureBuffers
+                   const float                      rotation,
+                   const GLuint                     VAO,
+                   const GLsizei                    nVertex,          //n - number (of vertex arrays)
+                   const GLsizei                    nVertexBuffers,   //n - number (of vertex buffers)
+                   const GLsizei                    nTextureBuffers
                    )
     {
         //INITIALIZE FIELDS
@@ -56,9 +56,10 @@ namespace Renderer
         glDeleteBuffers(m_nVertexBuffers, &m_vertexCoordsVBO);
         glDeleteBuffers(m_nTextureBuffers, &m_textureCoordsVBO);
     }
-    bool Sprite::render() const
+    // ReSharper disable once CppMemberFunctionMayBeStatic
+    bool Sprite::render() const // NOLINT(*-convert-member-functions-to-static)
     {
-
+        return true;
     }
     bool Sprite::setPosition(const glm::vec2& position)
     {
@@ -114,21 +115,20 @@ namespace Renderer
         //hope your machine executes a = b properly
         return true;
     }
-    //TODO: 12 is the number of values in texture coords, this will be changed when I add 3D.
     bool Sprite::setTextureCoords(const GLfloat textureCoords[])
     {
-        if (!textureCoords) { /*error*/ return false; }
-        else
+        if (!textureCoords)
         {
-            // ReSharper disable once CppDFAUnreadVariable      <-- why human programmers will not be replaced by AI
-            // ReSharper disable once CppDFAUnusedValue         <-- why human programmers will not be replaced by AI
-            constexpr size_t sizeOfArray = 12;
-            std::memmove(m_textureCoords, textureCoords, sizeOfArray * sizeof(GLfloat));
+            std::cerr << "ERROR: null texture coords!\n";
+            return false;
         }
-        return true;
+        if (std::memmove(m_textureCoords, textureCoords, (m_nTextureCoordsVertexesDefault * sizeof(GLfloat))))
+        { return true; }
+        //if memmove failed
+        std::cout << "WARNING: texture coords were not assigned, expect issues!\n";
+        return false;
     }
-
-    bool Sprite::setVertexCoords(const GLfloat vertexCoords[])
+    bool Sprite::setVertexCoords(const GLfloat vertexCoords[]) // NOLINT(*-convert-member-functions-to-static) //no it cannot be static.
     {
         if (vertexCoords == nullptr)
         {
