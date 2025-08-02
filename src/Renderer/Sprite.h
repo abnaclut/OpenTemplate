@@ -15,10 +15,10 @@ namespace Renderer
     class Sprite
     {
     public:
-        explicit Sprite( std::shared_ptr<Texture2D>      pTexture        = nullptr,                      //
-                         std::shared_ptr<ShaderProgram>  pShaderProgram  = nullptr,                      //
-                         const glm::vec2&                position        = glm::vec2(0.0f, 0.0f),    //0-vector2
-                         const glm::vec2&                size            = glm::vec2(1.0f, 1.0f),    //0-vector2
+        explicit Sprite( std::shared_ptr<Texture2D>      pTexture        = nullptr,                      //null texture
+                         std::shared_ptr<ShaderProgram>  pShaderProgram  = nullptr,                      //null shader
+                         const glm::vec2&                position        = glm::vec2(0.0f, 0.0f),    //corner
+                         const glm::vec2&                size            = glm::vec2(1.0f, 1.0f),    //1-vector2
                          float                           rotation        = 0.0f,                         //no rotation
                          GLuint                          VAO             = 0,                            //empty
                          GLsizei                         nVertex         = 12,                           //twice the number of vertices as rect is 2 triangles.
@@ -58,7 +58,7 @@ namespace Renderer
         GLsizei                         m_nVertexBuffers    {}; //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
         GLsizei                         m_nTextureBuffers   {}; //n - number (of texture buffers)
         GLfloat                         m_vertexCoords[];
-        static GLfloat                  m_textureCoords[];
+        GLfloat                         m_textureCoords[];
         //DEFAULT VALUES
         static constexpr GLsizei m_nVertexCoordsVertexesDefault = 6;  //number of vertexes by default (2D) in vertexCoords
         static constexpr GLsizei m_nTextureCoordsVertexesDefault = 6; //number of vertexes by default (2D) in textureCoords
@@ -82,7 +82,7 @@ namespace Renderer
             1.0f, 0.0f,
             0.0f, 0.0f
             };
-        const GLfloat m_defaultTextureCoords[] =
+        const GLfloat m_defaultTextureCoords[m_nTextureCoordsVertexesDefault * 2] =
         {
             // U  V
 

@@ -29,13 +29,12 @@ namespace Renderer
         setNVertex(nVertex);
         setNVertexBuffers(nVertexBuffers);
         setNTextureBuffers(nTextureBuffers);
-
+        //TEMP
+        int index = 0;
+        int vectorSize = 2;
         //GENERATE STUFF
         glGenVertexArrays(nVertex, &m_VAO);
         glBindVertexArray(m_VAO);
-        //
-        int index = 0;
-        int vectorSize = 2;
         //TODO: pass everything by a variable(or &)
         glGenBuffers(nVertexBuffers, &m_vertexCoordsVBO);
         glBindBuffer(GL_ARRAY_BUFFER, m_vertexCoordsVBO);
@@ -64,7 +63,21 @@ namespace Renderer
     {
         m_pShaderProgram->use();
 
-        glm::mat4 model = glm::mat4(1.0f);
+        auto model = glm::mat4(1.0f);
+
+        model = glm::translate(model, glm::vec3(m_position, 0.0f));
+        model = glm::translate(model, glm::vec3(0.5f * m_size.x,0.5f * m_size.y, 0.0f));
+        model = glm::rotate(model, glm::radians(m_rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+        model = glm::translate(model, glm::vec3(-0.5f * m_size.x, -0.5f * m_size.y ,0.0f));
+        model = glm::scale(model, glm::vec3(m_size, 1.0f));
+
+        glBindVertexArray(m_VAO);
+        m_pShaderProgram->setMatrix4("model", model);
+
+        glActiveTexture(GL_TEXTURE0);
+        m_pTexture->bind();
+
+        glDrawArrays(GL_TRIANGLES, 0, m_nVertex);
 
         return true;
     }
