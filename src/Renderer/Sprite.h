@@ -45,7 +45,7 @@ namespace Renderer
         static bool setTextureCoords(const GLfloat textureCoords[]);
 
     private:
-        //*NOTE* initialization before setters is done here
+        //*NOTE* constructor overrides {}-Initialization (safety measure)
         std::shared_ptr<Texture2D>      m_pTexture          {}; //init to nullptr
         std::shared_ptr<ShaderProgram>  m_pShaderProgram    {}; //init to nullptr
         glm::vec2                       m_position          {}; //init to 0
@@ -57,7 +57,7 @@ namespace Renderer
         GLsizei                         m_nVertex           {}; //n - number (of vertex arrays)
         GLsizei                         m_nVertexBuffers    {}; //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
         GLsizei                         m_nTextureBuffers   {}; //n - number (of texture buffers)
-        GLfloat                         m_vertexCoords[];
+        GLfloat                         m_vertexCoords[]; //FIXME: change this to std::vector or smth else when 3D is coming
         GLfloat                         m_textureCoords[];
         //DEFAULT VALUES
         static constexpr GLsizei m_nVertexCoordsVertexesDefault = 6;  //number of vertexes by default (2D) in vertexCoords
@@ -68,7 +68,7 @@ namespace Renderer
             // | /   / |
             // 1-  -3--2
             // ^^^   ^^^
-            //  X     Y 
+            //  X     Y
             // X+Y Becomes
             // 2-----3 <-- 3 and 1 become one point
             // |  /  |
