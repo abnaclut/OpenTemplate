@@ -68,7 +68,7 @@ namespace Renderer
             // | /   / |
             // 1-  -3--2
             // ^^^   ^^^
-            //  X     Y
+            //  X     Y 
             // X+Y Becomes
             // 2-----3 <-- 3 and 1 become one point
             // |  /  |
