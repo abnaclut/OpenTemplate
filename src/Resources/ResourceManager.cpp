@@ -1,5 +1,10 @@
 #include "ResourceManager.h"
 
+//Dont move those defs + include
+#define STB_IMAGE_IMPLEMENTATION
+#define STBI_ONLY_PNG
+#include "stb_image.h" //has to be in the .cpp file
+
 ResourceManager::ResourceManager(const std::string& executablePath)
 {
     if (executablePath.empty()) { std::cerr << "Error empty executable path!" << std::endl; }
@@ -113,6 +118,31 @@ std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string
                                                  unsigned int spriteWidth,
                                                  unsigned int spriteHeight)
 {
+    //Error-checks
+    if (spriteName.empty() || textureName.empty() || shaderName.empty())
+    {
+        std::cerr << "Sprite, texture or shader name is empty!" << "\n";
+        return nullptr;
+    }
+    if (spriteWidth == 0 || spriteHeight == 0)
+    {
+        std::cerr << "Sprite width or height is zero!" << "\n";
+        return nullptr;
+    }
+
+    std::shared_ptr<Renderer::Texture2D> pTexture = getTexture(textureName);
+    //Error-check
+    if (pTexture == nullptr)
+    {
+        std::cerr << "Texture not found: " << textureName << "for sprite: " << spriteName << "\n";
+        return nullptr;
+    }
+    std::shared_ptr<Renderer::ShaderProgram> pShader = getShader(shaderName);
+    //Error-check
+    if (pShader == nullptr)
+    {
+        std::cerr << "Shader not found: " << shaderName << "\n";
+    }
     return nullptr;
 };
 std::shared_ptr<Renderer::Sprite> ResourceManager::getSprite (const std::string& spriteName)

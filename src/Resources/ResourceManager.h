@@ -14,10 +14,6 @@
 #include <memory>
 #include <string>
 #include <map>
-#define STB_IMAGE_IMPLEMENTATION
-#define STBI_ONLY_PNG
-// ReSharper disable once CppUnusedIncludeDirective //it is used
-#include "stb_image.h"
 #endif //RESOURCE_MANAGER_H
 
 namespace Renderer
