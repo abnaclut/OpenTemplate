@@ -8,7 +8,7 @@
 //  <f>_<t><NAME>
 //     f == flag; g == global, m == member of a class, s == static member(of a class).
 //     t == type prefix; It is an abbreviation of a type, ONLY IF NECESSARY to prevent wrong type usage.
-//     Hungarian notation is ONLY used for global variables or in case of necessity.
+//     Hungarian notation is used for global variables or in case of necessity.
 //        g_iv2NAME means "global 2D vector of ints NAME". This is only used with pointers, matrices, vectors.
 //----------------------------------------------------//end
 
@@ -137,7 +137,7 @@ int main(int argc, char** argv)
         return -1;
     }
         //generate stuff
-        Renderer::Sprite sprite();
+
 
 
         //use the default shader program

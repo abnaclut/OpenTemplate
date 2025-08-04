@@ -1,10 +1,11 @@
 #pragma once
 #ifndef SHADER_PROGRAM_H
 #define SHADER_PROGRAM_H
-#endif //SHADER_PROGRAM_H
 #include <string>
 #include <glm/glm.hpp>
 #include <glad/glad.h>
+#endif //SHADER_PROGRAM_H
+
 
 namespace Renderer
 {

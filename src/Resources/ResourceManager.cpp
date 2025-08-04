@@ -1,3 +1,4 @@
+#ifndef RESOURCE_MANAGER_H
 #include "ResourceManager.h"
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Texture2D.h"
@@ -5,15 +6,17 @@
 #include <fstream>
 #include <iostream>
 #include <filesystem>
+#include "../Renderer/Sprite.h"
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_ONLY_PNG
 #include "stb_image.h"
+#endif //RESOURCE_MANAGER_H
 
 ResourceManager::ResourceManager(const std::string& executablePath)
 {
     if (executablePath.empty()) { std::cerr << "Error empty executable path!" << std::endl; }
     const size_t lastSlash = executablePath.find_last_of("/\\");
-    ResourceManager::m_path = executablePath.substr(0, lastSlash);
+    m_path = executablePath.substr(0, lastSlash);
 }
 
 std::string ResourceManager::getFileString(const std::string& relativeFilePath) const
@@ -112,6 +115,24 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::getTexture(const std::stri
     {
         return it->second;
     }
-        std::cerr << "Texture not found: " << textureName << std::endl;
+        std::cerr << "Texture not found: " << textureName << "\n";
         return nullptr;
+};
+
+std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string& spriteName,
+                                                 const std::string& textureName,
+                                                 const std::string& shaderName,
+                                                 unsigned int spriteWidth,
+                                                 unsigned int spriteHeight)
+{
+    return nullptr;
+};
+std::shared_ptr<Renderer::Sprite> ResourceManager::getSprite (const std::string& spriteName)
+{
+    if (const auto it = m_sprites.find(spriteName); it != m_sprites.end())
+    {
+        return it->second;
+    }
+    std::cerr << "Sprite not found: " << spriteName << "\n";
+    return nullptr;
 };

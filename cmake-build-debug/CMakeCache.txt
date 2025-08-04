@@ -384,6 +384,48 @@ Glad_SOURCE_DIR:STATIC=/home/user/OpenTemplate/external/glad
 //Path to a library.
 MATH_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
 
+//Path to a file.
+OPENGL_EGL_INCLUDE_DIR:PATH=OPENGL_EGL_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLES2_INCLUDE_DIR:PATH=OPENGL_GLES2_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLES3_INCLUDE_DIR:PATH=OPENGL_GLES3_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLU_INCLUDE_DIR:PATH=OPENGL_GLU_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLX_INCLUDE_DIR:PATH=OPENGL_GLX_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_INCLUDE_DIR:PATH=OPENGL_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+OPENGL_egl_LIBRARY:FILEPATH=OPENGL_egl_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_gl_LIBRARY:FILEPATH=OPENGL_gl_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_gles2_LIBRARY:FILEPATH=OPENGL_gles2_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_gles3_LIBRARY:FILEPATH=OPENGL_gles3_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_glu_LIBRARY:FILEPATH=OPENGL_glu_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_glx_LIBRARY:FILEPATH=OPENGL_glx_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_opengl_LIBRARY:FILEPATH=OPENGL_opengl_LIBRARY-NOTFOUND
+
+//Path to a file.
+OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
+
 //Value Computed by CMake
 OpenTemplate_BINARY_DIR:STATIC=/home/user/OpenTemplate/cmake-build-debug
 
@@ -809,6 +851,9 @@ X11_xkbfile_INCLUDE_PATH:PATH=X11_xkbfile_INCLUDE_PATH-NOTFOUND
 
 //Path to a library.
 X11_xkbfile_LIB:FILEPATH=X11_xkbfile_LIB-NOTFOUND
+
+//The directory containing a CMake configuration file for glfw3.
+glfw3_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/glfw3
 
 //Value Computed by CMake
 glm_BINARY_DIR:STATIC=/home/user/OpenTemplate/cmake-build-debug/external/glm

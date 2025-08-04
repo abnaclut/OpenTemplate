@@ -78,6 +78,7 @@ namespace Renderer
         m_pTexture->bind();
 
         glDrawArrays(GL_TRIANGLES, 0, m_nVertex);
+        glBindVertexArray(0);
 
         return true;
     }

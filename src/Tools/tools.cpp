@@ -95,7 +95,7 @@ namespace tools
         //noone is going to pass nullptr into this, right? hope so.
     };
     template<typename T>
-    T AssignArray(T* dest, T* src, size_t size, bool canOverlap = false)
+    T AssignArray(T* dest, T* src, size_t size, bool canOverlap)
     {
         //size = number of values of type T * size of T in bytes // size_t size == nT*sizeof(T)
         //nullptr check

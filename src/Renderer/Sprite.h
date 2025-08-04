@@ -42,7 +42,7 @@ namespace Renderer
         bool setNVertexBuffers(GLsizei nVertexBuffers);
         bool setNTextureBuffers(GLsizei nTextureBuffers);
         bool setVertexCoords(const GLfloat vertexCoords[]);
-        static bool setTextureCoords(const GLfloat textureCoords[]);
+        bool setTextureCoords(const GLfloat textureCoords[]);
 
     private:
         //*NOTE* constructor overrides {}-Initialization (safety measure)
@@ -57,8 +57,8 @@ namespace Renderer
         GLsizei                         m_nVertex           {}; //n - number (of vertex arrays)
         GLsizei                         m_nVertexBuffers    {}; //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
         GLsizei                         m_nTextureBuffers   {}; //n - number (of texture buffers)
-        GLfloat                         m_vertexCoords[]; //FIXME: change this to std::vector or smth else when 3D is coming
-        GLfloat                         m_textureCoords[];
+        GLfloat                         m_vertexCoords[12]; //FIXME: change this to std::vector or smth else when 3D is coming
+        GLfloat                         m_textureCoords[12];
         //DEFAULT VALUES
         static constexpr GLsizei m_nVertexCoordsVertexesDefault = 6;  //number of vertexes by default (2D) in vertexCoords
         static constexpr GLsizei m_nTextureCoordsVertexesDefault = 6; //number of vertexes by default (2D) in textureCoords

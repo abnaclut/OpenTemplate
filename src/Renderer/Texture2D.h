@@ -1,8 +1,8 @@
 #pragma once
 #ifndef TEXTURE_2D_H
 #define TEXTURE_2D_H
-#endif //TEXTURE_2D_H
 #include <glad/glad.h>
+#endif //TEXTURE_2D_H
 
 namespace Renderer
 {
