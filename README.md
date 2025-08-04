@@ -1,8 +1,61 @@
-This will be an OpenGL | GLAD template generator (other options will be added dor release, probably) when finished.
+//when released, this will be:
+A template generator for desktop C++ applications, everything from simple utils to large easy-to-scale project templates with diffent graphics options.
+(will include a feature list once released)
 
-This project is made to speed up development of desktop apps. So that developers can spend more time on adding content, rather than having to implement their own graphics. Whether it is through using Qt, reimplementing OpenGL or other similar tools. The goal of the project is to make a light utility with good enough functionality to be useful for quick development of C++ applications.
+GRAPHICS OPTIONS:
 
---NOTE: This is an early stage of the project, so dont expect something useful just yet, I will make it useful when all the backend is finished, untill then I will not make an interface or proper docs so it is finished sooner--
+ - OpenGL (with loaders)
+   - GLAD (for modern OpenGL)         -- Auto-generated loader for OpenGL functions.
+   - GLFW (window/context management) -- Lightweught, cross-platform, works well with GLAD.
+   - SDL (glfw alternative)           -- Includes input/audio/networking support.
+   - // I might add GLEW as a legacy glad alternative if someone asks for it
+ - Vulkan //Once I finish OpenGL
+   - Vulkan SDK + GLFW/SDL            -- High-performance, explicit API. Include validation layers for debugging.
+   - Volk                             -- Optional meta-loader for Vulkan. Reduces driver overhead.
+ - Direct3d // Once I finish Vulkan
+   - Direct3d 11/12                   -- Via microsoft's d3d11/d3d12 libraries.
+ - Software Rendering
+   - Dear ImGui (immediate-mode UI)   -- Solid option for most cases, exeptions will be explained further.
+   - stb_image                        -- Lightweight image/font rendering.
+  
+BUILD OPTIONS:
 
-(currently, will include more features in the future)
-I know there are programming languages like Python, with tons of libraries, made specifically for the purpose of quick development, I dont like Python for it is interpreted and very slow.
+ - CMake Presets(CLion/VS code/etc)   -- Generates a CMake project for your IDE or a clean project if no IDE is used.
+
+PLATFORM OPTIONS:
+
+ - Cross-platform
+ - Specified platform
+   - Windows
+   - MacOS
+   - Linux
+   - Android
+   - IOS
+
+DEBUG OPTIONS:
+
+ - OpenGL Debug Context
+ - Vulkan Validation Layers
+ - RenderDoc integration
+
+OTHER FEATURES:
+
+ - Logging
+   - spdlog (fast, header-only)
+   - Custom (if neccesary)
+ - Profiling
+   - Tracy
+   - Google Benchmark
+ - Serialization
+   - nlohmann/json
+ - Unit Testing
+   - Catch2
+   - Google Test
+
+PROJECT STRUCTURE EXAMPLES:
+
+(to be added upon finishing corresponding options)
+
+HOW TO USE:
+
+(to be added after first release)
