@@ -1,6 +1,6 @@
 //when released, this will be:
 
-A ***template generator*** for desktop ***C++*** applications, everything from simple utils to large easy-to-scale project templates with diffent graphics options.
+A **template generator** for desktop **C++** applications, everything from simple utils to large easy-to-scale project templates with diffent graphics options.
 (will include a feature list once released)
 
 GRAPHICS OPTIONS:
