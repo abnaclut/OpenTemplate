@@ -24,7 +24,7 @@ BUILD OPTIONS:
 
 PLATFORM OPTIONS:
 
- - Cross-platform
+ - Cross-platform (priority)
  - Specified platform
    - Windows
    - MacOS
@@ -59,3 +59,8 @@ PROJECT STRUCTURE EXAMPLES:
 HOW TO USE:
 
 (to be added after first release)
+
+ - ***NOTE***
+Some features might not be included in the first releases or might be removed in future ones, therefore reading docs is a good idea.
+I will try to prevent such situations once everything is finished. And if I fail to, read LICENSE.
+:)
