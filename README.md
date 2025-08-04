@@ -1,32 +1,32 @@
 //when released, this will be:
 
-A template generator for desktop C++ applications, everything from simple utils to large easy-to-scale project templates with diffent graphics options.
+A ***template generator*** for desktop ***C++*** applications, everything from simple utils to large easy-to-scale project templates with diffent graphics options.
 (will include a feature list once released)
 
 GRAPHICS OPTIONS:
 
- - OpenGL (with loaders)
+ - **OpenGL** (with loaders)
    - GLAD (for modern OpenGL)         -- Auto-generated loader for OpenGL functions.
    - GLFW (window/context management) -- Lightweught, cross-platform, works well with GLAD.
    - SDL (glfw alternative)           -- Includes input/audio/networking support.
    - // I might add GLEW as a legacy glad alternative if someone asks for it
- - Vulkan //Once I finish OpenGL
+ - **Vulkan** //Once I finish OpenGL
    - Vulkan SDK + GLFW/SDL            -- High-performance, explicit API. Include validation layers for debugging.
    - Volk                             -- Optional meta-loader for Vulkan. Reduces driver overhead.
- - Direct3d // Once I finish Vulkan
+ - **Direct3d** // Once I finish Vulkan
    - Direct3d 11/12                   -- Via microsoft's d3d11/d3d12 libraries.
- - Software Rendering
+ - **Software Rendering**
    - Dear ImGui (immediate-mode UI)   -- Solid option for most cases, exeptions will be explained further.
    - stb_image                        -- Lightweight image/font rendering.
   
 BUILD OPTIONS:
 
- - CMake Presets(CLion/VS code/etc)   -- Generates a CMake project for your IDE or a clean project if no IDE is used.
+ - **CMake Presets**(CLion/VS code/etc)   -- Generates a CMake project for your IDE or a clean project if no IDE is used.
 
 PLATFORM OPTIONS:
 
- - Cross-platform (priority)
- - Specified platform
+ - **Cross-Platform** (Priority)
+ - **Specified platform**
    - Windows
    - MacOS
    - Linux
@@ -35,21 +35,21 @@ PLATFORM OPTIONS:
 
 DEBUG OPTIONS:
 
- - OpenGL Debug Context
- - Vulkan Validation Layers
- - RenderDoc integration
+ - **OpenGL Debug Context**
+ - **Vulkan Validation Layers**
+ - **RenderDoc integration**
 
 OTHER FEATURES:
 
- - Logging
+ - **Logging**
    - spdlog (fast, header-only)
    - Custom (if neccesary)
- - Profiling
+ - **Profiling**
    - Tracy
    - Google Benchmark
- - Serialization
+ - **Serialization**
    - nlohmann/json
- - Unit Testing
+ - **Unit Testing**
    - Catch2
    - Google Test
 
