@@ -11,9 +11,10 @@
 // ReSharper disable once CppUnusedIncludeDirective //USED
 #include <type_traits> // For std::is_trivially_copyable
 // ReSharper disable once CppUnusedIncludeDirective //USED
-// FIXME: DO NOT CHANGE THE INCLUDE ORDER!!!!!!
+// FIXME: DO NOT CHANGE THE INCLUDE ORDER!!!!!! (of glad and glfw)
 #include "glad/glad.h"
-#include "../glfw/include/GLFW/glfw3.h"
+// ReSharper disable once CppUnusedIncludeDirective  <--This is why human developers will not be replaced by AI
+#include "../glfw/include/GLFW/glfw3.h" // This IS used
 #endif //TOOLS_H
 
 namespace tools

@@ -1,16 +1,4 @@
-#ifndef RESOURCE_MANAGER_H
 #include "ResourceManager.h"
-#include "../Renderer/ShaderProgram.h"
-#include "../Renderer/Texture2D.h"
-#include <sstream>
-#include <fstream>
-#include <iostream>
-#include <filesystem>
-#include "../Renderer/Sprite.h"
-#define STB_IMAGE_IMPLEMENTATION
-#define STBI_ONLY_PNG
-#include "stb_image.h"
-#endif //RESOURCE_MANAGER_H
 
 ResourceManager::ResourceManager(const std::string& executablePath)
 {
