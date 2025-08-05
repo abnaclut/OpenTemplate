@@ -58,8 +58,8 @@ namespace Renderer
         GLsizei                         m_nVertex           {}; //n - number (of vertex arrays)
         GLsizei                         m_nVertexBuffers    {}; //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
         GLsizei                         m_nTextureBuffers   {}; //n - number (of texture buffers)
-        std::array<GLfloat, 12>         m_vertexCoords;         //12 cuz 2 * 3 vertexes in 2D is 12 coordinates
-        std::array<GLfloat, 12>         m_textureCoords;         //same
+        std::array<GLfloat, 12>         m_vertexCoords      {}; //12 cuz 2 * 3 vertexes in 2D is 12 coordinates
+        std::array<GLfloat, 12>         m_textureCoords     {}; //same
         //DEFAULT VALUES
         static constexpr GLsizei m_nVertexCoordsVertexesDefault = 6;  //number of vertexes by default (2D) in vertexCoords
         static constexpr GLsizei m_nTextureCoordsVertexesDefault = 6; //number of vertexes by default (2D) in textureCoords
