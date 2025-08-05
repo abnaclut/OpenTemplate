@@ -4,6 +4,7 @@
 #include <memory>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
+#include <array>
 #include "../Tools/tools.h"
 #endif //SPRITE_H
 
@@ -41,8 +42,8 @@ namespace Renderer
         bool setNVertex(GLsizei nVertex);
         bool setNVertexBuffers(GLsizei nVertexBuffers);
         bool setNTextureBuffers(GLsizei nTextureBuffers);
-        bool setVertexCoords(const GLfloat vertexCoords[]);
-        bool setTextureCoords(const GLfloat textureCoords[]);
+        bool setVertexCoords(const std::array<GLfloat, 12>& vertexCoords);
+        bool setTextureCoords(const std::array<GLfloat, 12>& textureCoords);
 
     private:
         //*NOTE* constructor overrides {}-Initialization (safety measure)
@@ -57,12 +58,12 @@ namespace Renderer
         GLsizei                         m_nVertex           {}; //n - number (of vertex arrays)
         GLsizei                         m_nVertexBuffers    {}; //n - number (of vertex buffers) *NUMBERS(of something) ARE GENERALLY CONSTANT, but not always.
         GLsizei                         m_nTextureBuffers   {}; //n - number (of texture buffers)
-        GLfloat                         m_vertexCoords[12]; //FIXME: change this to std::vector or smth else when 3D is coming
-        GLfloat                         m_textureCoords[12];
+        std::array<GLfloat, 12>         m_vertexCoords;         //12 cuz 2 * 3 vertexes in 2D is 12 coordinates
+        std::array<GLfloat, 12>         m_textureCoords;         //same
         //DEFAULT VALUES
         static constexpr GLsizei m_nVertexCoordsVertexesDefault = 6;  //number of vertexes by default (2D) in vertexCoords
         static constexpr GLsizei m_nTextureCoordsVertexesDefault = 6; //number of vertexes by default (2D) in textureCoords
-        const GLfloat m_defaultVertexCoords[m_nVertexCoordsVertexesDefault * 2] =
+        const std::array<GLfloat, m_nVertexCoordsVertexesDefault * 2> m_defaultVertexCoords =
             {
             // 2--3-  -1
             // | /   / |
@@ -82,7 +83,7 @@ namespace Renderer
             1.0f, 0.0f,
             0.0f, 0.0f
             };
-        const GLfloat m_defaultTextureCoords[m_nTextureCoordsVertexesDefault * 2] =
+        const std::array<GLfloat, m_nTextureCoordsVertexesDefault * 2> m_defaultTextureCoords =
         {
             // U  V
 

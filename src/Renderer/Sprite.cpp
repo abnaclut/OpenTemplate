@@ -38,13 +38,13 @@ namespace Renderer
         //TODO: pass everything by a variable(or &)
         glGenBuffers(nVertexBuffers, &m_vertexCoordsVBO);
         glBindBuffer(GL_ARRAY_BUFFER, m_vertexCoordsVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(m_defaultVertexCoords), m_defaultVertexCoords, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(m_defaultVertexCoords), m_defaultVertexCoords.data(), GL_STATIC_DRAW);
         glEnableVertexAttribArray(index);
         glVertexAttribPointer(0, vectorSize, GL_FLOAT, GL_FALSE, 0, nullptr);
         index++; // increment index for the next buffer.
         glGenBuffers(m_nTextureBuffers, &m_textureCoordsVBO);
         glBindBuffer(GL_ARRAY_BUFFER, m_textureCoordsVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(m_defaultTextureCoords), m_defaultTextureCoords, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(m_defaultTextureCoords), m_defaultTextureCoords.data(), GL_STATIC_DRAW);
         glEnableVertexAttribArray(index);
         glVertexAttribPointer(1, vectorSize, GL_FLOAT, GL_FALSE, 0, nullptr);
         //
@@ -182,33 +182,25 @@ namespace Renderer
         //hope your machine executes a = b properly
         return true;
     }
-    bool Sprite::setTextureCoords(const GLfloat textureCoords[])
+    bool Sprite::setTextureCoords(const std::array<GLfloat, 12>& textureCoords)
     {
-        if (!textureCoords)
+        if (textureCoords.data() == nullptr)
         {
             std::cerr << "ERROR: null texture coords!\n";
             return false;
         }
-        if (std::memmove(m_textureCoords, textureCoords, (m_nTextureCoordsVertexesDefault * sizeof(GLfloat))))
-        { return true; }
-        //if memmove failed
-        std::cout << "WARNING: texture coords were not assigned, expect issues!\n";
-        return false;
+        m_textureCoords = textureCoords; //since GLfloat is trivially copyable
+        return true;
     }
-    bool Sprite::setVertexCoords(const GLfloat vertexCoords[]) // NOLINT(*-convert-member-functions-to-static) //no it cannot be static.
+    bool Sprite::setVertexCoords(const std::array<GLfloat, 12>& vertexCoords) // NOLINT(*-convert-member-functions-to-static) //no it cannot be static.
     {
-        if (vertexCoords == nullptr)
+        if (vertexCoords.data() == nullptr)
         {
             std::cerr << "ERROR: null vertex coords!\n";
             return false;
         }
-        else
-        {
-            if (std::memmove(m_vertexCoords, vertexCoords, (m_nVertexCoordsVertexesDefault * sizeof(GLfloat)))) { return true; }
-            // in this case a non-null pointer evaluates to true, nullptr == false
-        }
-        std::cout << "WARNING: vertex coords were not assigned, expect issues!\n";
-        return false;
+        m_vertexCoords = vertexCoords; //since GLfloat is trivially copyable
+        return true;
     }
 
 }

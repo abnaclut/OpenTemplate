@@ -129,7 +129,7 @@ std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string
         std::cerr << "Sprite width or height is zero!" << "\n";
         return nullptr;
     }
-
+//FIXME finish this tomorrow
     std::shared_ptr<Renderer::Texture2D> pTexture = getTexture(textureName);
     //Error-check
     if (pTexture == nullptr)
