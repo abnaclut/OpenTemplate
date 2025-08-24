@@ -202,5 +202,4 @@ namespace Renderer
         m_vertexCoords = vertexCoords; //since GLfloat is trivially copyable
         return true;
     }
-
 }
