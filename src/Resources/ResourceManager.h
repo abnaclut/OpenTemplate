@@ -28,10 +28,10 @@ namespace Renderer
 class ResourceManager
     {
 public:
-    static void setExecutablePath(const std::string& executablePath);
-    static std::string getExecutablePath();
-    static void unloadAllResources();
-    static void unloadResource(const std::string& resourceName);
+    void setExecutablePath(const std::string& executablePath);
+    std::string getExecutablePath();
+    void unloadAllResources();
+    void unloadResource(const std::string& resourceName);
 
     explicit ResourceManager(const std::string& executablePath);
     ~ResourceManager() = default;

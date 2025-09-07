@@ -59,8 +59,7 @@ std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std:
             << "Vertex: " << vertexPath << "\n"
             << "Fragment: " << fragmentPath << "\n";
         return nullptr;
-};
-
+}
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::getShader(const std::string& shaderName)
 {
     if (shaderName.empty()) { std::cerr << "Error empty shader name, cannot get Shader!" << std::endl; }
@@ -101,7 +100,6 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::str
     stbi_image_free(pixels);
     return newTexture;
 }
-
 std::shared_ptr<Renderer::Texture2D> ResourceManager::getTexture(const std::string& textureName)
 {
     if (const auto it = m_textures.find(textureName); it != m_textures.end())
@@ -110,7 +108,7 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::getTexture(const std::stri
     }
         std::cerr << "Texture not found: " << textureName << "\n";
         return nullptr;
-};
+}
 
 std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string& spriteName,
                                                  const std::string& textureName,
@@ -144,7 +142,7 @@ std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string
         std::cerr << "Shader not found: " << shaderName << "\n";
     }
     return nullptr;
-};
+}
 std::shared_ptr<Renderer::Sprite> ResourceManager::getSprite (const std::string& spriteName)
 {
     if (const auto it = m_sprites.find(spriteName); it != m_sprites.end())
@@ -153,4 +151,26 @@ std::shared_ptr<Renderer::Sprite> ResourceManager::getSprite (const std::string&
     }
     std::cerr << "Sprite not found: " << spriteName << "\n";
     return nullptr;
-};
+}
+
+void ResourceManager::setExecutablePath(const std::string& executablePath)
+{
+    m_path = executablePath;
+}
+
+std::string ResourceManager::getExecutablePath() { return m_path; }
+
+//Could be used for delegation but cmon, only 3 resources so far.
+// ReSharper disable once CppMemberFunctionMayBeStatic
+void ResourceManager::unloadResource(const std::string& resourceName)
+{
+    //FIXME: implement me
+}
+
+void ResourceManager::unloadAllResources()
+{
+    //FIXME: IMPLEMENT DELEGATION IF REQUIRED!
+    m_shaderPrograms.clear();
+    m_textures.clear();
+    m_sprites.clear();
+}
