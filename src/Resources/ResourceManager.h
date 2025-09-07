@@ -1,6 +1,8 @@
 #pragma once
+
 #ifndef RESOURCE_MANAGER_H
 #define RESOURCE_MANAGER_H
+
 #include "ResourceManager.h"
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Texture2D.h"
@@ -26,9 +28,16 @@ namespace Renderer
 class ResourceManager
     {
 public:
-        explicit ResourceManager(const std::string& executablePath);
+    static void setExecutablePath(const std::string& executablePath);
+    static std::string getExecutablePath();
+    static void unloadAllResources();
+    static void unloadResource(const std::string& resourceName);
+
+    explicit ResourceManager(const std::string& executablePath);
     ~ResourceManager() = default;
-    //NOT ALLOWING COPY or ASSIGMENT, this class should actually be a singleton class
+
+    //NOT ALLOWING COPY & ASSIGMENT, this class should actually be a singleton class
+
     ResourceManager(const ResourceManager&) = delete;
     ResourceManager& operator=(const ResourceManager&) = delete;
     ResourceManager& operator=(ResourceManager&&) = delete;
@@ -38,6 +47,7 @@ public:
     std::shared_ptr<Renderer::ShaderProgram> getShader (const std::string& shaderName);
     std::shared_ptr<Renderer::Texture2D> loadTexture(const std::string& textureName, const std::string& texturePath);
     std::shared_ptr<Renderer::Texture2D> getTexture (const std::string& textureName);
+
     std::shared_ptr<Renderer::Sprite> loadSprite (const std::string& spriteName,
                                                  const std::string& textureName,
                                                  const std::string& shaderName,
@@ -45,6 +55,7 @@ public:
                                                  unsigned int spriteHeight);
     std::shared_ptr<Renderer::Sprite> getSprite (const std::string& spriteName);
 
+    //TODO: add textureAtlas + JSONs!!!
     private:
         [[nodiscard]] std::string getFileString(const std::string& relativeFilePath) const;
 
