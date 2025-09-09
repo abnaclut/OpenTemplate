@@ -61,10 +61,8 @@ public:
 
         typedef std::map<const std::string, std::shared_ptr<Renderer::ShaderProgram>> ShaderProgramsMap;
         ShaderProgramsMap m_shaderPrograms;
-
         typedef std::map<const std::string, std::shared_ptr<Renderer::Texture2D>> TexturesMap;
         TexturesMap m_textures;
-
         typedef std::map<const std::string, std::shared_ptr<Renderer::Sprite>> SpritesMap;
         SpritesMap m_sprites;
 

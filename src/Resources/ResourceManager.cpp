@@ -48,7 +48,7 @@ std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std:
         std::cerr << "No Fragment Shader!" << std::endl;
         return nullptr;
     }
-
+    //NOTE: implementation
     std::shared_ptr<Renderer::ShaderProgram>& newShader = m_shaderPrograms.emplace(
         shaderName, std::make_shared<Renderer::ShaderProgram>(vertexString, fragmentString)).first->second;
     if (newShader->isCompiled())
@@ -78,22 +78,24 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::str
         return nullptr;
     }
 
+    //nullified to remove trash.
     int channels = 0;
     int width = 0;
     int height = 0;
 
     stbi_set_flip_vertically_on_load(true);
     auto fullPath = std::filesystem::path(texturePath);
-    unsigned char* pixels = stbi_load(texturePath.c_str(), &width, &height, &channels, 0);
+    //FIXME: probably undefined behaviour, fix me pls.
+    auto pixels = reinterpret_cast<char*>(stbi_load(texturePath.c_str(), &width, &height, &channels, 0));
     if (pixels == nullptr)
     {
         std::cerr << "Failed to load texture: " << texturePath << std::endl;
         return nullptr;
     };
-
+    //move filter, wrapMode to vars.
     std::shared_ptr<Renderer::Texture2D> newTexture = m_textures.emplace(textureName,std::make_shared<Renderer::Texture2D>(width,
                                                                                                                              height,
-                                                                                                                             reinterpret_cast<const char*>(pixels),
+                                                                                                                             pixels,
                                                                                                                              channels,
                                                                                                                              GL_NEAREST,
                                                                                                                              GL_CLAMP_TO_EDGE)).first->second;
