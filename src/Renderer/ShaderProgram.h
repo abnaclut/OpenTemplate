@@ -7,7 +7,7 @@
 #endif //SHADER_PROGRAM_H
 
 
-namespace Renderer
+namespace RenderEngine
 {
     class ShaderProgram
     {

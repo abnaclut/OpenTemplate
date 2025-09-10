@@ -181,6 +181,54 @@ glm/fast:
 	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/build
 .PHONY : glm/fast
 
+src/Renderer/IndexBuffer.o: src/Renderer/IndexBuffer.cpp.o
+.PHONY : src/Renderer/IndexBuffer.o
+
+# target to build an object file
+src/Renderer/IndexBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/IndexBuffer.cpp.o
+.PHONY : src/Renderer/IndexBuffer.cpp.o
+
+src/Renderer/IndexBuffer.i: src/Renderer/IndexBuffer.cpp.i
+.PHONY : src/Renderer/IndexBuffer.i
+
+# target to preprocess a source file
+src/Renderer/IndexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/IndexBuffer.cpp.i
+.PHONY : src/Renderer/IndexBuffer.cpp.i
+
+src/Renderer/IndexBuffer.s: src/Renderer/IndexBuffer.cpp.s
+.PHONY : src/Renderer/IndexBuffer.s
+
+# target to generate assembly for a file
+src/Renderer/IndexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/IndexBuffer.cpp.s
+.PHONY : src/Renderer/IndexBuffer.cpp.s
+
+src/Renderer/Renderer.o: src/Renderer/Renderer.cpp.o
+.PHONY : src/Renderer/Renderer.o
+
+# target to build an object file
+src/Renderer/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Renderer.cpp.o
+.PHONY : src/Renderer/Renderer.cpp.o
+
+src/Renderer/Renderer.i: src/Renderer/Renderer.cpp.i
+.PHONY : src/Renderer/Renderer.i
+
+# target to preprocess a source file
+src/Renderer/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Renderer.cpp.i
+.PHONY : src/Renderer/Renderer.cpp.i
+
+src/Renderer/Renderer.s: src/Renderer/Renderer.cpp.s
+.PHONY : src/Renderer/Renderer.s
+
+# target to generate assembly for a file
+src/Renderer/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Renderer.cpp.s
+.PHONY : src/Renderer/Renderer.cpp.s
+
 src/Renderer/ShaderProgram.o: src/Renderer/ShaderProgram.cpp.o
 .PHONY : src/Renderer/ShaderProgram.o
 
@@ -252,6 +300,78 @@ src/Renderer/Texture2D.s: src/Renderer/Texture2D.cpp.s
 src/Renderer/Texture2D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/Texture2D.cpp.s
 .PHONY : src/Renderer/Texture2D.cpp.s
+
+src/Renderer/VertexArray.o: src/Renderer/VertexArray.cpp.o
+.PHONY : src/Renderer/VertexArray.o
+
+# target to build an object file
+src/Renderer/VertexArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexArray.cpp.o
+.PHONY : src/Renderer/VertexArray.cpp.o
+
+src/Renderer/VertexArray.i: src/Renderer/VertexArray.cpp.i
+.PHONY : src/Renderer/VertexArray.i
+
+# target to preprocess a source file
+src/Renderer/VertexArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexArray.cpp.i
+.PHONY : src/Renderer/VertexArray.cpp.i
+
+src/Renderer/VertexArray.s: src/Renderer/VertexArray.cpp.s
+.PHONY : src/Renderer/VertexArray.s
+
+# target to generate assembly for a file
+src/Renderer/VertexArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexArray.cpp.s
+.PHONY : src/Renderer/VertexArray.cpp.s
+
+src/Renderer/VertexBuffer.o: src/Renderer/VertexBuffer.cpp.o
+.PHONY : src/Renderer/VertexBuffer.o
+
+# target to build an object file
+src/Renderer/VertexBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexBuffer.cpp.o
+.PHONY : src/Renderer/VertexBuffer.cpp.o
+
+src/Renderer/VertexBuffer.i: src/Renderer/VertexBuffer.cpp.i
+.PHONY : src/Renderer/VertexBuffer.i
+
+# target to preprocess a source file
+src/Renderer/VertexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexBuffer.cpp.i
+.PHONY : src/Renderer/VertexBuffer.cpp.i
+
+src/Renderer/VertexBuffer.s: src/Renderer/VertexBuffer.cpp.s
+.PHONY : src/Renderer/VertexBuffer.s
+
+# target to generate assembly for a file
+src/Renderer/VertexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexBuffer.cpp.s
+.PHONY : src/Renderer/VertexBuffer.cpp.s
+
+src/Renderer/VertexBufferLayout.o: src/Renderer/VertexBufferLayout.cpp.o
+.PHONY : src/Renderer/VertexBufferLayout.o
+
+# target to build an object file
+src/Renderer/VertexBufferLayout.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexBufferLayout.cpp.o
+.PHONY : src/Renderer/VertexBufferLayout.cpp.o
+
+src/Renderer/VertexBufferLayout.i: src/Renderer/VertexBufferLayout.cpp.i
+.PHONY : src/Renderer/VertexBufferLayout.i
+
+# target to preprocess a source file
+src/Renderer/VertexBufferLayout.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexBufferLayout.cpp.i
+.PHONY : src/Renderer/VertexBufferLayout.cpp.i
+
+src/Renderer/VertexBufferLayout.s: src/Renderer/VertexBufferLayout.cpp.s
+.PHONY : src/Renderer/VertexBufferLayout.s
+
+# target to generate assembly for a file
+src/Renderer/VertexBufferLayout.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Renderer/VertexBufferLayout.cpp.s
+.PHONY : src/Renderer/VertexBufferLayout.cpp.s
 
 src/Resources/ResourceManager.o: src/Resources/ResourceManager.cpp.o
 .PHONY : src/Resources/ResourceManager.o
@@ -338,6 +458,12 @@ help:
 	@echo "... glad"
 	@echo "... glfw"
 	@echo "... glm"
+	@echo "... src/Renderer/IndexBuffer.o"
+	@echo "... src/Renderer/IndexBuffer.i"
+	@echo "... src/Renderer/IndexBuffer.s"
+	@echo "... src/Renderer/Renderer.o"
+	@echo "... src/Renderer/Renderer.i"
+	@echo "... src/Renderer/Renderer.s"
 	@echo "... src/Renderer/ShaderProgram.o"
 	@echo "... src/Renderer/ShaderProgram.i"
 	@echo "... src/Renderer/ShaderProgram.s"
@@ -347,6 +473,15 @@ help:
 	@echo "... src/Renderer/Texture2D.o"
 	@echo "... src/Renderer/Texture2D.i"
 	@echo "... src/Renderer/Texture2D.s"
+	@echo "... src/Renderer/VertexArray.o"
+	@echo "... src/Renderer/VertexArray.i"
+	@echo "... src/Renderer/VertexArray.s"
+	@echo "... src/Renderer/VertexBuffer.o"
+	@echo "... src/Renderer/VertexBuffer.i"
+	@echo "... src/Renderer/VertexBuffer.s"
+	@echo "... src/Renderer/VertexBufferLayout.o"
+	@echo "... src/Renderer/VertexBufferLayout.i"
+	@echo "... src/Renderer/VertexBufferLayout.s"
 	@echo "... src/Resources/ResourceManager.o"
 	@echo "... src/Resources/ResourceManager.i"
 	@echo "... src/Resources/ResourceManager.s"

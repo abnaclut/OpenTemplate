@@ -2,36 +2,56 @@
 #ifndef TEXTURE_2D_H
 #define TEXTURE_2D_H
 #include <glad/glad.h>
+#include <glm/vec2.hpp>
+#include <map>
+#include <string>
 #endif //TEXTURE_2D_H
 
-namespace Renderer
+namespace RenderEngine
 {
     class Texture2D
     {
     public:
+        struct SubTexture2D
+        {
+            glm::vec2 leftBottomUV;
+            glm::vec2 rightTopUV;
+
+            SubTexture2D(const glm::vec2& _leftBottomUV, const glm::vec2& _rightTopUV)
+                : leftBottomUV(_leftBottomUV)
+                , rightTopUV(_rightTopUV)
+            {}
+
+            SubTexture2D(): leftBottomUV(0.f), rightTopUV(1.f) {}
+        };
+        //TODO: pass filter and wrapMode by variables
         Texture2D(
             GLuint width,
             GLuint height,
-            const char* data,
+            const unsigned char* data,
             unsigned int channels = 4,
-            const GLenum filter = GL_LINEAR,
-            const GLenum wrapMode = GL_CLAMP_TO_EDGE);
+            GLenum filter = GL_LINEAR,
+            GLenum wrapMode = GL_CLAMP_TO_EDGE);
+
         Texture2D() = delete;
         Texture2D(const Texture2D&) = delete;
         Texture2D& operator=(const Texture2D&) = delete;
-        Texture2D& operator=(Texture2D&&) noexcept;
+        Texture2D& operator=(Texture2D&& texture2d) noexcept;
         Texture2D(Texture2D&& texture2d) noexcept;
-
-        void bind(GLuint slot = 0) const;
-
-
         ~Texture2D();
+
+        static void addSubTexture(std::string& name, const glm::vec2& leftBottomUV, const glm::vec2& rightTopUV);
+        static const SubTexture2D& getSubTexture(const std::string& name) ;
+        [[nodiscard]] unsigned int width() const { return m_width; }
+        [[nodiscard]] unsigned int height() const { return m_height; }
+        void bind() const;
+
     private:
-        GLuint m_textureID = 0;
-        GLuint m_width = 0;
-        GLuint m_height = 0;
+        GLuint m_ID{};
         GLenum m_mode;
-        GLenum m_filter = GL_NEAREST;
-        GLenum m_wrapMode = GL_CLAMP_TO_EDGE;
+        unsigned int m_width;
+        unsigned int m_height;
+
+        static std::map<std::string, SubTexture2D> m_subTextures;
     };
 }

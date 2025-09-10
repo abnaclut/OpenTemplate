@@ -4,7 +4,7 @@
 #include <ostream>
 #include <glm/gtc/type_ptr.hpp>
 
-namespace Renderer
+namespace RenderEngine
 {
     //CONSTRUCTORS
     ShaderProgram::ShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)

@@ -6,50 +6,56 @@
 #include "glm/mat4x4.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-namespace Renderer
+namespace RenderEngine
 {
-    Sprite::Sprite(std::shared_ptr<Texture2D>       pTexture,
-                   std::shared_ptr<ShaderProgram>   pShaderProgram,
-                   const glm::vec2&                 position,
-                   const glm::vec2&                 size,
-                   const float                      rotation,
-                   const GLuint                     VAO,
-                   const GLsizei                    nVertex,          //n - number (of vertex arrays)
-                   const GLsizei                    nVertexBuffers,   //n - number (of vertex buffers)
-                   const GLsizei                    nTextureBuffers   //n - number (of texture buffers)
-                   )
+    Sprite::Sprite(std::shared_ptr<Texture2D> pTexture,
+                   std::string initialSubTexture,
+                   std::shared_ptr<ShaderProgram> pShaderProgram)
+        : m_pTexture(std::move(pTexture))
+        , m_pShaderProgram(std::move(pShaderProgram))
+        , m_lastFrameId(0)
     {
-        //INITIALIZE FIELDS
-        setTexture(std::move(pTexture)); //move the texture to the sprite, so it can be deleted when the sprite is deleted, prevents unnecessary copying.
-        setShaderProgram(std::move(pShaderProgram)); //move the shader program to the sprite, so it can be deleted when the sprite is deleted, prevents unnecessary copying.
-        setPosition(position);
-        setSize(size);
-        setRotation(rotation);
-        setVAO(VAO);
-        setNVertex(nVertex);
-        setNVertexBuffers(nVertexBuffers);
-        setNTextureBuffers(nTextureBuffers);
-        //TEMP
-        int index = 0;
-        int vectorSize = 2;
-        //GENERATE STUFF
-        glGenVertexArrays(nVertex, &m_VAO);
-        glBindVertexArray(m_VAO);
-        //TODO: pass everything by a variable(or &)
-        glGenBuffers(nVertexBuffers, &m_vertexCoordsVBO);
-        glBindBuffer(GL_ARRAY_BUFFER, m_vertexCoordsVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(m_defaultVertexCoords), m_defaultVertexCoords.data(), GL_STATIC_DRAW);
-        glEnableVertexAttribArray(index);
-        glVertexAttribPointer(0, vectorSize, GL_FLOAT, GL_FALSE, 0, nullptr);
-        index++; // increment index for the next buffer.
-        glGenBuffers(m_nTextureBuffers, &m_textureCoordsVBO);
-        glBindBuffer(GL_ARRAY_BUFFER, m_textureCoordsVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(m_defaultTextureCoords), m_defaultTextureCoords.data(), GL_STATIC_DRAW);
-        glEnableVertexAttribArray(index);
-        glVertexAttribPointer(1, vectorSize, GL_FLOAT, GL_FALSE, 0, nullptr);
-        //
-        glBindBuffer(GL_ARRAY_BUFFER, 0); //bind default buffer upon ending generating.
-        glBindVertexArray(0); //bind default VAO upon ending generating.
+        const GLfloat vertexCoords[] = {
+            // 1---2
+            // | / |
+            // 0  -3
+
+            // X  Y
+            0.f, 0.f,
+            0.f, 1.f,
+            1.f, 1.f,
+            1.f, 0.f
+        };
+
+        auto subTexture = m_pTexture->getSubTexture(std::move(initialSubTexture));
+
+        const GLfloat textureCoords[] = {
+            // U  V
+            subTexture.leftBottomUV.x, subTexture.leftBottomUV.y,
+            subTexture.leftBottomUV.x, subTexture.rightTopUV.y,
+            subTexture.rightTopUV.x,   subTexture.rightTopUV.y,
+            subTexture.rightTopUV.x,   subTexture.leftBottomUV.y,
+        };
+
+        const GLuint indices[] = {
+            0, 1, 2,
+            2, 3, 0
+        };
+
+        m_vertexCoordsBuffer.init(vertexCoords, 2 * 4 * sizeof(GLfloat));
+        VertexBufferLayout vertexCoordsLayout;
+        vertexCoordsLayout.addElementLayoutFloat(2, false);
+        m_vertexArray.addBuffer(m_vertexCoordsBuffer, vertexCoordsLayout);
+
+        m_textureCoordsBuffer.init(textureCoords, 2 * 4 * sizeof(GLfloat));
+        VertexBufferLayout textureCoordsLayout;
+        textureCoordsLayout.addElementLayoutFloat(2, false);
+        m_vertexArray.addBuffer(m_textureCoordsBuffer, textureCoordsLayout);
+
+        m_indexBuffer.init(indices, 6);
+
+        m_vertexArray.unbind();
+        m_indexBuffer.unbind();
     }
 
     Sprite::~Sprite()
@@ -59,147 +65,106 @@ namespace Renderer
         glDeleteBuffers(m_nTextureBuffers, &m_textureCoordsVBO);
     }
     // ReSharper disable once CppMemberFunctionMayBeStatic
-    bool Sprite::render() const // NOLINT(*-convert-member-functions-to-static)
+    void Sprite::render(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer, const size_t frameId) const
     {
+        if (m_lastFrameId != frameId)
+        {
+            m_lastFrameId = frameId;
+            const FrameDescription& currentFrameDescription = m_framesDescriptions[frameId];
+
+            const GLfloat textureCoords[] = {
+                // U  V
+                currentFrameDescription.leftBottomUV.x, currentFrameDescription.leftBottomUV.y,
+                currentFrameDescription.leftBottomUV.x, currentFrameDescription.rightTopUV.y,
+                currentFrameDescription.rightTopUV.x,   currentFrameDescription.rightTopUV.y,
+                currentFrameDescription.rightTopUV.x,   currentFrameDescription.leftBottomUV.y,
+            };
+
+            m_textureCoordsBuffer.update(textureCoords, 2 * 4 * sizeof(GLfloat));
+        }
+
         m_pShaderProgram->use();
 
-        auto model = glm::mat4(1.0f);
+        glm::mat4 model(1.f);
+        model = glm::translate(model, glm::vec3(position, 0.f));
+        model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.f, 0.f, 1.f));
+        model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.f));
+        model = glm::scale(model, glm::vec3(size, 1.f));
 
-        model = glm::translate(model, glm::vec3(m_position, 0.0f));
-        model = glm::translate(model, glm::vec3(0.5f * m_size.x,0.5f * m_size.y, 0.0f));
-        model = glm::rotate(model, glm::radians(m_rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-        model = glm::translate(model, glm::vec3(-0.5f * m_size.x, -0.5f * m_size.y ,0.0f));
-        model = glm::scale(model, glm::vec3(m_size, 1.0f));
-
-        glBindVertexArray(m_VAO);
-        m_pShaderProgram->setMatrix4("model", model);
+        m_pShaderProgram->setMatrix4("modelMat", model);
+        m_pShaderProgram->setFloat("layer", layer);
 
         glActiveTexture(GL_TEXTURE0);
         m_pTexture->bind();
 
-        glDrawArrays(GL_TRIANGLES, 0, m_nVertex);
-        glBindVertexArray(0);
-
-        return true;
+        RenderEngine::draw(m_vertexArray, m_indexBuffer, *m_pShaderProgram);
     }
 
     //SETTERS
-    bool Sprite::setTexture(std::shared_ptr<Texture2D> pTexture)
+    void Sprite::setTexture(std::shared_ptr<Texture2D> pTexture)
     {
         //move the texture to the sprite, so it can be deleted when the sprite is deleted, prevents unnecessary copying.
-        if (pTexture == nullptr)
-        {
-            std::cerr << "ERROR: null texture pointer!\n";
-            return false;
-        }
+        if (pTexture == nullptr) { std::cerr << "ERROR: null texture pointer!\n"; }
         m_pTexture = std::move(pTexture);
-        if (m_pTexture == pTexture) { return true; } // Better safe than teeny tiny little performance optimization.
-        std::cout << "WARNING: Texture was not assigned, expect issues!\n";
-        return false;
     }
-    bool Sprite::setShaderProgram(std::shared_ptr<ShaderProgram> pShaderProgram)
+    void Sprite::setShaderProgram(std::shared_ptr<ShaderProgram> pShaderProgram)
     {
-        if (pShaderProgram == nullptr)
-        {
-            std::cerr << "ERROR: null shader pointer!\n";
-            return false;
-        }
+        if (pShaderProgram == nullptr) { std::cerr << "ERROR: null shader pointer!\n"; }
         m_pShaderProgram = std::move(pShaderProgram);
-        if (m_pShaderProgram == pShaderProgram) { return true; } // Better safe than teeny tiny little performance optimization.
-        std::cout << "WARNING: Shader program was not assigned, expect issues!\n";
-        return false;
     }
-    bool Sprite::setPosition(const glm::vec2& position)
+    void Sprite::setPosition(const glm::vec2& position)
     {
         //FIXME: add out of bounds checks.
         m_position = position;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setSize(const glm::vec2& size)
+    void Sprite::setSize(const glm::vec2& size)
     {
-        if (size.x == 0 || size.y == 0)
-        {
-            std::cerr << "WARNING: zero sized sprite!\n";
-            return false;
-        }
+        if (size.x == 0) { std::cerr << "WARNING: zero size (x) sprite!\n"; }
+        if (size.y == 0) { std::cerr << "WARNING: zero size (y) sprite!\n"; }
         m_size = size;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setRotation(const float rotation)
+
+    void Sprite::setRotation(const float rotation)
     {
-        if (rotation == 0)
-        {
-            std::cerr << "WARNING: zero rotation!\n"; //Why would anyone do this anyway, and yet, someone will?
-            return false;  // Well, it is technically correct with rot==0, make it return true if you want it to.
-        }
+        if (rotation == 0) { std::cout << "WARNING? : zero rotation! (Might be unintended, ignore otherwise)\n"; }
         m_rotation = rotation;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setVAO(const GLuint VAO)
+
+    void Sprite::setVAO(const GLuint VAO)
     {
-        if (VAO == 0)
-        {
-            std::cerr << "ERROR: null VAO!\n";
-            return false;
-        }
+        if (VAO == 0) { std::cerr << "Warning: null VAO!\n"; }
         m_VAO = VAO;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setNVertex(const GLsizei nVertex)
+
+    void Sprite::setNVertex(const GLsizei nVertex)
     {
-        if (nVertex == 0)
-        {
-            std::cerr << "ERROR: null nVertex!\n";
-            return false;
-        }
+        if (nVertex == 0) { std::cerr << "Warning: 0 Vertexes!\n"; }
         m_nVertex = nVertex;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setNVertexBuffers(const GLsizei nVertexBuffers)
+
+    void Sprite::setNVertexBuffers(const GLsizei nVertexBuffers)
     {
         if (nVertexBuffers == 0)
-        {
-            std::cerr << "ERROR: null nVertexBuffers!\n";
-            return false;
-        }
+        { std::cerr << "Warning: 0 Vertex Buffers!\n"; }
         m_nVertexBuffers = nVertexBuffers;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setNTextureBuffers(const GLsizei nTextureBuffers)
+
+    void Sprite::setNTextureBuffers(const GLsizei nTextureBuffers)
     {
-        if (nTextureBuffers == 0)
-        {
-            std::cerr << "ERROR: null nTextureBuffers!\n";
-            return false;
-        }
+        if (nTextureBuffers == 0) { std::cerr << "Warning: 0 Texture Buffers!\n"; }
         m_nTextureBuffers = nTextureBuffers;
-        //hope your machine executes a = b properly
-        return true;
     }
-    bool Sprite::setTextureCoords(const std::array<GLfloat, 12>& textureCoords)
+
+    void Sprite::setTextureCoords(const std::array<GLfloat, 12>& textureCoords)
     {
-        if (textureCoords.data() == nullptr)
-        {
-            std::cerr << "ERROR: null texture coords!\n";
-            return false;
-        }
-        m_textureCoords = textureCoords; //since GLfloat is trivially copyable
-        return true;
+        if (textureCoords.data() == nullptr) { std::cerr << "Warning: null texture coords!\n"; }
+        m_textureCoords = textureCoords;
     }
-    bool Sprite::setVertexCoords(const std::array<GLfloat, 12>& vertexCoords) // NOLINT(*-convert-member-functions-to-static) //no it cannot be static.
+
+    void Sprite::setVertexCoords(const std::array<GLfloat, 12>& vertexCoords) // NOLINT(*-convert-member-functions-to-static) //no it cannot be static.
     {
-        if (vertexCoords.data() == nullptr)
-        {
-            std::cerr << "ERROR: null vertex coords!\n";
-            return false;
-        }
-        m_vertexCoords = vertexCoords; //since GLfloat is trivially copyable
-        return true;
+        if (vertexCoords.data() == nullptr){ std::cerr << "Warning: null vertex coords!\n"; }
+        m_vertexCoords = vertexCoords;
     }
 }

@@ -92,7 +92,9 @@ namespace tools
             //TODO: error logs (change if other errors are expected)
             std::cout << "EMPTY ARGUMENT passed to initLog()!\n";
         }
-        //noone is going to pass nullptr into this, right? hope so.
+        //else
+        std::cerr << Function.c_str() << " Has no logging implemented! (yet)\n";
+        //noone is going to pass nullptr, right? hope so.
     };
     template<typename T>
     T AssignArray(T* dest, T* src, size_t size, bool canOverlap)
