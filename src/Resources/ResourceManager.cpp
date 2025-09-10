@@ -29,7 +29,9 @@ std::string ResourceManager::getFileString(const std::string& relativeFilePath) 
 }
 
 //CHECK RETURN VALUE FOR NULLPTR! ERRORS or MISUSE RETURNS NULLPTR! (supposed to return)
-std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std::string& shaderName, const std::string& vertexPath, const std::string& fragmentPath)
+std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std::string& shaderName,
+                                                                      const std::string& vertexPath,
+                                                                      const std::string& fragmentPath)
 {
     //error checks
     if (shaderName.empty())   { std::cerr << "Error empty shader name!" << std::endl; return nullptr; }
@@ -56,28 +58,28 @@ std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std:
         return nullptr;
     //NOTE: ADD ELSE BRACKETS IF EXPANDING
 }
+
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::getShader(const std::string& shaderName)
 {
-    if (shaderName.empty()) { std::cerr << "Error empty shader name, cannot get Shader!" << std::endl; }
-    if (const auto it = m_shaderPrograms.find(shaderName); it != m_shaderPrograms.end())
-    {
-        return it->second;
-    }
-        std::cerr << "Shader not found: " << shaderName << std::endl;
-        return nullptr;
+    //error check
+    if (shaderName.empty()) { std::cerr << "Error empty shader name, cannot get Shader!" << "\n"; return nullptr; }
+    //success check
+    if (const auto it = m_shaderPrograms.find(shaderName); it != m_shaderPrograms.end()) { return it->second; }
+    //else
+    std::cerr << "Shader not found: " << shaderName << "\n";
+    return nullptr;
 }
 
-std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::string& textureName, const std::string& texturePath)
+std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::string& textureName,
+                                                                  const std::string& texturePath)
 {
-    if (textureName.empty() || texturePath.empty()) {
-        std::cerr << "Texture name or path is empty" << std::endl;
-        return nullptr;
-    }
+    if (textureName.empty()) { std::cerr << "Texture name is empty" << "\n"; return nullptr; }
+    if (texturePath.empty()) { std::cerr << "Texture path is empty" << "\n"; return nullptr; }
 
     //nullified to remove trash.
     int channels = 0;
-    int width = 0;
-    int height = 0;
+    int width    = 0;
+    int height   = 0;
 
     //flipped since gl draws from bottom left
     stbi_set_flip_vertically_on_load(true);
@@ -85,12 +87,12 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::str
     auto fullPath = std::filesystem::path(texturePath);
 
     //FIXME: probably undefined behaviour, fix me pls.
-    auto pixels = reinterpret_cast<char*>(stbi_load(texturePath.c_str(), &width, &height, &channels, 0));
-    if (pixels == nullptr)
-    {
-        std::cerr << "Failed to load texture: " << texturePath << std::endl;
-        return nullptr;
-    };
+    auto pixels = reinterpret_cast<char*>(stbi_load(texturePath.c_str(),
+                                                    &width,
+                                                    &height,
+                                                    &channels,
+                                                    0));
+    if (pixels == nullptr) { std::cerr << "Failed to load texture: " << texturePath << "\n"; return nullptr; }
     //TODO: move filter, wrapMode vars somewhere.
     auto filter = GL_NEAREST;
     auto wrapMode = GL_CLAMP_TO_EDGE;
@@ -103,14 +105,14 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::str
     stbi_image_free(pixels);
     return newTexture;
 }
+
 std::shared_ptr<Renderer::Texture2D> ResourceManager::getTexture(const std::string& textureName)
 {
-    if (const auto it = m_textures.find(textureName); it != m_textures.end())
-    {
-        return it->second;
-    }
-        std::cerr << "Texture not found: " << textureName << "\n";
-        return nullptr;
+    //success check
+    if (const auto it = m_textures.find(textureName); it != m_textures.end()) { return it->second; }
+    //else
+    std::cerr << "Texture not found: " << textureName << "\n";
+    return nullptr;
 }
 
 std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string& spriteName,
@@ -120,16 +122,11 @@ std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string
                                                  unsigned int spriteHeight)
 {
     //Error-checks
-    if (spriteName.empty() || textureName.empty() || shaderName.empty())
-    {
-        std::cerr << "Sprite, texture or shader name is empty!" << "\n";
-        return nullptr;
-    }
-    if (spriteWidth == 0 || spriteHeight == 0)
-    {
-        std::cerr << "Zero sprite Width or Height!" << "\n";
-        return nullptr;
-    }
+    if (spriteName.empty())  { std::cerr << "Sprite name is empty!"  << "\n"; return nullptr; }
+    if (textureName.empty()) { std::cerr << "Texture name is empty!" << "\n"; return nullptr; }
+    if (shaderName.empty())  { std::cerr << "Shader name is empty!"  << "\n"; return nullptr; }
+    if (spriteWidth == 0)    { std::cerr << "Zero sprite Width!"     << "\n"; return nullptr; }
+    if (spriteHeight == 0)   { std::cerr << "Zero sprite Height!"    << "\n"; return nullptr; }
 //FIXME finish this tomorrow
     std::shared_ptr<Renderer::Texture2D> pTexture = getTexture(textureName);
     //Error-check
