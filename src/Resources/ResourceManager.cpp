@@ -7,58 +7,54 @@
 
 ResourceManager::ResourceManager(const std::string& executablePath)
 {
-    if (executablePath.empty()) { std::cerr << "Error empty executable path!" << std::endl; }
+    if (executablePath.empty()) { std::cerr << "Error empty executable path!" << "\n"; return; }
     const size_t lastSlash = executablePath.find_last_of("/\\");
     m_path = executablePath.substr(0, lastSlash);
 }
 
 std::string ResourceManager::getFileString(const std::string& relativeFilePath) const
 {
-    if (relativeFilePath.empty()) { std::cerr << "Error empty relative path!" << std::endl; }
+    //error check
+    if (relativeFilePath.empty()) { std::cerr << "Error empty relative path!" << "\n"; return {}; }
+
     std::filesystem::path fullPath = std::filesystem::path(m_path) / relativeFilePath;
     std::ifstream f(fullPath, std::ios::in | std::ios::binary);
-    if (!f.is_open())
-    {
-        std::cerr << "Error: failed to open path: " << fullPath << std::endl;
-        return {};
-    }
 
-    std::string content((std::istreambuf_iterator<char>(f)),
-                         std::istreambuf_iterator<char>());
+    //error check
+    if (!f.is_open()) { std::cerr << "Error: failed to open path: " << fullPath << std::endl; return {}; }
+
+    std::string content((std::istreambuf_iterator(f)), std::istreambuf_iterator<char>());
     f.close();
     return content;
 }
 
+//CHECK RETURN VALUE FOR NULLPTR! ERRORS or MISUSE RETURNS NULLPTR! (supposed to return)
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std::string& shaderName, const std::string& vertexPath, const std::string& fragmentPath)
 {
     //error checks
-    if (shaderName.empty())   { std::cerr << "Error empty shader name!" << std::endl; }
-    if (vertexPath.empty())   { std::cerr << "Error empty vertex path!" << std::endl; }
-    if (fragmentPath.empty()) { std::cerr << "Error empty fragment path!" << std::endl; }
-    //checks for empty shader
+    if (shaderName.empty())   { std::cerr << "Error empty shader name!" << std::endl; return nullptr; }
+    if (vertexPath.empty())   { std::cerr << "Error empty vertex path!" << std::endl; return nullptr; }
+    if (fragmentPath.empty()) { std::cerr << "Error empty fragment path!" << std::endl; return nullptr; }
+
+    //Getting fragment shader as a string
     std::string vertexString = getFileString(vertexPath);
-    if (vertexString.empty())
-    {
-        std::cerr << "No Vertex Shader!" << std::endl;
-        return nullptr;
-    }
+    if (vertexString.empty()) { std::cerr << "No Vertex Shader!" << std::endl; return nullptr; }
+    //Getting fragment shader as a string
     std::string fragmentString = getFileString(fragmentPath);
-    if (fragmentString.empty())
-    {
-        std::cerr << "No Fragment Shader!" << std::endl;
-        return nullptr;
-    }
+    if (fragmentString.empty()) { std::cerr << "No Fragment Shader!" << "\n"; return nullptr; }
+
     //NOTE: implementation
     std::shared_ptr<Renderer::ShaderProgram>& newShader = m_shaderPrograms.emplace(
-        shaderName, std::make_shared<Renderer::ShaderProgram>(vertexString, fragmentString)).first->second;
-    if (newShader->isCompiled())
-    {
-        return newShader;
-    }
+        shaderName,
+        std::make_shared<Renderer::ShaderProgram>(vertexString, fragmentString)).first->second;
+    //SUCCESS CHECK
+    if (newShader->isCompiled()) { return newShader; }
+    //else
         std::cerr << "Can't load shader program:\n"
-            << "Vertex: " << vertexPath << "\n"
-            << "Fragment: " << fragmentPath << "\n";
+                  << "Vertex: "   << vertexPath << "\n"
+                  << "Fragment: " << fragmentPath << "\n";
         return nullptr;
+    //NOTE: ADD ELSE BRACKETS IF EXPANDING
 }
 std::shared_ptr<Renderer::ShaderProgram> ResourceManager::getShader(const std::string& shaderName)
 {
@@ -83,8 +79,11 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::str
     int width = 0;
     int height = 0;
 
+    //flipped since gl draws from bottom left
     stbi_set_flip_vertically_on_load(true);
+
     auto fullPath = std::filesystem::path(texturePath);
+
     //FIXME: probably undefined behaviour, fix me pls.
     auto pixels = reinterpret_cast<char*>(stbi_load(texturePath.c_str(), &width, &height, &channels, 0));
     if (pixels == nullptr)
@@ -92,13 +91,15 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTexture(const std::str
         std::cerr << "Failed to load texture: " << texturePath << std::endl;
         return nullptr;
     };
-    //move filter, wrapMode to vars.
+    //TODO: move filter, wrapMode vars somewhere.
+    auto filter = GL_NEAREST;
+    auto wrapMode = GL_CLAMP_TO_EDGE;
     std::shared_ptr<Renderer::Texture2D> newTexture = m_textures.emplace(textureName,std::make_shared<Renderer::Texture2D>(width,
                                                                                                                              height,
                                                                                                                              pixels,
                                                                                                                              channels,
-                                                                                                                             GL_NEAREST,
-                                                                                                                             GL_CLAMP_TO_EDGE)).first->second;
+                                                                                                                             filter,
+                                                                                                                             wrapMode)).first->second;
     stbi_image_free(pixels);
     return newTexture;
 }
@@ -126,7 +127,7 @@ std::shared_ptr<Renderer::Sprite> ResourceManager::loadSprite (const std::string
     }
     if (spriteWidth == 0 || spriteHeight == 0)
     {
-        std::cerr << "Sprite width or height is zero!" << "\n";
+        std::cerr << "Zero sprite Width or Height!" << "\n";
         return nullptr;
     }
 //FIXME finish this tomorrow
