@@ -54,8 +54,8 @@ namespace RenderEngine
 
         m_indexBuffer.init(indices, 6);
 
-        m_vertexArray.unbind();
-        m_indexBuffer.unbind();
+        VertexArray::unbind();
+        IndexBuffer::unbind();
     }
 
     Sprite::~Sprite()

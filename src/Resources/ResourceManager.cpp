@@ -128,8 +128,8 @@ std::shared_ptr<RenderEngine::Texture2D> ResourceManager::getTexture(const std::
 std::shared_ptr<RenderEngine::Sprite> ResourceManager::loadSprite (const std::string& spriteName,
                                                  const std::string& textureName,
                                                  const std::string& shaderName,
-                                                 unsigned int spriteWidth,
-                                                 unsigned int spriteHeight)
+                                                 const unsigned int spriteWidth,
+                                                 const unsigned int spriteHeight)
 {
     //Error-checks
     if (spriteName.empty())  { std::cerr << "Sprite name is empty!"  << "\n"; return nullptr; }
@@ -152,7 +152,6 @@ std::shared_ptr<RenderEngine::Sprite> ResourceManager::loadSprite (const std::st
     std::shared_ptr<RenderEngine::Sprite> newSprite = m_sprites.emplace(spriteName, std::make_shared<RenderEngine::Sprite>(pTexture,
                                                                                                                            subTextureName,
                                                                                                                            pShader)).first->second;
-
     return newSprite;
 }
 std::shared_ptr<RenderEngine::Sprite> ResourceManager::getSprite (const std::string& spriteName)
