@@ -5,6 +5,7 @@
 #include "Texture2D.h"
 #include "glm/mat4x4.hpp"
 #include "glm/gtc/matrix_transform.hpp"
+#include "Renderer.h"
 
 namespace RenderEngine
 {
@@ -98,7 +99,7 @@ namespace RenderEngine
         glActiveTexture(GL_TEXTURE0);
         m_pTexture->bind();
 
-        RenderEngine::draw(m_vertexArray, m_indexBuffer, *m_pShaderProgram);
+        Renderer::draw(m_vertexArray, m_indexBuffer, *m_pShaderProgram);
     }
 
     //SETTERS
