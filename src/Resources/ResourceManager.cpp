@@ -128,23 +128,26 @@ std::shared_ptr<RenderEngine::Texture2D> ResourceManager::getTexture(const std::
 std::shared_ptr<RenderEngine::Sprite> ResourceManager::loadSprite (const std::string& spriteName,
                                                  const std::string& textureName,
                                                  const std::string& shaderName,
-                                                 const unsigned int spriteWidth,
-                                                 const unsigned int spriteHeight)
+                                                 const std::string& subTextureName)
 {
     //Error-checks
     if (spriteName.empty())  { std::cerr << "Sprite name is empty!"  << "\n"; return nullptr; }
     if (textureName.empty()) { std::cerr << "Texture name is empty!" << "\n"; return nullptr; }
     if (shaderName.empty())  { std::cerr << "Shader name is empty!"  << "\n"; return nullptr; }
-    if (spriteWidth == 0)    { std::cerr << "Zero sprite Width!"     << "\n"; return nullptr; }
-    if (spriteHeight == 0)   { std::cerr << "Zero sprite Height!"    << "\n"; return nullptr; }
-    //Error-check
-    if (const std::shared_ptr<RenderEngine::Texture2D> pTexture = getTexture(textureName); pTexture == nullptr)
-    {
+    //if (spriteWidth == 0)    { std::cerr << "Zero sprite Width!"     << "\n"; return nullptr; }
+    //if (spriteHeight == 0)   { std::cerr << "Zero sprite Height!"    << "\n"; return nullptr; }
+
+    const std::shared_ptr<RenderEngine::Texture2D> pTexture = getTexture(textureName);
+
+    if (pTexture == nullptr)
+        {
         std::cerr << "Texture not found: " << textureName << "for sprite: " << spriteName << "\n";
         return nullptr;
-    }
-    //Error-check
-    if (const std::shared_ptr<RenderEngine::ShaderProgram> pShader = getShader(shaderName); pShader == nullptr)
+        }
+
+    const std::shared_ptr<RenderEngine::ShaderProgram> pShader = getShader(shaderName);
+
+    if (pShader == nullptr)
     {
         std::cerr << "Shader not found: " << shaderName << "\n";
         return nullptr;

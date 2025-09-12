@@ -28,6 +28,7 @@ namespace RenderEngine
         ~ShaderProgram();
 
         void setInt(const std::string& name, GLint value) const;
+        void setFloat(const std::string& name, GLfloat value) const;
         [[nodiscard]] bool isCompiled() const { return m_isCompiled; };
         void use() const;
         static void unuse();

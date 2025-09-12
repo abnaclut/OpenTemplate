@@ -52,8 +52,7 @@ public:
     std::shared_ptr<RenderEngine::Sprite> loadSprite (const std::string& spriteName,
                                                  const std::string& textureName,
                                                  const std::string& shaderName,
-                                                 unsigned int spriteWidth,
-                                                 unsigned int spriteHeight);
+                                                 const std::string& subTextureName);
     std::shared_ptr<RenderEngine::Sprite> getSprite (const std::string& spriteName);
 //FIXME: finish
     std::shared_ptr<RenderEngine::Texture2D> loadTextureAtlas(std::string textureName,

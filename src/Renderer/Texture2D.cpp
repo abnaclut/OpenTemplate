@@ -1,6 +1,7 @@
 #include "Texture2D.h"
 
 namespace RenderEngine
+
 {
     Texture2D::Texture2D(const GLuint         width,
                          GLuint               height,
@@ -63,6 +64,7 @@ namespace RenderEngine
     void Texture2D::addSubTexture(std::string& name, const glm::vec2& leftBottomUV, const glm::vec2& rightTopUV)
     { m_subTextures.emplace(std::move(name), SubTexture2D(leftBottomUV, rightTopUV)); }
 
+    std::map<std::string, Texture2D::SubTexture2D> Texture2D::m_subTextures;
     const Texture2D::SubTexture2D& Texture2D::getSubTexture(const std::string& name)
     {
         if (const auto it = m_subTextures.find(name); it != m_subTextures.end())
@@ -72,4 +74,5 @@ namespace RenderEngine
         const static SubTexture2D defaultSubTexture;
         return defaultSubTexture;
     }
+
 }

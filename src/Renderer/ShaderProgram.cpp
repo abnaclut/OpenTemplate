@@ -50,7 +50,7 @@ namespace RenderEngine
 
         glDeleteShader(vertexShaderID);
         glDeleteShader(fragmentShaderID);
-    };
+    }
     //OPERATORS
     ShaderProgram& ShaderProgram::operator=(ShaderProgram&& shaderProgram) noexcept
     {
@@ -61,7 +61,7 @@ namespace RenderEngine
         shaderProgram.m_ID = 0;
         shaderProgram.m_isCompiled = false;
         return *this;
-    };
+    }
 
     ShaderProgram::ShaderProgram(ShaderProgram&& shaderProgram) noexcept
     {
@@ -70,8 +70,7 @@ namespace RenderEngine
         //SET VALUES TO DEFAULT
         shaderProgram.m_ID = 0;
         shaderProgram.m_isCompiled = false;
-    };
-
+    }
 
     //SHADER CREATION IMPLEMENTATION
     bool ShaderProgram::createShader(const std::string& source, GLenum shaderType, GLuint& shaderID)
@@ -101,19 +100,17 @@ namespace RenderEngine
         glDeleteProgram(m_ID);
     }
 
-    void ShaderProgram::use() const
-    {
-        glUseProgram(m_ID);
-    }
-
-    void ShaderProgram::unuse()
-    {
-        glUseProgram(0);
-    }
+    void ShaderProgram::use() const { glUseProgram(m_ID); }
+    void ShaderProgram::unuse() { glUseProgram(0); }
 
     void ShaderProgram::setInt(const std::string& name, const GLint value) const
     {
         glUniform1i(glGetUniformLocation(m_ID, name.c_str()), value);
+    }
+
+    void ShaderProgram::setFloat(const std::string& name, const GLfloat value) const
+    {
+        glUniform1f(glGetUniformLocation(m_ID, name.c_str()), value);
     }
 
     void ShaderProgram::setMatrix4(const std::string& name, const glm::mat4& matrix) const

@@ -65,8 +65,8 @@ namespace RenderEngine
         //*NOTE* constructor overrides {}-Initialization (safety measure)
         std::shared_ptr<Texture2D>      m_pTexture            ; //init to nullptr
         std::shared_ptr<ShaderProgram>  m_pShaderProgram      ; //init to nullptr
-        glm::vec2                       m_position            ; //init to 0
-        glm::vec2                       m_size                ; //init to 0
+        glm::vec2                       m_position{}          ; //init to 0
+        glm::vec2                       m_size{}              ; //init to 0
         float                           m_rotation          {}; //init to 0
         GLuint                          m_VAO               {}; //init to empty
         GLuint                          m_vertexCoordsVBO   {}; //init to empty

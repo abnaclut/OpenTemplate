@@ -16,7 +16,7 @@ namespace RenderEngine
         , m_pShaderProgram(std::move(pShaderProgram))
         , m_lastFrameId(0)
     {
-        const GLfloat vertexCoords[] = {
+        constexpr GLfloat vertexCoords[] = {
             // 1---2
             // | / |
             // 0  -3
@@ -28,7 +28,7 @@ namespace RenderEngine
             1.f, 0.f
         };
 
-        auto subTexture = m_pTexture->getSubTexture(std::move(initialSubTexture));
+        auto subTexture = Texture2D::getSubTexture(initialSubTexture);
 
         const GLfloat textureCoords[] = {
             // U  V
