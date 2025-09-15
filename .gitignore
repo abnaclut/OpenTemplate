@@ -1,2 +1,47 @@
-build
-.idea
+# CLion/CMake build directories
+cmake-build-*/
+*.cmake
+
+# CMake API reply files
+.cmake/api/v1/reply/*.json
+
+# CMake files and directories
+CMakeFiles/
+*.dir/
+InstallScripts.json
+clion-*.txt
+CTestTestfile.cmake
+
+# Build artifacts
+bin/
+lib/
+*.a
+*.so
+*.dll
+*.exe
+*.lib
+*.dylib
+
+# Object files
+*.o
+*.obj
+
+# Dependency files
+*.d
+
+# Compiler dependency files
+compiler_depend.internal
+
+# Wayland protocol generated files
+*-client-protocol-code.h
+*-client-protocol.h
+
+# External library build artifacts
+external/**/CMakeFiles/
+external/**/*.a
+external/**/*.so
+external/**/*.dll
+external/**/*.lib
+external/**/*.dylib
+external/**/*.o
+external/**/*.obj
