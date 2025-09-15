@@ -1,6 +1,7 @@
 # CLion/CMake build directories
 cmake-build-*/
 *.cmake
+*.idea
 
 # CMake API reply files
 .cmake/api/v1/reply/*.json
