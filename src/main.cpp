@@ -75,7 +75,7 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
 
 //----------------------------------------------------//main
 //MAIN
-int main(int argc, char** argv)
+int main([[maybe_unused]] int argc, char** argv)
 {
     // Initialize the GLFW library
     if (!glfwInit())
@@ -137,8 +137,6 @@ int main(int argc, char** argv)
         return -1;
     }
         //generate stuff
-
-
 
         //use the default shader program
         pDefaultShaderProgram->use();
