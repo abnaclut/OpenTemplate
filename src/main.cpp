@@ -1,8 +1,5 @@
-//----------------------------------------------------//some info
 //  main.cpp
-//  Read LICENSE file (LGPL v2.1).
-//  Major sections are marked with //---//<name> and end with //---//end
-//  In case some file grows too large, this might help.
+//  Read LICENSE.
 //
 //  VARIABLE NAMES EXPLANATION:
 //  <f>_<t><NAME>
@@ -10,29 +7,20 @@
 //     t == type prefix; It is an abbreviation of a type, ONLY IF NECESSARY to prevent wrong type usage.
 //     Hungarian notation is used for global variables or in case of necessity.
 //        g_iv2NAME means "global 2D vector of ints NAME". This is only used with pointers, matrices, vectors.
-//----------------------------------------------------//end
-
-//----------------------------------------------------//include
+//----------------------------------------------------//
 //INCLUDE
-//standart
 #include <iostream>
-//external
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-//local
 #include "Renderer/ShaderProgram.h"
 #include "Resources/ResourceManager.h"
 #include "Renderer/Texture2D.h"
 #include "Tools/tools.h"
 #include "Renderer/Sprite.h"
-//INCLUDE
-//----------------------------------------------------//end
-
 //----------------------------------------------------//global variables
-//GLOBAL VARIABLES
 //TODO: encapsulate this in a class, especially the title= 640;
 auto g_iv2WindowSize = glm::ivec2(640, 480);
 GLFWmonitor* g_pMonitor = nullptr;
@@ -40,17 +28,11 @@ GLFWwindow* g_pShare = nullptr;
 const char* g_pszTitle = "OpenTemplate";
 bool g_bSUCCESS = true;
 bool g_bFAILURE = false;
-//GLOBAL VARIABLES
-//----------------------------------------------------//end
-
 //----------------------------------------------------//callbacks
-//CALLBACK FUNCTIONS
 //TODO: this will be modified a lot in the future to support GLFW alternatives.
-
-//window resizing
+//GLFWwindow* cannot be a pointer to const due to a conversion error!
 // ReSharper disable once CppParameterMayBeConstPtrOrRef
-//GLFWwindow* cannot be a pointer to const due to a conversion error!!!
-void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
+void glfwWindowSizeCallback(GLFWwindow* pWindow, const int width, const int height)
 {
     //null window check
     if (pWindow == nullptr)
