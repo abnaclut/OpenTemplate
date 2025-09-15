@@ -13,21 +13,16 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
-#include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "Renderer/ShaderProgram.h"
+
+#include "Renderer/Renderer.h"
 #include "Resources/ResourceManager.h"
-#include "Renderer/Texture2D.h"
 #include "Tools/tools.h"
 #include "Renderer/Sprite.h"
 //----------------------------------------------------//global variables
-//TODO: encapsulate this in a class, especially the title= 640;
-auto g_iv2WindowSize = glm::ivec2(640, 480);
-GLFWmonitor* g_pMonitor = nullptr;
-GLFWwindow* g_pShare = nullptr;
-const char* g_pszTitle = "OpenTemplate";
-bool g_bSUCCESS = true;
-bool g_bFAILURE = false;
+//TODO: encapsulate this in a class, especially the title and default resolution;
+auto g_WindowSize = glm::ivec2(640, 480);
+auto g_Title = "OpenTemplate";
 //----------------------------------------------------//callbacks
 //TODO: this will be modified a lot in the future to support GLFW alternatives.
 //GLFWwindow* cannot be a pointer to const due to a conversion error!
@@ -35,13 +30,12 @@ bool g_bFAILURE = false;
 void glfwWindowSizeCallback(GLFWwindow* pWindow, const int width, const int height)
 {
     //null window check
-    if (pWindow == nullptr)
-    {
-        tools::initLog("glfwWindowSizeCallback", g_bFAILURE);
-    }
+    //TODO: add proper logging
+    // false = failure & true = success (temporary measures)
+    if (pWindow == nullptr) { tools::initLog("glfwWindowSizeCallback", false); }
 
-    g_iv2WindowSize.x = width;
-    g_iv2WindowSize.y = height;
+    g_WindowSize.x = width;
+    g_WindowSize.y = height;
     glViewport(0, 0, width, height);
 }
 //key processing
@@ -50,114 +44,68 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
     //TODO: REMOvE THIS IN FUTURE! (create an exit button)
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(pWindow, GLFW_TRUE);
-    //
 }
-//CALLBACK FUNCTIONS
-//----------------------------------------------------//end
-
-//----------------------------------------------------//main
-//MAIN
 int main([[maybe_unused]] int argc, char** argv)
 {
+    ResourceManager resource_manager(argv[0]);
+    GLFWmonitor* pMonitor = nullptr;
+    GLFWwindow* pShare = nullptr;
+
     // Initialize the GLFW library
-    if (!glfwInit())
-    {
-        tools::initLog("glfwInit", g_bFAILURE);
-        return -1;
-    }
-    tools::initLog("glfwInit", g_bSUCCESS);
+    if (!glfwInit()) { tools::initLog("glfwInit", false); return -1; }
+    tools::initLog("glfwInit", true);
 
     //VERSION SPECIFICATION, *opengl core profile is forced, change glSpecifyVersion if that is a problem.
     tools::glfwSpecifyVersion(4, 6);
 
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* pWindow = glfwCreateWindow(g_iv2WindowSize.x, g_iv2WindowSize.y, g_pszTitle, g_pMonitor, g_pShare);
+    GLFWwindow* pWindow = glfwCreateWindow(g_WindowSize.x, g_WindowSize.y, g_Title, pMonitor, pShare);
     if (!pWindow)
     {
-        tools::initLog("glfwCreateWindow", g_bFAILURE);
+        tools::initLog("glfwCreateWindow", false);
         glfwTerminate();
         return -1;
     }
-    tools::initLog("glfwCreateWindow", g_bSUCCESS);
+    tools::initLog("glfwCreateWindow", true);
 
     //set callbacks
     glfwSetWindowSizeCallback(pWindow, glfwWindowSizeCallback);
     glfwSetKeyCallback(pWindow, glfwKeyCallback);
     // Make the window's context current
     glfwMakeContextCurrent(pWindow);
-    if (!gladLoadGL())
-    {
-        tools::initLog("gladLoadGL", g_bFAILURE);
-        return -1;
-    }
-    tools::initLog("gladLoadGL", g_bSUCCESS);
-    tools::localMachineLog();
-    constexpr float red = 1;
-    constexpr float green = 1;
-    constexpr float blue = 0;
-    constexpr float alpha = 1;
-    glClearColor(red, green, blue, alpha);
-    //ADDED SCOPE SO THAT GL CONTEXT IS DESTROYED PROPERLY
-    {
-        //initialize ResourceManager, TODO: do logging in ResourceManager.cpp
-        ResourceManager ResourceManager(argv[0]);
-        //create the shader program
-        const std::string& defaultShaderName            = "Default shader";
-        const std::string& defaultVertexShaderPath      = "res/shaders/vertex.txt";
-        const std::string& defaultFragmentShaderPath    = "res/shaders/fragment.txt";
-        const auto pDefaultShaderProgram = ResourceManager.loadShaders(defaultShaderName, defaultVertexShaderPath, defaultFragmentShaderPath);
-        if (!pDefaultShaderProgram)
-        {
-            std::cerr << "Cannot create shader program!\n";
-            return -1;
-        }
-        const std::string& defaultTextureName = "Default texture";
-        const std::string& defaultTexturePath = "res/textures/textureSample.png";
-        const auto tex = ResourceManager.loadTexture(defaultTextureName, defaultTexturePath);
-        if (!tex) {
-        std::cerr << "Could not load texture!\n";
-        return -1;
-    }
-        //generate stuff
+    if (!gladLoadGL()) { tools::initLog("gladLoadGL", false); return -1; }
+    //all new logs to be finished and done before main loop
+    std::cout  << "Renderer: " << RenderEngine::Renderer::getRendererStr() << "\n";
+    std::cout << "OpenGL version: " << RenderEngine::Renderer::getVersionStr() << "\n";
 
-        //use the default shader program
-        pDefaultShaderProgram->use();
-        pDefaultShaderProgram->setInt("tex", 0);
-        //MODEL MATRIX
-        auto modeMatrix = glm::mat4(1.f);
-        modeMatrix = glm::translate(modeMatrix, glm::vec3(100.0f, 200.0f, 0.0f));
-        //NO VIEW MATRIX DUE TO 2D
-        ////PROJECTION MATRIX
-        const auto right = static_cast<float>(g_iv2WindowSize.x);
-        const auto bottom = static_cast<float>(g_iv2WindowSize.y);
-        constexpr float left = 0.0f;
-        constexpr float top = 0.0f;
-        constexpr float zNear = 0.0f;
-        constexpr float zFar = 100.0f;
-        // ReSharper disable once CppLocalVariableMayBeConst
-        glm::mat4 projectionMatrix = glm::ortho(left, right, bottom, top, zNear, zFar);
-        pDefaultShaderProgram->setMatrix4("projectionMat", projectionMatrix);
-        // ReSharper disable once CppTooWideScope
-        constexpr int mode = GL_TRIANGLES;
-        // ReSharper disable once CppTooWideScope
-        constexpr int count = 3;
-        /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(pWindow))
+    RenderEngine::Renderer::setClearColor(0, 0, 0, 1);
+    RenderEngine::Renderer::setDepthTest(true);
+
     {
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-        pDefaultShaderProgram->use();
-        tex->bind();
-        //draws a triangle
-        pDefaultShaderProgram->setMatrix4("modelMat", modeMatrix);
-        glDrawArrays(mode, 0, count);
-        /* Swap front and back buffers */
-        glfwSwapBuffers(pWindow);
-        /* Poll for and process events */
-        glfwPollEvents();
+    //FIXME: program->init();
+
+        //TODO: remove this (remake properly)
+    //All logging will be remade using special tools or by means of all-at-once big log here to simplify debug.
+    tools::initLog("gladLoadGL", true);
+    tools::localMachineLog();
+    /* Loop until the user closes the window */
+        while (!glfwWindowShouldClose(pWindow))
+        {
+            // poll for and process events
+            glfwPollEvents();
+
+            //TODO: add timer here
+
+            // render
+
+            RenderEngine::Renderer::clear();
+            //FIXME: program->render();
+
+            // swap front and back buffers (only 2 for now, more will be supported later)
+            glfwSwapBuffers(pWindow);
+        }
     }
-}
-    //END PROGRAM (check for memory leaks here if detected)
+    //END PROGRAM (check for memory leaks here if symptoms are detected)
     glfwTerminate();
     return 0;
 }

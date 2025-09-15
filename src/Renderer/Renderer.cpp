@@ -19,10 +19,7 @@ namespace RenderEngine {
     else { glDisable(GL_DEPTH_TEST); }
   }
 
-  void Renderer::clear()
-  {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  }
+  void Renderer::clear() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); }
 
   void Renderer::setViewport(const unsigned int width,
                              const unsigned int height,
@@ -31,6 +28,6 @@ namespace RenderEngine {
   { glViewport(leftOffset, bottomOffset, width, height); }
 
   std::string Renderer::getRendererStr() { return reinterpret_cast<const char*>(glGetString(GL_RENDERER)); }
-
-  std::string Renderer::getVersionStr() { return reinterpret_cast<const char*>(glGetString(GL_VERSION)); }
+  std::string Renderer::getVersionStr()  { return reinterpret_cast<const char*>(glGetString(GL_VERSION));  }
+  //TODO: implement getRenderLogs(), (delegation to every other renderer log func)
 }
