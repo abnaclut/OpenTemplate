@@ -1,67 +1,160 @@
-//when released, this will be:
+<div style="text-align: center">
 
-A **template generator** for desktop **C++** applications, everything from simple utils to large easy-to-scale project templates with different graphics options.
-(will include a feature list once released)
+   #  Desktop Application Template Generator
 
-GRAPHICS OPTIONS:
+</div>
 
- - **OpenGL** (with loaders)
-   - GLAD (for modern OpenGL) — Auto-generated loader for OpenGL functions.
-   - GLFW (window/context management) — Lightweight, cross-platform, works well with GLAD.
-   - SDL (glfw alternative) — Includes input/audio/networking support.
-   - // I might add GLEW as a legacy GLAD alternative if someone asks for it
- - **Vulkan** //Once I finish OpenGL
-   - Vulkan SDK + GLFW/SDL — High-performance, explicit API. Include validation layers for debugging.
-   - Volk — Optional meta-loader for Vulkan. Reduces driver overhead.
- - **Direct3d** // Once I finish Vulkan
-   - Direct3d 11/12 — Via microsoft's d3d11/d3d12 libraries.
- - **Software Rendering**
-   - Dear ImGui (immediate-mode UI) — Solid option for most cases, exceptions will be explained further.
-   - stb_image — Lightweight image/font rendering.
-  
-BUILD OPTIONS:
+---
 
- - **CMake Presets**(CLion/VS code/etc) -- Generates a CMake project for your IDE or a clean project if no IDE is used.
+### A template generator for desktop C++ applications, ranging from simple utilities to large, scalable project templates with various graphics options. 
+#### Only C++ projects are currently supported, tool-list will expand in future releases.
+*Note: This project is under active development. Some features will/may be added in future releases.*
 
-PLATFORM OPTIONS:
+---
 
- - **Cross-Platform** (Priority)
- - **Specified platform**
-   - Windows
-   - MacOS
-   - Linux
-   - Android
-   - IOS
+<div style="text-align: center">
 
-DEBUG OPTIONS:
+   # Features
 
- - **OpenGL Debug Context**
- - **Vulkan Validation Layers**
- - **RenderDoc integration**
 
-OTHER FEATURES:
 
- - **Logging**
-   - spdlog (fast, header-only)
-   - Custom (if necessary)
- - **Profiling**
-   - Tracy
-   - Google Benchmark
- - **Serialization**
-   - nlohmann/json
- - **Unit Testing**
-   - Catch2
-   - Google Test
+   ##  Graphics Options:
 
-PROJECT STRUCTURE EXAMPLES:
+</div>
 
-(to be added upon finishing corresponding options)
+### OpenGL (with loaders)
+- **GLAD** - Auto-generated loader for modern OpenGL functions
+- **GLFW** - Window and context management (lightweight, cross-platform)
+- **SDL** - GLFW alternative with input/audio/network support
+- *GLEW* - Potential addition as legacy alternative to GLAD
 
-HOW TO USE:
+### Vulkan *(planned)*
+- **Vulkan SDK** + GLFW/SDL - High-performance explicit API
+- **Validation layers** for debugging
+- **Volk** - Meta-loader to reduce driver overhead
 
-(to be added after the first release)
+### Direct3D *(planned)*
+- **Direct3D** 11/12 via Microsoft's libraries
 
- - ***NOTE***
-Some features might not be included in the first releases or might be removed in future ones, therefore, reading docs is a good idea.
-I will try to prevent such situations once everything is finished. And if I fail to, read LICENSE.
-:)
+### Software Rendering
+- `Dear ImGui` - Immediate-mode UI
+- `stb_image` - Lightweight image/font rendering
+
+---
+
+<div style="text-align: center">
+
+   ## Build Options
+
+</div>
+
+- **CMake Presets** - Project generation for CLion, VS Code, or other IDEs (full list in docs)
+- **Clean** build without IDE-specifications
+- **Custom build**
+
+---
+
+<div style="text-align: center">
+
+## Platforms Supported
+
+</div>
+
+- ## Cross-Platform (*priority*)
+- ## Specific platforms:
+   - ### Windows
+   - ### macOS
+   - ### Linux
+   - ### *Android (future)*
+   - ### *iOS (future)*
+
+---
+
+<div style="text-align: center">
+
+   ## Debug Options
+
+</div>
+
+- ### OpenGL Debug Context
+- ### Vulkan Validation Layers
+- ### RenderDoc integration
+
+---
+
+<div style="text-align: center">
+
+   ## Additional Features
+
+</div>
+
+### Logging
+- `spdlog` (fast, header-only library)
+- **Custom logger** (only when necessary)
+
+### Profiling
+- `Tracy`
+- `Google Benchmark`
+
+### Serialization
+- `nlohmann/json`
+
+### Unit Testing
+- `Catch2`
+- `Google Test`
+
+---
+
+<div style="text-align: center">
+
+   ## Project Structure
+
+</div>
+
+*Project structure examples will be added upon first release.*
+
+---
+
+<div style="text-align: center">
+
+   ## How to use
+
+</div>
+
+*A short manual will be added upon release, mostly in docs.*
+
+---
+
+<div style="text-align: center">
+
+# Important Information
+
+</div>
+
+### *Some features might not be included in initial releases or may be removed in future versions. It is recommended to*:
+- ### Read documentation for each release
+- ### Read LICENSE
+
+---
+
+<div style="text-align: center">
+
+   # What to expect in future
+
+</div>
+
+## Future releases may/will include:
+- ### Other programming languages and framework templates and mixes.
+- ### Web applications templates.
+- ### Mobile applications templates.
+- ### Additional graphics APIs and libraries.
+
+*Those are not under development and are considered future prospects. (This will change over time)*
+
+<div style="text-align: center">
+
+## License
+
+### See the [LICENSE](LICENSE) file for license.
+
+</div>
