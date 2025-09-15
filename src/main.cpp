@@ -131,7 +131,7 @@ int main(int argc, char** argv)
         }
         const std::string& defaultTextureName = "Default texture";
         const std::string& defaultTexturePath = "res/textures/textureSample.png";
-        auto tex = ResourceManager.loadTexture(defaultTextureName, defaultTexturePath);
+        const auto tex = ResourceManager.loadTexture(defaultTextureName, defaultTexturePath);
         if (!tex) {
         std::cerr << "Could not load texture!\n";
         return -1;
