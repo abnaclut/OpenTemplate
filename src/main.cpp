@@ -14,7 +14,6 @@
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
 #include "Renderer/Renderer.h"
 #include "Resources/ResourceManager.h"
 #include "Tools/tools.h"

@@ -1,1 +1,60 @@
-I will write docs once I finish the first working prototype.
+Documentation.
+
+General:
+Project - OpenTemplate
+Author  - abnaclut (me) - abnaclut@gmail.com / opentemplate@gmail.com
+LICENSE - check LICENSE file.
+
+Architecture:
+
+This project is planned to be a foundation for other projects and therefore modules(or categories) are used if possible.
+
+--- ROOT DIRECTORY ---
+
+OpenTemplate root directory:
+# Contains main modules and git essentials.
+~/OpenTemplate
+    /cmake-build-release
+    /Docs
+    /external
+    /res
+    /src
+    /.gitignore
+    /CMakeLists.txt
+    /LICENSE
+    /README.md
+
+--- MODULES ---
+
+/cmake-build-release:
+# Contains the fully functioning OpenTemplate release build.
+---
+/Docs
+# Contains all the documentation relating to this project. Contains a description of each part of the project.
+# Contains all the modules/submodules and features of this project and their descriptions.
+    - LIST OF DOCUMENTED MODULES -
+    Docs.txt - to be split into sections
+---
+/external
+# Contains all the external libs used in this project.
+# *Documentation on each of those can be found in the corresponding folder.
+    /glad
+    /glfw
+    /glm
+---
+/res
+# Contains all the resources required for the project.
+    /shaders
+    /textures
+    # fonts, etc. are to be added in a close future.
+---
+/src
+# Contains all the source code of this project (except external)
+# It is divided into modules, which are then divided into submodules and then features.
+# Submodules may be redundant sometimes, in that case Category -> Module -> feature is used
+# /service will be added in submodule directories soon.
+    /Renderer
+    /Resources TODO: rename to ResourceManager
+    /Tools TODO: remove
+--- SUBMODULES ---
+FIXME: finish docs plz tomorrow
