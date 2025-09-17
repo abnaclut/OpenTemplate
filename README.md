@@ -144,7 +144,7 @@
 </div>
 
 ## Future releases may/will include:
-- ### Other programming languages and framework templates and mixes.
+- ### Other programming languages, framework templates and their mixes.
 - ### Web applications templates.
 - ### Mobile applications templates.
 - ### Additional graphics APIs and libraries.
