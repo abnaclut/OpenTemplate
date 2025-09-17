@@ -1,6 +1,6 @@
-Documentation.
-
-General:
+General Documentation.
+//TODO: split into separate files once this grows large enough
+General info:
 Project - OpenTemplate
 Author  - abnaclut (me) - abnaclut@gmail.com / opentemplate@gmail.com
 LICENSE - check LICENSE file.
