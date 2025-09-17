@@ -25,6 +25,7 @@ OpenTemplate root directory:
     /README.md
 
 --- MODULES ---
+//NOTE: only general descriptions are present in this file, for more detail check corresponding docs.
 
 /cmake-build-release:
 # Contains the fully functioning OpenTemplate release build.
@@ -51,10 +52,9 @@ OpenTemplate root directory:
 /src
 # Contains all the source code of this project (except external)
 # It is divided into modules, which are then divided into submodules and then features.
-# Submodules may be redundant sometimes, in that case Category -> Module -> feature is used
+# Submodules may be redundant sometimes, in that case Module -> feature is used
 # /service will be added in submodule directories soon.
     /Renderer
     /Resources TODO: rename to ResourceManager
     /Tools TODO: remove
 --- SUBMODULES ---
-FIXME: finish docs plz tomorrow

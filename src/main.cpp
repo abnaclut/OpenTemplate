@@ -1,14 +1,5 @@
 //  main.cpp
 //  Read LICENSE.
-//
-//  VARIABLE NAMES EXPLANATION:
-//  <f>_<t><NAME>
-//     f == flag; g == global, m == member of a class, s == static member(of a class).
-//     t == type prefix; It is an abbreviation of a type, ONLY IF NECESSARY to prevent wrong type usage.
-//     Hungarian notation is used for global variables or in case of necessity.
-//        g_iv2NAME means "global 2D vector of ints NAME". This is only used with pointers, matrices, vectors.
-//----------------------------------------------------//
-//INCLUDE
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -18,18 +9,19 @@
 #include "Resources/ResourceManager.h"
 #include "Tools/tools.h"
 #include "Renderer/Sprite.h"
-//----------------------------------------------------//global variables
 //TODO: encapsulate this in a class, especially the title and default resolution;
 auto g_WindowSize = glm::ivec2(640, 480);
 auto g_Title = "OpenTemplate";
-//----------------------------------------------------//callbacks
+
 //TODO: this will be modified a lot in the future to support GLFW alternatives.
+
+//TODO: add proper logging
+
 //GLFWwindow* cannot be a pointer to const due to a conversion error!
 // ReSharper disable once CppParameterMayBeConstPtrOrRef
 void glfwWindowSizeCallback(GLFWwindow* pWindow, const int width, const int height)
 {
     //null window check
-    //TODO: add proper logging
     // false = failure & true = success (temporary measures)
     if (pWindow == nullptr) { tools::initLog("glfwWindowSizeCallback", false); }
 
