@@ -1,2 +1,36 @@
 TODO: write a general desc;
 TODO: document EACH AND EVERY feature of the project
+TODO: Add an actual explanation of the code!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+                    === SRC/RENDERER ===
+
+                --- IndexBuffer ---
+Purpose: Manages OpenGL Element Array Buffer (EAB) objects for storing vertex indices.
+         Encapsulates GPU memory for index data used in indexed rendering (glDrawElements).
+Limitations: FIXME
+    Fixed Usage: Hardcoded to GL_STATIC_DRAW (no dynamic updates) FIXME
+    Single Target: Only supports GL_ELEMENT_ARRAY_BUFFER FIXME
+    No Resizing: Buffer size fixed after initialization FIXME
+    OpenGL Specific: Direct GLAD dependency (breaks abstraction) FIXME
+Dependencies:
+    GLAD: OpenGL function pointers
+    OpenGL 3.3+: Core profile required
+                --- Renderer ---
+Purpose: Provides static utility functions for core rendering operations and OpenGL state management.
+         Serves as a thin wrapper around common rendering commands.
+Features
+    Simplified API: Abstracts common rendering operations
+    Resource Coordination: Orchestrates VAO, IBO, and Shader binding
+    State Management: Provides centralized control of render states
+Limitations
+    Fixed Pipeline: Hardcoded to GL_TRIANGLES and GL_UNSIGNED_INT FIXME
+    No Error Handling: Missing OpenGL error checks FIXME
+    Limited Scope: Basic functionality only (no instancing, compute, etc.) FIXME
+    Synchronous: No command queue or batching support FIXME
+    OpenGL Specific: Direct GLAD dependency breaks abstraction FIXME?
+Dependencies
+    VertexArray: Manages vertex attribute state
+    IndexBuffer: Provides element index data
+    ShaderProgram: Contains compiled shaders
+    GLAD: OpenGL function pointers
+                --- ShaderProgram ---

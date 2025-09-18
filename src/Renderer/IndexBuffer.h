@@ -8,12 +8,10 @@ namespace RenderEngine {
   public:
     IndexBuffer();
     ~IndexBuffer();
-
     IndexBuffer(const IndexBuffer&) = delete;
     IndexBuffer& operator=(const IndexBuffer&) = delete;
     IndexBuffer& operator=(IndexBuffer&& indexBuffer) noexcept;
     IndexBuffer(IndexBuffer&& indexBuffer) noexcept;
-
     void init(const void* data, unsigned int count);
     void bind() const;
     static void unbind();

@@ -1,1 +1,2 @@
 TODO: write the general description of this module
+Purpose: Static resource storage for runtime asset loading. FIXME: Should be read-only access during execution.
