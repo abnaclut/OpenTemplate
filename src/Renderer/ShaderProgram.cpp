@@ -117,5 +117,4 @@ namespace RenderEngine
     {
         glUniformMatrix4fv(glGetUniformLocation(m_ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(matrix));
     }
-
 }

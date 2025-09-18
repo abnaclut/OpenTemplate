@@ -6,7 +6,6 @@
 #include <glad/glad.h>
 #endif //SHADER_PROGRAM_H
 
-
 namespace RenderEngine
 {
     class ShaderProgram
