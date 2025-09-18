@@ -55,6 +55,6 @@ OpenTemplate root directory:
 # Submodules may be redundant sometimes, in that case Module -> feature is used
 # /service will be added in submodule directories soon.
     /Renderer
-    /Resources TODO: rename to ResourceManager
-    /Tools TODO: remove
+    /Resources
+    /Tools TODO: remove/move to src
 --- SUBMODULES ---

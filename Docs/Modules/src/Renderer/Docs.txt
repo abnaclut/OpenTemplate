@@ -1,0 +1,2 @@
+TODO: write a general desc;
+TODO: document EACH AND EVERY feature of the project
