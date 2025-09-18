@@ -139,15 +139,15 @@
 
 <div style="text-align: center">
 
-   # What to expect in future
+   ## What to expect in future
 
 </div>
 
-## Future releases may/will include:
-- ### Other programming languages, framework templates and their mixes.
-- ### Web applications templates.
-- ### Mobile applications templates.
-- ### Additional graphics APIs and libraries.
+### Future releases may/will include:
+- #### Other programming languages, framework templates and their mixes.
+- #### Web applications templates.
+- #### Mobile applications templates.
+- #### Additional graphics APIs and libraries.
 
 *Those are not under development and are considered future prospects. (This will change over time)*
 
