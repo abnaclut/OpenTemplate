@@ -6,7 +6,7 @@
 
 ---
 
-### A template generator for desktop C++ applications, ranging from simple utilities to large, scalable project templates. 
+### A template generator for desktop C++ projects, ranging from simple utilities to large, scalable project templates. 
 #### Only C++ projects are currently supported, tool-list will expand in future releases.
 *Note: This project is under active development. Some features will/may be added in future releases.*
 
