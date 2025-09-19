@@ -10,7 +10,7 @@
 namespace RenderEngine
 {
     Sprite::Sprite(std::shared_ptr<Texture2D> pTexture,
-                   std::string initialSubTexture,
+                   const std::string& initialSubTexture,
                    std::shared_ptr<ShaderProgram> pShaderProgram)
         : m_pTexture(std::move(pTexture))
         , m_pShaderProgram(std::move(pShaderProgram))

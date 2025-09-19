@@ -1,7 +1,6 @@
 #include "VertexArray.h"
-
-
 namespace RenderEngine {
+
   VertexArray::VertexArray() { glGenVertexArrays(1, &m_id); }
   VertexArray::~VertexArray() { glDeleteVertexArrays(1, &m_id); }
 
@@ -19,7 +18,6 @@ namespace RenderEngine {
   }
 
   void VertexArray::bind() const { glBindVertexArray(m_id); }
-
   void VertexArray::unbind() { glBindVertexArray(0); }
 
   void VertexArray::addBuffer(const VertexBuffer& vertexBuffer, const VertexBufferLayout& layout)

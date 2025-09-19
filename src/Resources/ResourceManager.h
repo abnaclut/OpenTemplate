@@ -1,8 +1,6 @@
 #pragma once
-
 #ifndef RESOURCE_MANAGER_H
 #define RESOURCE_MANAGER_H
-
 #include "ResourceManager.h"
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Texture2D.h"

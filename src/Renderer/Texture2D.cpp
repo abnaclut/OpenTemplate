@@ -1,5 +1,4 @@
 #include "Texture2D.h"
-
 namespace RenderEngine
 
 {
@@ -74,5 +73,4 @@ namespace RenderEngine
         const static SubTexture2D defaultSubTexture;
         return defaultSubTexture;
     }
-
 }

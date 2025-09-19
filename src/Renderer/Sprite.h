@@ -10,9 +10,7 @@
 #include "IndexBuffer.h"
 #include "VertexArray.h"
 #include <glm/vec2.hpp>
-
 #endif //SPRITE_H
-
 
 namespace RenderEngine
 {
@@ -32,12 +30,10 @@ namespace RenderEngine
             glm::vec2 rightTopUV;
             double duration;
         };
-
         Sprite(std::shared_ptr<Texture2D> pTexture,
-               std::string initialSubTexture,
+               const std::string& initialSubTexture,
                std::shared_ptr<ShaderProgram> pShaderProgram);
         ~Sprite();
-
         Sprite(const Sprite&) = delete;
         Sprite& operator=(const Sprite&) = delete;
 

@@ -3,7 +3,7 @@ TODO: document EACH AND EVERY feature of the project
 TODO: Add an actual explanation of the code!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
                     === SRC/RENDERER ===
-
+------------------------------------------------------------------------------------------------------------------------
                 --- IndexBuffer ---
 Purpose: Manages OpenGL Element Array Buffer (EAB) objects for storing vertex indices.
          Encapsulates GPU memory for index data used in indexed rendering (glDrawElements).
@@ -15,22 +15,147 @@ Limitations: FIXME
 Dependencies:
     GLAD: OpenGL function pointers
     OpenGL 3.3+: Core profile required
+------------------------------------------------------------------------------------------------------------------------
                 --- Renderer ---
 Purpose: Provides static utility functions for core rendering operations and OpenGL state management.
          Serves as a thin wrapper around common rendering commands.
-Features
+Features:
     Simplified API: Abstracts common rendering operations
     Resource Coordination: Orchestrates VAO, IBO, and Shader binding
     State Management: Provides centralized control of render states
-Limitations
+Limitations:
     Fixed Pipeline: Hardcoded to GL_TRIANGLES and GL_UNSIGNED_INT FIXME
     No Error Handling: Missing OpenGL error checks FIXME
     Limited Scope: Basic functionality only (no instancing, compute, etc.) FIXME
     Synchronous: No command queue or batching support FIXME
     OpenGL Specific: Direct GLAD dependency breaks abstraction FIXME?
-Dependencies
+Dependencies:
     VertexArray: Manages vertex attribute state
     IndexBuffer: Provides element index data
     ShaderProgram: Contains compiled shaders
     GLAD: OpenGL function pointers
+------------------------------------------------------------------------------------------------------------------------
                 --- ShaderProgram ---
+Purpose: Manages OpenGL shader programs, handling compilation, linking, and uniform setting.
+         Encapsulates vertex and fragment shaders into a single usable program.
+Parameters: GLSL source code, shader type, output shader ID
+Returns: true if compilation successful
+Error Handling: Outputs compilation errors to std::cerr
+Features:
+    RAII Compliance: Automatic program deletion on destruction
+    Move-Only: Prevents duplicate GPU resource management
+    Error Reporting: Detailed compilation/linking errors to console
+    Simple API: Straightforward uniform setting interface
+    State Management: Static unuse() method for complete unbinding
+Limitations:
+    Shader Types: Only supports vertex and fragment shaders (no geometry/tessellation) FIXME
+    No Hot Reloading: Cannot recompile shaders at runtime FIXME
+    Inefficient Uniforms: Uniform location lookup on every set call (no caching) FIXME
+    Basic Types: Limited uniform types supported (int, float, mat4) FIXME
+    String-based: Uniform names resolved by string each time FIXME
+    No Validation: Missing program validation step after linking FIXME
+    Compilation Failures: Outputs to std::cerr and returns compilation status FIXME
+    Uniform Location: Repeated glGetUniformLocation calls may impact performance FIXME
+    Shader Compilation: Construction is expensive; should be done at load time FIXME
+Dependencies:
+    GLAD: OpenGL function pointers
+    GLM: Mathematics library for matrix operations
+    OpenGL 3.3+: Core profile required
+------------------------------------------------------------------------------------------------------------------------
+                --- Sprite ---
+Purpose: Represents a 2D sprite with texture, animation frames, and transformation capabilities.
+         Handles rendering of textured quads with support for sprite sheets and animated sequences.
+Limitations:
+    Fixed Geometry: Always renders as quad (4 vertices, 6 indices) FIXME
+    Manual Animation: No built-in animation player (external control required) FIXME
+    Single Texture: Only supports one texture at a time FIXME
+    2D Only: No 3D transformation support FIXME
+    CPU-side Updates: Texture coordinate updates on CPU FIXME
+Dependencies:
+    Texture2D: Handles texture loading and binding
+    ShaderProgram: Manages shader uniform setting
+    Renderer: Handles the actual draw call execution
+    VertexArray/VertexBuffer/IndexBuffer: Manage GPU buffer resources
+    GLM: Mathematics library for transformations
+------------------------------------------------------------------------------------------------------------------------
+                --- Texture2D ---
+Purpose: Manages OpenGL 2D texture resources with support for texture atlases and sub-texture regions.
+         Handles texture creation, configuration, and provides UV coordinate management for sprite sheets.
+Features:
+    Texture Atlas Support: Manages multiple sprite regions within one texture
+    Flexible Format: Supports 3-channel (RGB) and 4-channel (RGBA) textures
+    Configurable Parameters: Customizable filtering and wrapping modes
+    Move Semantics: Efficient resource transfer between instances
+    RAII Compliance: Automatic texture deletion on destruction
+    Global Sub-textures: Shared sub-texture definitions across application
+Limitations:
+    Static Sub-textures: Global map may cause naming conflicts FIXME
+    No Error Handling: Missing texture data validation FIXME
+    Fixed Mipmaps: Always generates mipmaps (may not be desired for pixel art) FIXME
+    Single Texture Type: Only supports 2D textures. FIXME
+    No Texture Compression: Doesn't support compressed texture formats FIXME
+    Data Upload: Large textures may cause stalls during creation FIXME!
+    Mipmap Generation: Occurs during texture creation (one-time cost) FIXME!
+    Sub-texture Lookup: Map lookup for each getSubTexture call FIXME
+    Sub-texture Fallback: Returns full texture region for unknown names FIXME?
+    No Validation: Missing checks for invalid dimensions or null data FIXME!!!
+    Channel Fallback: Defaults to RGBA for unknown channel counts FIXME?
+Dependencies
+    GLAD: OpenGL function pointers
+    GLM: Mathematics library for vector operations
+    STL: Uses std::map and std::string for sub-texture management
+------------------------------------------------------------------------------------------------------------------------
+                --- VertexArray ---
+Purpose: Manages OpenGL Vertex Array Objects (VAOs) that encapsulate vertex buffer configurations and attribute pointers.
+         Serves as a container for vertex buffer bindings and attribute layout specifications.
+Limitations
+    Fixed Order: Attributes must be added in the correct shader order FIXME!
+    No Validation: Missing error checking for layout compatibility FIXME!!!
+    OpenGL Specific: Direct dependency on OpenGL VAO functionality FIXME!!
+Dependencies
+    VertexBuffer: Provides vertex data storage
+    VertexBufferLayout: Defines attribute structure and formatting
+    GLAD: OpenGL function pointers
+------------------------------------------------------------------------------------------------------------------------
+                --- VertexBuffer ---
+Purpose: Manages OpenGL Vertex Buffer Objects (VBOs) for storing vertex data on the GPU.
+         Provides initialization, updating, and binding capabilities for vertex attribute data.
+Limitations:
+    Fixed Usage: Hardcoded to GL_STATIC_DRAW (no dynamic draw option) FIXME!!
+    Single Target: Only supports GL_ARRAY_BUFFER (no element array, etc.) FIXME!
+    No Resizing: Cannot change buffer size after initialization FIXME
+    No Error Checking: Missing validation for size parameters FIXME!!!
+    OpenGL Specific: Direct GLAD dependency FIXME!!!
+    OpenGL Errors: Missing glGetError() checks after operations FIXME
+    Size Safety: Caller responsible for ensuring valid size parameters FIXME
+Dependencies
+    GLAD: OpenGL function pointers
+------------------------------------------------------------------------------------------------------------------------
+                --- VertexBufferLayout ---
+Purpose: Defines the structure and layout of vertex data for Vertex Buffer Objects.
+         Specifies how vertex attributes are organized in memory for proper shader interpretation.
+Limitations
+    Float-Only: Only supports GL_FLOAT attributes (no integers, doubles, etc.) FIXME
+    Fixed Order: Attributes must be added in shader location order FIXME!!!
+    No Validation: Missing checks for valid component counts (1-4) FIXME!!!
+    Basic Functionality: Minimal attribute configuration options FIXME!!!
+Dependencies
+    GLAD: OpenGL type definitions (GLenum, GLint, GLboolean)
+    Standard Library: Uses std::vector for element storage
+------------------------------------------------------------------------------------------------------------------------
+                --- ResourceManager ---
+Purpose: Centralized resource management system that handles loading, caching, and retrieval of shaders, textures,
+         and sprites. Implements a resource caching system with shared ownership.
+Limitations
+    Hardcoded Parameters: Texture filtering/wrap modes not configurable FIXME!!
+    No Hot Reloading: Cannot reload resources at runtime FIXME!
+    Basic Resource Types: Limited to shaders, textures, sprites FIXME!
+    Synchronous Loading: No background loading support FIXME!
+    STB_image Only: Only PNG support via STB_image FIXME
+Dependencies
+    STB_image: Image loading library
+    std::filesystem: Path manipulation and file reading
+    Renderer Modules: ShaderProgram, Texture2D, Sprite classes
+    OpenGL/GLAD: For texture and shader operations
+------------------------------------------------------------------------------------------------------------------------
+                TODO continue, add more detail/split
