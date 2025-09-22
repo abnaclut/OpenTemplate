@@ -181,6 +181,30 @@ glm/fast:
 	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/build
 .PHONY : glm/fast
 
+src/Generator/TemplateGenerator.o: src/Generator/TemplateGenerator.cpp.o
+.PHONY : src/Generator/TemplateGenerator.o
+
+# target to build an object file
+src/Generator/TemplateGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Generator/TemplateGenerator.cpp.o
+.PHONY : src/Generator/TemplateGenerator.cpp.o
+
+src/Generator/TemplateGenerator.i: src/Generator/TemplateGenerator.cpp.i
+.PHONY : src/Generator/TemplateGenerator.i
+
+# target to preprocess a source file
+src/Generator/TemplateGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Generator/TemplateGenerator.cpp.i
+.PHONY : src/Generator/TemplateGenerator.cpp.i
+
+src/Generator/TemplateGenerator.s: src/Generator/TemplateGenerator.cpp.s
+.PHONY : src/Generator/TemplateGenerator.s
+
+# target to generate assembly for a file
+src/Generator/TemplateGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Generator/TemplateGenerator.cpp.s
+.PHONY : src/Generator/TemplateGenerator.cpp.s
+
 src/Renderer/IndexBuffer.o: src/Renderer/IndexBuffer.cpp.o
 .PHONY : src/Renderer/IndexBuffer.o
 
@@ -458,6 +482,9 @@ help:
 	@echo "... glad"
 	@echo "... glfw"
 	@echo "... glm"
+	@echo "... src/Generator/TemplateGenerator.o"
+	@echo "... src/Generator/TemplateGenerator.i"
+	@echo "... src/Generator/TemplateGenerator.s"
 	@echo "... src/Renderer/IndexBuffer.o"
 	@echo "... src/Renderer/IndexBuffer.i"
 	@echo "... src/Renderer/IndexBuffer.s"

@@ -26,6 +26,8 @@ add_executable(${PROJECT_NAME}
         src/Renderer/VertexBuffer.h
         src/Renderer/VertexArray.cpp
         src/Renderer/VertexArray.h
+        src/Generator/TemplateGenerator.cpp
+        src/Generator/TemplateGenerator.h
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)

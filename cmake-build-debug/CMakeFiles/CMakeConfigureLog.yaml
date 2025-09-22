@@ -796,3 +796,40 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/snap/clion/377/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "/snap/clion/377/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindX11.cmake:758 (check_library_exists)"
+      - "external/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for IceConnectionNumber in ICE"
+    directories:
+      source: "/home/user/OpenTemplate/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WjVhmq"
+      binary: "/home/user/OpenTemplate/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WjVhmq"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/OpenTemplate/external/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/OpenTemplate/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WjVhmq'
+        
+        Run Build Command(s): /snap/clion/377/bin/cmake/linux/x64/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f07af/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f07af.dir/build.make CMakeFiles/cmTC_f07af.dir/build
+        gmake[1]: вход в каталог «/home/user/OpenTemplate/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WjVhmq»
+        Building C object CMakeFiles/cmTC_f07af.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -fdiagnostics-color=always -o CMakeFiles/cmTC_f07af.dir/CheckFunctionExists.c.o -c /home/user/OpenTemplate/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WjVhmq/CheckFunctionExists.c
+        Linking C executable cmTC_f07af
+        /snap/clion/377/bin/cmake/linux/x64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f07af.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_f07af.dir/CheckFunctionExists.c.o -o cmTC_f07af  -lICE
+        gmake[1]: выход из каталога «/home/user/OpenTemplate/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WjVhmq»
+        
+      exitCode: 0
+...
