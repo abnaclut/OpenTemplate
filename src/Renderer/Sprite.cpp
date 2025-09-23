@@ -1,11 +1,4 @@
 #include "Sprite.h"
-#include <utility>
-#include <iostream>
-#include "ShaderProgram.h"
-#include "Texture2D.h"
-#include "glm/mat4x4.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "Renderer.h"
 
 namespace RenderEngine
 {
@@ -16,6 +9,7 @@ namespace RenderEngine
         , m_pShaderProgram(std::move(pShaderProgram))
         , m_lastFrameId(0)
     {
+        //FIXME move default variable somewhere else (vertexCoords = defaultVertexCoourds)
         constexpr GLfloat vertexCoords[] = {
             // 1---2
             // | / |
@@ -28,8 +22,9 @@ namespace RenderEngine
             1.f, 0.f
         };
 
-        auto subTexture = Texture2D::getSubTexture(initialSubTexture);
+        const auto subTexture = Texture2D::getSubTexture(initialSubTexture);
 
+        //FIXME: implement properly (use a setter function)
         const GLfloat textureCoords[] = {
             // U  V
             subTexture.leftBottomUV.x, subTexture.leftBottomUV.y,
@@ -42,17 +37,19 @@ namespace RenderEngine
             0, 1, 2,
             2, 3, 0
         };
-
+        //FIXME pass size as a constexpr variable!
         m_vertexCoordsBuffer.init(vertexCoords, 2 * 4 * sizeof(GLfloat));
         VertexBufferLayout vertexCoordsLayout;
+        //FIXME pass count and normalized as vars, remove magic numbers!
         vertexCoordsLayout.addElementLayoutFloat(2, false);
         m_vertexArray.addBuffer(m_vertexCoordsBuffer, vertexCoordsLayout);
-
+        //FIXME remove magic number
         m_textureCoordsBuffer.init(textureCoords, 2 * 4 * sizeof(GLfloat));
         VertexBufferLayout textureCoordsLayout;
+        //FIXME remove magic number
         textureCoordsLayout.addElementLayoutFloat(2, false);
         m_vertexArray.addBuffer(m_textureCoordsBuffer, textureCoordsLayout);
-
+        //FIXME remove magic number
         m_indexBuffer.init(indices, 6);
 
         VertexArray::unbind();
@@ -61,18 +58,22 @@ namespace RenderEngine
 
     Sprite::~Sprite()
     {
+        //FIXME remove magic number
         glDeleteVertexArrays(1, &m_VAO);
         glDeleteBuffers(m_nVertexBuffers, &m_vertexCoordsVBO);
         glDeleteBuffers(m_nTextureBuffers, &m_textureCoordsVBO);
     }
-    // ReSharper disable once CppMemberFunctionMayBeStatic
-    void Sprite::render(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer, const size_t frameId) const
+
+    void Sprite::render(const glm::vec2& position,
+                        const glm::vec2& size,
+                        const float      rotation,
+                        const float      layer,
+                        const size_t     frameId) const
     {
         if (m_lastFrameId != frameId)
         {
             m_lastFrameId = frameId;
             const FrameDescription& currentFrameDescription = m_framesDescriptions[frameId];
-
             const GLfloat textureCoords[] = {
                 // U  V
                 currentFrameDescription.leftBottomUV.x, currentFrameDescription.leftBottomUV.y,
@@ -80,7 +81,6 @@ namespace RenderEngine
                 currentFrameDescription.rightTopUV.x,   currentFrameDescription.rightTopUV.y,
                 currentFrameDescription.rightTopUV.x,   currentFrameDescription.leftBottomUV.y,
             };
-
             m_textureCoordsBuffer.update(textureCoords, 2 * 4 * sizeof(GLfloat));
         }
 
@@ -121,13 +121,14 @@ namespace RenderEngine
     }
     void Sprite::setSize(const glm::vec2& size)
     {
-        if (size.x == 0) { std::cerr << "WARNING: zero size (x) sprite!\n"; }
-        if (size.y == 0) { std::cerr << "WARNING: zero size (y) sprite!\n"; }
+        if (size.x == 0) { std::cerr << "WARNING: Zero-size (x) sprite!\n"; }
+        if (size.y == 0) { std::cerr << "WARNING: Zero-size (y) sprite!\n"; }
         m_size = size;
     }
 
     void Sprite::setRotation(const float rotation)
     {
+        //FIXME add out of bounds check (float overflow)
         if (rotation == 0) { std::cout << "WARNING? : zero rotation! (Might be unintended, ignore otherwise)\n"; }
         m_rotation = rotation;
     }
@@ -155,17 +156,5 @@ namespace RenderEngine
     {
         if (nTextureBuffers == 0) { std::cerr << "Warning: 0 Texture Buffers!\n"; }
         m_nTextureBuffers = nTextureBuffers;
-    }
-
-    void Sprite::setTextureCoords(const std::array<GLfloat, 12>& textureCoords)
-    {
-        if (textureCoords.data() == nullptr) { std::cerr << "Warning: null texture coords!\n"; }
-        m_textureCoords = textureCoords;
-    }
-
-    void Sprite::setVertexCoords(const std::array<GLfloat, 12>& vertexCoords) // NOLINT(*-convert-member-functions-to-static) //no it cannot be static.
-    {
-        if (vertexCoords.data() == nullptr){ std::cerr << "Warning: null vertex coords!\n"; }
-        m_vertexCoords = vertexCoords;
     }
 }
