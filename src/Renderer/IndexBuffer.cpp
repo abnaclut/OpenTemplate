@@ -1,7 +1,8 @@
 #include "IndexBuffer.h"
 
-namespace RenderEngine {
-  IndexBuffer::IndexBuffer(): m_id(0), m_count(0) {}
+namespace RenderEngine
+{
+  IndexBuffer::IndexBuffer(): m_id(0), m_count(0) {} //FIXME might be an issue, check in future.
   IndexBuffer::~IndexBuffer() { glDeleteBuffers(1, &m_id); }
 
   IndexBuffer& IndexBuffer::operator=(IndexBuffer&& indexBuffer) noexcept
@@ -27,8 +28,10 @@ namespace RenderEngine {
     glGenBuffers(1, &m_id);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(GLuint), data, GL_STATIC_DRAW);
+    //FIXME hardcoded usage mode and target should be passed as a variable
   }
 
-  void IndexBuffer::bind() const { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id); }
-  void IndexBuffer::unbind() { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); }
+  void IndexBuffer::bind() const  { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id); } //FIXME remove hardcoding
+  void IndexBuffer::unbind()      { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); } //FIXME remove hardcoding
+  unsigned int IndexBuffer::getCount() const { return m_count; }
 }

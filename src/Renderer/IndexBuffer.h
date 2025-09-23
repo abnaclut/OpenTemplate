@@ -2,9 +2,10 @@
 
 #include <glad/glad.h>
 
-namespace RenderEngine {
-
-  class IndexBuffer {
+namespace RenderEngine
+{
+  class IndexBuffer
+  {
   public:
     IndexBuffer();
     ~IndexBuffer();
@@ -15,11 +16,9 @@ namespace RenderEngine {
     void init(const void* data, unsigned int count);
     void bind() const;
     static void unbind();
-    [[nodiscard]] unsigned int getCount() const { return m_count; }
-
+    [[nodiscard]] unsigned int getCount() const;
   private:
     GLuint m_id;
     unsigned int m_count;
   };
-
 }
