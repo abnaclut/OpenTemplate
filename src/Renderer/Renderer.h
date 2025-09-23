@@ -1,13 +1,13 @@
 #pragma once
-
 #include "VertexArray.h"
 #include "IndexBuffer.h"
 #include "ShaderProgram.h"
-
 #include <string>
 
-namespace RenderEngine {
-  class Renderer {
+namespace RenderEngine
+{
+  class Renderer
+  {
   public:
     static void draw(const VertexArray& vertexArray,
                      const IndexBuffer& indexBuffer,
@@ -22,8 +22,7 @@ namespace RenderEngine {
                             unsigned int height,
                             unsigned int leftOffset = 0,
                             unsigned int bottomOffset = 0);
-
-    static std::string getRendererStr();
-    static std::string getVersionStr();
+    static std::string getRendererStr(); //FIXME move to specific submodule?
+    static std::string getVersionStr(); //FIXME move to specific submodule?
   };
 }
