@@ -37,6 +37,7 @@
 ### Software Rendering
 - `Dear ImGui` - Immediate-mode UI
 - `stb_image` - Lightweight image/font rendering
+- Custom UI - create your own, perfect UI using a template or from scratch.
 
 ---
 
@@ -80,7 +81,7 @@
 
 ---
 
-<div style="text-align: center">
+<div style="text-align: center">Dear ImGui
 
    ## Additional Features
 
