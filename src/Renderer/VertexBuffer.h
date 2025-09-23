@@ -1,8 +1,10 @@
 #pragma once
 #include <glad/glad.h>
 
-namespace RenderEngine {
-  class VertexBuffer {
+namespace RenderEngine
+{
+  class VertexBuffer
+  {
   public:
     VertexBuffer();
     ~VertexBuffer();

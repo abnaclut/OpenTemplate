@@ -1,20 +1,17 @@
 #pragma once
-#ifndef RESOURCE_MANAGER_H
-#define RESOURCE_MANAGER_H
 #include "ResourceManager.h"
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Texture2D.h"
 #include "../Renderer/Sprite.h"
 //FIXME: check for unused/duplicate include directives
-#include <sstream>
+// ReSharper disable once CppUnusedIncludeDirective USED IN .CPP for std::filesystem
 #include <fstream>
-#include <iostream>
 #include <filesystem>
-#include "../Renderer/Sprite.h"
 #include <memory>
 #include <string>
 #include <map>
-#endif //RESOURCE_MANAGER_H
+#define STB_IMAGE_IMPLEMENTATION
+#define STBI_ONLY_PNG
 
 namespace RenderEngine
 {

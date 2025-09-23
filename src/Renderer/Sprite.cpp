@@ -22,7 +22,7 @@ namespace RenderEngine
             1.f, 0.f
         };
 
-        const auto subTexture = Texture2D::getSubTexture(initialSubTexture);
+        const auto subTexture = pTexture->getSubTexture(initialSubTexture);
 
         //FIXME: implement properly (use a setter function)
         const GLfloat textureCoords[] = {

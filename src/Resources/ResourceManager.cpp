@@ -1,11 +1,5 @@
 #include "ResourceManager.h"
-#include "../Renderer/ShaderProgram.h"
-#include "../Renderer/Texture2D.h"
-#include "../Renderer/Sprite.h"
-//Dont move those defs + include
-#define STB_IMAGE_IMPLEMENTATION
-#define STBI_ONLY_PNG
-#include "stb_image.h" //has to be in the .cpp file
+#include "stb_image.h" //has to be in the .cpp file to prevent redefinition in main.cpp.
 
 void ResourceManager::unloadAllResources()
 {
@@ -97,7 +91,7 @@ std::shared_ptr<RenderEngine::Texture2D> ResourceManager::loadTexture(const std:
     auto fullPath = std::filesystem::path(texturePath);
 
     //FIXME: probably undefined behaviour, fix me pls.
-    auto pixels = reinterpret_cast<char*>(stbi_load(texturePath.c_str(),
+    const auto pixels = reinterpret_cast<char*>(stbi_load(texturePath.c_str(),
                                                     &width,
                                                     &height,
                                                     &channels,
@@ -134,8 +128,6 @@ std::shared_ptr<RenderEngine::Sprite> ResourceManager::loadSprite (const std::st
     if (spriteName.empty())  { std::cerr << "Sprite name is empty!"  << "\n"; return nullptr; }
     if (textureName.empty()) { std::cerr << "Texture name is empty!" << "\n"; return nullptr; }
     if (shaderName.empty())  { std::cerr << "Shader name is empty!"  << "\n"; return nullptr; }
-    //if (spriteWidth == 0)    { std::cerr << "Zero sprite Width!"     << "\n"; return nullptr; }
-    //if (spriteHeight == 0)   { std::cerr << "Zero sprite Height!"    << "\n"; return nullptr; }
 
     const std::shared_ptr<RenderEngine::Texture2D> pTexture = getTexture(textureName);
 

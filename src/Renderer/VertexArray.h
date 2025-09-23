@@ -1,10 +1,12 @@
 #pragma once
+#include <glad/glad.h>
 #include "VertexBuffer.h"
 #include "VertexBufferLayout.h"
-#include <glad/glad.h>
 
-namespace RenderEngine {
-  class VertexArray {
+namespace RenderEngine
+{
+  class VertexArray
+  {
   public:
     VertexArray();
     ~VertexArray();

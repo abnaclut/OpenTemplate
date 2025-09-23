@@ -1,5 +1,7 @@
 #include "VertexArray.h"
-namespace RenderEngine {
+
+namespace RenderEngine
+{
 
   VertexArray::VertexArray() { glGenVertexArrays(1, &m_id); }
   VertexArray::~VertexArray() { glDeleteVertexArrays(1, &m_id); }
@@ -33,7 +35,7 @@ namespace RenderEngine {
       glEnableVertexAttribArray(currentAttribIndex);
       glVertexAttribPointer(currentAttribIndex, count, type, normalized, layout.getStride(), offset);
       //FIXME: add nullptr check
-      offset += size;
+      offset += size; //FIXME add a nullptr check!
     }
     m_elementsCount += static_cast<unsigned int>(layoutElements.size());
   }

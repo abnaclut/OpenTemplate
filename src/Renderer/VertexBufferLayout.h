@@ -2,15 +2,18 @@
 #include <vector>
 #include <glad/glad.h>
 
-namespace RenderEngine {
+namespace RenderEngine
+{
 
-  struct VertexBufferLayoutElement {
+  struct VertexBufferLayoutElement
+  {
     GLint count;
     GLenum type;
     GLboolean normalized;
     unsigned int size;
   };
-  class VertexBufferLayout {
+  class VertexBufferLayout
+  {
   public:
     VertexBufferLayout();
     void reserveElements(size_t count);
