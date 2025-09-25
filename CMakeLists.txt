@@ -28,6 +28,10 @@ add_executable(${PROJECT_NAME}
         src/Renderer/VertexArray.h
         src/Generator/TemplateGenerator.cpp
         src/Generator/TemplateGenerator.h
+        src/GUI/gui.cpp
+        src/GUI/gui.h
+        src/UI/ui.cpp
+        src/UI/ui.h
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)

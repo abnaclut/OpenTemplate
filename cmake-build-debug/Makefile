@@ -181,6 +181,30 @@ glm/fast:
 	$(MAKE) $(MAKESILENT) -f external/glm/glm/CMakeFiles/glm.dir/build.make external/glm/glm/CMakeFiles/glm.dir/build
 .PHONY : glm/fast
 
+src/GUI/gui.o: src/GUI/gui.cpp.o
+.PHONY : src/GUI/gui.o
+
+# target to build an object file
+src/GUI/gui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/GUI/gui.cpp.o
+.PHONY : src/GUI/gui.cpp.o
+
+src/GUI/gui.i: src/GUI/gui.cpp.i
+.PHONY : src/GUI/gui.i
+
+# target to preprocess a source file
+src/GUI/gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/GUI/gui.cpp.i
+.PHONY : src/GUI/gui.cpp.i
+
+src/GUI/gui.s: src/GUI/gui.cpp.s
+.PHONY : src/GUI/gui.s
+
+# target to generate assembly for a file
+src/GUI/gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/GUI/gui.cpp.s
+.PHONY : src/GUI/gui.cpp.s
+
 src/Generator/TemplateGenerator.o: src/Generator/TemplateGenerator.cpp.o
 .PHONY : src/Generator/TemplateGenerator.o
 
@@ -445,6 +469,30 @@ src/Tools/tools.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/Tools/tools.cpp.s
 .PHONY : src/Tools/tools.cpp.s
 
+src/UI/ui.o: src/UI/ui.cpp.o
+.PHONY : src/UI/ui.o
+
+# target to build an object file
+src/UI/ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/UI/ui.cpp.o
+.PHONY : src/UI/ui.cpp.o
+
+src/UI/ui.i: src/UI/ui.cpp.i
+.PHONY : src/UI/ui.i
+
+# target to preprocess a source file
+src/UI/ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/UI/ui.cpp.i
+.PHONY : src/UI/ui.cpp.i
+
+src/UI/ui.s: src/UI/ui.cpp.s
+.PHONY : src/UI/ui.s
+
+# target to generate assembly for a file
+src/UI/ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/src/UI/ui.cpp.s
+.PHONY : src/UI/ui.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -482,6 +530,9 @@ help:
 	@echo "... glad"
 	@echo "... glfw"
 	@echo "... glm"
+	@echo "... src/GUI/gui.o"
+	@echo "... src/GUI/gui.i"
+	@echo "... src/GUI/gui.s"
 	@echo "... src/Generator/TemplateGenerator.o"
 	@echo "... src/Generator/TemplateGenerator.i"
 	@echo "... src/Generator/TemplateGenerator.s"
@@ -515,6 +566,9 @@ help:
 	@echo "... src/Tools/tools.o"
 	@echo "... src/Tools/tools.i"
 	@echo "... src/Tools/tools.s"
+	@echo "... src/UI/ui.o"
+	@echo "... src/UI/ui.i"
+	@echo "... src/UI/ui.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
