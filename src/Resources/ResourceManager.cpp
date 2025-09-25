@@ -144,9 +144,8 @@ std::shared_ptr<RenderEngine::Sprite> ResourceManager::loadSprite (const std::st
         std::cerr << "Shader not found: " << shaderName << "\n";
         return nullptr;
     }
-    std::shared_ptr<RenderEngine::Sprite> newSprite = m_sprites.emplace(spriteName, std::make_shared<RenderEngine::Sprite>(pTexture,
-                                                                                                                           subTextureName,
-                                                                                                                           pShader)).first->second;
+    std::shared_ptr<RenderEngine::Sprite> newSprite =
+        m_sprites.emplace(spriteName, std::make_shared<RenderEngine::Sprite>(pTexture, subTextureName, pShader)).first->second;
     return newSprite;
 }
 std::shared_ptr<RenderEngine::Sprite> ResourceManager::getSprite (const std::string& spriteName)
