@@ -1,3 +1,4 @@
+/home/user/OpenTemplate/cmake-build-debug/CMakeFiles/imgui.dir
 /home/user/OpenTemplate/cmake-build-debug/CMakeFiles/OpenTemplate.dir
 /home/user/OpenTemplate/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/user/OpenTemplate/cmake-build-debug/CMakeFiles/rebuild_cache.dir
