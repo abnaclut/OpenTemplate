@@ -1,14 +1,19 @@
 //  main.cpp
 //  Read LICENSE.
+
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "GUI/gui.h"
 #include "Renderer/Renderer.h"
 #include "Resources/ResourceManager.h"
 #include "Tools/tools.h"
-#include "Renderer/Sprite.h"
+
 //TODO: encapsulate this in a class, especially the title and default resolution;
 auto g_WindowSize = glm::ivec2(640, 480);
 auto g_Title = "OpenTemplate";
@@ -80,6 +85,9 @@ int main([[maybe_unused]] int argc, char** argv)
     tools::initLog("gladLoadGL", true);
     tools::localMachineLog();
     /* Loop until the user closes the window */
+        //FIXME temporary imgui stuff
+
+        // Main loop
         while (!glfwWindowShouldClose(pWindow))
         {
             // poll for and process events
@@ -88,6 +96,10 @@ int main([[maybe_unused]] int argc, char** argv)
             //TODO: add timer here
 
             // render
+
+            //temporary gui stuff
+
+            //temporary gui stuff FIXME remove t his
 
             RenderEngine::Renderer::clear();
             //FIXME: program->render();
