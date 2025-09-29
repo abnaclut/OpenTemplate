@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
+#FIXME redo properly
+#TODO fixme
+
 set(PROJECT_NAME OpenTemplate)
 project(${PROJECT_NAME})
 
@@ -21,7 +24,6 @@ add_library(imgui STATIC
 )
 target_include_directories(imgui PUBLIC
         ${imgui_SOURCE_DIR}
-        ${imgui_SOURCE_DIR}/backends
 )
 
 add_executable(${PROJECT_NAME}
