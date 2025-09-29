@@ -80,14 +80,10 @@ int main([[maybe_unused]] int argc, char** argv)
     {
     //FIXME: program->init();
 
-        //TODO: remove this (remake properly)
-    //All logging will be remade using special tools or by means of all-at-once big log here to simplify debug.
+    //TODO make proper logs.
     tools::initLog("gladLoadGL", true);
     tools::localMachineLog();
     /* Loop until the user closes the window */
-        //FIXME temporary imgui stuff
-
-        // Main loop
         while (!glfwWindowShouldClose(pWindow))
         {
             // poll for and process events
@@ -97,18 +93,14 @@ int main([[maybe_unused]] int argc, char** argv)
 
             // render
 
-            //temporary gui stuff
-
-            //temporary gui stuff FIXME remove t his
-
             RenderEngine::Renderer::clear();
             //FIXME: program->render();
 
-            // swap front and back buffers (only 2 for now, more will be supported later)
+            // swap front and back buffers (only 2 now)
             glfwSwapBuffers(pWindow);
         }
     }
-    //END PROGRAM (check for memory leaks here if symptoms are detected)
+    //after window closes check for memory leaks here if detected
     glfwTerminate();
     return 0;
 }
