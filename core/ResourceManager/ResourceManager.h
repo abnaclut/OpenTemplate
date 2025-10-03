@@ -10,6 +10,8 @@
 #include <memory>
 #include <string>
 #include <map>
+// ReSharper disable once CppUnusedIncludeDirective STD::CERR
+#include <iostream>
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_ONLY_PNG
 

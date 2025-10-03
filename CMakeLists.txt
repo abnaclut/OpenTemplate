@@ -27,34 +27,34 @@ target_include_directories(imgui PUBLIC
 )
 
 add_executable(${PROJECT_NAME}
-        src/main.cpp
-        src/Renderer/ShaderProgram.cpp
-        src/Renderer/ShaderProgram.h
-        src/Resources/ResourceManager.cpp
-        src/Resources/ResourceManager.h
-        src/Resources/stb_image.h
-        src/Renderer/Texture2D.cpp
-        src/Renderer/Texture2D.h
-        src/Tools/tools.cpp
-        src/Tools/tools.h
-        src/Renderer/Sprite.cpp
-        src/Renderer/Sprite.h
-        src/Renderer/Renderer.h
-        src/Renderer/Renderer.cpp
-        src/Renderer/IndexBuffer.cpp
-        src/Renderer/IndexBuffer.h
-        src/Renderer/VertexBufferLayout.cpp
-        src/Renderer/VertexBufferLayout.h
-        src/Renderer/VertexBuffer.cpp
-        src/Renderer/VertexBuffer.h
-        src/Renderer/VertexArray.cpp
-        src/Renderer/VertexArray.h
-        src/Generator/TemplateGenerator.cpp
-        src/Generator/TemplateGenerator.h
-        src/GUI/gui.cpp
-        src/GUI/gui.h
-        src/UI/ui.cpp
-        src/UI/ui.h
+        TemplateGenerator/main/main.cpp
+        core/Renderer/ShaderProgram.cpp
+        core/Renderer/ShaderProgram.h
+        core/ResourceManager/ResourceManager.cpp
+        core/ResourceManager/ResourceManager.h
+        core/ResourceManager/stb_image.h
+        core/Renderer/Texture2D.cpp
+        core/Renderer/Texture2D.h
+        TemplateGenerator/Tools/tools.cpp
+        TemplateGenerator/Tools/tools.h
+        core/Renderer/Sprite.cpp
+        core/Renderer/Sprite.h
+        core/Renderer/Renderer.h
+        core/Renderer/Renderer.cpp
+        core/Renderer/IndexBuffer.cpp
+        core/Renderer/IndexBuffer.h
+        core/Renderer/VertexBufferLayout.cpp
+        core/Renderer/VertexBufferLayout.h
+        core/Renderer/VertexBuffer.cpp
+        core/Renderer/VertexBuffer.h
+        core/Renderer/VertexArray.cpp
+        core/Renderer/VertexArray.h
+        TemplateGenerator/Generator/TemplateGenerator.cpp
+        TemplateGenerator/Generator/TemplateGenerator.h
+        core/UI/GUI/gui.cpp
+        core/UI/GUI/gui.h
+        core/UI/ui.cpp
+        core/UI/ui.h
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
@@ -81,4 +81,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAK
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/res $<TARGET_FILE_DIR:${PROJECT_NAME}>/res)
+        ${CMAKE_SOURCE_DIR}/resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources)
