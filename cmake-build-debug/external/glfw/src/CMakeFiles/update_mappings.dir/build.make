@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/377/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/377/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ include external/glfw/src/CMakeFiles/update_mappings.dir/progress.make
 
 external/glfw/src/CMakeFiles/update_mappings:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /home/user/OpenTemplate/external/glfw/src && /snap/clion/377/bin/cmake/linux/x64/bin/cmake -P /home/user/OpenTemplate/external/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	cd /home/user/OpenTemplate/external/glfw/src && /snap/clion/385/bin/cmake/linux/x64/bin/cmake -P /home/user/OpenTemplate/external/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 external/glfw/src/CMakeFiles/update_mappings.dir/codegen:
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/codegen

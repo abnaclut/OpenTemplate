@@ -33,7 +33,7 @@ void glfwWindowSizeCallback(GLFWwindow* pWindow, const int width, const int heig
     glViewport(0, 0, width, height);
 }
 //key processing
-void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int mods)
+void glfwKeyCallback(GLFWwindow* pWindow, const int key, int scancode, const int action, int mods)
 {
     //TODO: REMOvE THIS IN FUTURE! (create an exit button)
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -102,3 +102,4 @@ int main([[maybe_unused]] int argc, char** argv)
     glfwTerminate();
     return 0;
 }
+//todo finish
