@@ -4,6 +4,13 @@
 //FIXME name 'GUI' could be conflicting
 //FIXME an interface should be used in future, when other options are implemented.
 
+class Button;
+class CheckBox;
+class Label;
+class MenuButton;
+class Timer;
+//TODO:IMPLEMENT ME zaebal halturit
+
 class GUI
 {
   //FIXME to be reworked a lot, so its bad, but it works
