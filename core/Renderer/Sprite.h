@@ -9,7 +9,7 @@
 #include "Texture2D.h"
 #include "VertexArray.h"
 #include "VertexBuffer.h"
-#include "../../TemplateGenerator/Tools/tools.h"
+#include "../TemplateGenerator/Tools/tools.h"
 
 namespace RenderEngine
 {

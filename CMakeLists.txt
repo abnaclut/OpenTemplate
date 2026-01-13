@@ -27,7 +27,7 @@ target_include_directories(imgui PUBLIC
 )
 
 add_executable(${PROJECT_NAME}
-        TemplateGenerator/main/main.cpp
+        core/TemplateGenerator/main/main.cpp
         core/Renderer/ShaderProgram.cpp
         core/Renderer/ShaderProgram.h
         core/ResourceManager/ResourceManager.cpp
@@ -35,8 +35,8 @@ add_executable(${PROJECT_NAME}
         core/ResourceManager/stb_image.h
         core/Renderer/Texture2D.cpp
         core/Renderer/Texture2D.h
-        TemplateGenerator/Tools/tools.cpp
-        TemplateGenerator/Tools/tools.h
+        core/TemplateGenerator/Tools/tools.cpp
+        core/TemplateGenerator/Tools/tools.h
         core/Renderer/Sprite.cpp
         core/Renderer/Sprite.h
         core/Renderer/Renderer.h
@@ -49,8 +49,8 @@ add_executable(${PROJECT_NAME}
         core/Renderer/VertexBuffer.h
         core/Renderer/VertexArray.cpp
         core/Renderer/VertexArray.h
-        TemplateGenerator/Generator/TemplateGenerator.cpp
-        TemplateGenerator/Generator/TemplateGenerator.h
+        core/TemplateGenerator/Generator/TemplateGenerator.cpp
+        core/TemplateGenerator/Generator/TemplateGenerator.h
         core/UI/GUI/gui.cpp
         core/UI/GUI/gui.h
         core/UI/ui.cpp
