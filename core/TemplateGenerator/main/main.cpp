@@ -7,9 +7,9 @@
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "../../core/UI/GUI/gui.h"
-#include "../../core/Renderer/Renderer.h"
-#include "../../core/ResourceManager/ResourceManager.h"
+#include "../../UI/GUI/gui.h"
+#include "../..//Renderer/Renderer.h"
+#include "../..//ResourceManager/ResourceManager.h"
 #include "../Tools/tools.h"
 
 //TODO: encapsulate this in a class, especially the title and default resolution;
