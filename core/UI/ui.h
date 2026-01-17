@@ -1,11 +1,24 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
-class UI
+namespace UI
 {
+  class UI
+  {
   public:
-private:
-  int m_state = 0;
+    UI();
+    ~UI();
+    void renderUI();
+    void initUI(); //for renderer selection, other specifications.
+    bool enableGUI{};
 
-};
+  private:
+    int m_state = 0;
+    bool m_GUI_enabled = false;
+    unsigned int m_fps{};
+    std::string initMsg;
+    std::vector<std::string> TextCmdList;
+  };
+}
