@@ -21,6 +21,8 @@ add_library(imgui STATIC
         ${imgui_SOURCE_DIR}/imgui_widgets.cpp
         ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
         ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
+        core/Application/application.cpp
+        core/Application/application.h
 )
 target_include_directories(imgui PUBLIC
         ${imgui_SOURCE_DIR}

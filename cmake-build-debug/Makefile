@@ -362,6 +362,30 @@ _deps/imgui-src/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_widgets.cpp.s
 .PHONY : _deps/imgui-src/imgui_widgets.cpp.s
 
+core/Application/application.o: core/Application/application.cpp.o
+.PHONY : core/Application/application.o
+
+# target to build an object file
+core/Application/application.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/core/Application/application.cpp.o
+.PHONY : core/Application/application.cpp.o
+
+core/Application/application.i: core/Application/application.cpp.i
+.PHONY : core/Application/application.i
+
+# target to preprocess a source file
+core/Application/application.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/core/Application/application.cpp.i
+.PHONY : core/Application/application.cpp.i
+
+core/Application/application.s: core/Application/application.cpp.s
+.PHONY : core/Application/application.s
+
+# target to generate assembly for a file
+core/Application/application.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/core/Application/application.cpp.s
+.PHONY : core/Application/application.cpp.s
+
 core/Renderer/IndexBuffer.o: core/Renderer/IndexBuffer.cpp.o
 .PHONY : core/Renderer/IndexBuffer.o
 
@@ -733,6 +757,9 @@ help:
 	@echo "... _deps/imgui-src/imgui_widgets.o"
 	@echo "... _deps/imgui-src/imgui_widgets.i"
 	@echo "... _deps/imgui-src/imgui_widgets.s"
+	@echo "... core/Application/application.o"
+	@echo "... core/Application/application.i"
+	@echo "... core/Application/application.s"
 	@echo "... core/Renderer/IndexBuffer.o"
 	@echo "... core/Renderer/IndexBuffer.i"
 	@echo "... core/Renderer/IndexBuffer.s"

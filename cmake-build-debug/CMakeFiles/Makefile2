@@ -195,12 +195,12 @@ external/glm/glm/clean: external/glm/glm/CMakeFiles/glm.dir/clean
 CMakeFiles/imgui.dir/all: external/glfw/src/CMakeFiles/glfw.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=65,66,67,68,69,70,71,72 "Built target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=65,66,67,68,69,70,71,72,73 "Built target imgui"
 .PHONY : CMakeFiles/imgui.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/imgui.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/OpenTemplate/cmake-build-debug/CMakeFiles 53
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/OpenTemplate/cmake-build-debug/CMakeFiles 54
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/imgui.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/OpenTemplate/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/imgui.dir/rule
@@ -212,7 +212,7 @@ imgui: CMakeFiles/imgui.dir/rule
 # codegen rule for target.
 CMakeFiles/imgui.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=65,66,67,68,69,70,71,72 "Finished codegen for target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=65,66,67,68,69,70,71,72,73 "Finished codegen for target imgui"
 .PHONY : CMakeFiles/imgui.dir/codegen
 
 # clean rule for target.
@@ -235,7 +235,7 @@ CMakeFiles/OpenTemplate.dir/all: external/glm/glm/CMakeFiles/glm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpenTemplate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/OpenTemplate/cmake-build-debug/CMakeFiles 72
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/OpenTemplate/cmake-build-debug/CMakeFiles 73
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/OpenTemplate.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/OpenTemplate/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/OpenTemplate.dir/rule
@@ -294,7 +294,7 @@ external/glfw/src/CMakeFiles/glfw.dir/clean:
 external/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f external/glfw/src/CMakeFiles/update_mappings.dir/build.make external/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/glfw/src/CMakeFiles/update_mappings.dir/build.make external/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=73 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=74 "Built target update_mappings"
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -311,7 +311,7 @@ update_mappings: external/glfw/src/CMakeFiles/update_mappings.dir/rule
 # codegen rule for target.
 external/glfw/src/CMakeFiles/update_mappings.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f external/glfw/src/CMakeFiles/update_mappings.dir/build.make external/glfw/src/CMakeFiles/update_mappings.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=73 "Finished codegen for target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/OpenTemplate/cmake-build-debug/CMakeFiles --progress-num=74 "Finished codegen for target update_mappings"
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/codegen
 
 # clean rule for target.

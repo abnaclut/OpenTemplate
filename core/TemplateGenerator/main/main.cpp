@@ -8,9 +8,15 @@
 #include <glm/vec2.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "../../UI/GUI/gui.h"
-#include "../..//Renderer/Renderer.h"
-#include "../..//ResourceManager/ResourceManager.h"
+#include "../../Renderer/Renderer.h"
+#include "../../ResourceManager/ResourceManager.h"
 #include "../Tools/tools.h"
+#include <string>
+#include <memory>
+#include <GLFW/glfw3.h>
+#include <glm/vec2.hpp>
+#include "../../Renderer/Renderer.h"
+#include "../../ResourceManager/ResourceManager.h"
 
 //TODO: encapsulate this in a class, especially the title and default resolution;
 auto g_WindowSize = glm::ivec2(640, 480);
@@ -68,7 +74,7 @@ int main([[maybe_unused]] int argc, char** argv)
     // Make the window's context current
     glfwMakeContextCurrent(pWindow);
     if (!gladLoadGL()) { tools::initLog("gladLoadGL", false); return -1; }
-    //all new logs to be finished and done before main loop
+    //all new logs to be finished and done before the main loop
     std::cout  << "Renderer: " << RenderEngine::Renderer::getRendererStr() << "\n";
     std::cout << "OpenGL version: " << RenderEngine::Renderer::getVersionStr() << "\n";
 
@@ -98,7 +104,7 @@ int main([[maybe_unused]] int argc, char** argv)
             glfwSwapBuffers(pWindow);
         }
     }
-    //after window closes check for memory leaks here if detected
+    //after the window closes, check for memory leaks here if detected
     glfwTerminate();
     return 0;
 }
