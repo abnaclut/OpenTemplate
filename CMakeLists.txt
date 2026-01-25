@@ -23,6 +23,7 @@ add_library(imgui STATIC
         ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
         core/Application/application.cpp
         core/Application/application.h
+        core/Includes/includes.h
 )
 target_include_directories(imgui PUBLIC
         ${imgui_SOURCE_DIR}
@@ -57,6 +58,7 @@ add_executable(${PROJECT_NAME}
         core/UI/GUI/gui.h
         core/UI/ui.cpp
         core/UI/ui.h
+        core/TemplateGenerator/main/main.h
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)

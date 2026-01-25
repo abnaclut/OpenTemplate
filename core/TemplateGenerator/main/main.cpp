@@ -1,9 +1,7 @@
 //  main.cpp
 //  Read LICENSE.
 
-#include "../../Renderer/Renderer.h"
-#include "../../ResourceManager/ResourceManager.h"
-#include "../Tools/tools.h"
+#include "main.h"
 
 //TODO: encapsulate this in a class, especially the title and default resolution;
 auto g_WindowSize = glm::ivec2(640, 480);

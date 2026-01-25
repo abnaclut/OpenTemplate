@@ -1,6 +1,5 @@
 #pragma once
 #include "../Renderer/ShaderProgram.h"
-#include "../Renderer/Texture2D.h"
 #include "../Renderer/Sprite.h"
 //FIXME: check for unused/duplicate include directives
 // ReSharper disable once CppUnusedIncludeDirective USED IN .CPP for std::filesystem

@@ -7,12 +7,10 @@
 #ifndef OPENTEMPLATE_APPLICATION_H
 #define OPENTEMPLATE_APPLICATION_H
 
-#include <string>
-#include <memory>
-#include <GLFW/glfw3.h>
+#include "../Includes/includes.h"
 #include "../ResourceManager/ResourceManager.h"
-#include "../glm/vec2.hpp"
-#include "../glm/gtc/matrix_transform.hpp"
+#include "../Renderer/Renderer.h"
+#include "../TemplateGenerator/Tools/tools.h"
 
 namespace OT
 {

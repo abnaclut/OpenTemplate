@@ -1,11 +1,5 @@
 #pragma once
-#include <map>
-#include <string>
-#ifndef GLAD_INCLUDED
-#include "../../external/glad/include/glad/glad.h"
-#define GLAD_INCLUDED
-#endif
-#include "../../external/glm/glm/vec2.hpp"
+#include "../Includes/includes.h"
 
 namespace RenderEngine
 {

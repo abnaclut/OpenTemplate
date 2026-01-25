@@ -1,10 +1,5 @@
 #pragma once
-#include <vector>
-
-#ifndef GLAD_INCLUDED
-#include "../../external/glad/include/glad/glad.h"
-#define GLAD_INCLUDED
-#endif
+#include "../Includes/includes.h"
 
 namespace RenderEngine
 {

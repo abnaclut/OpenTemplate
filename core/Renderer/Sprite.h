@@ -1,15 +1,7 @@
 #pragma once
-#include <memory>
+#include "../Includes/includes.h"
 
-#ifndef GLAD_INCLUDED
-#include "../../external/glad/include/glad/glad.h"
-#define GLAD_INCLUDED
-#endif
-
-#include "../../external/glm/glm/glm.hpp"
-#include "../../external/glm/glm/vec2.hpp"
 #include "IndexBuffer.h"
-#include "Renderer.h"
 #include "ShaderProgram.h"
 #include "Texture2D.h"
 #include "VertexArray.h"
