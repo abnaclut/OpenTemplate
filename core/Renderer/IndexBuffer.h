@@ -1,6 +1,9 @@
 #pragma once
 
-#include <glad/glad.h>
+#ifndef GLAD_INCLUDED
+#include "../../external/glad/include/glad/glad.h"
+#define GLAD_INCLUDED
+#endif
 
 namespace RenderEngine
 {

@@ -1,5 +1,8 @@
 #pragma once
-#include <../../external/glad/include/glad/glad.h>  //FIXME tomorrow
+#ifndef GLAD_INCLUDED
+#include "../../external/glad/include/glad/glad.h"  //FIXME tomorrow
+#define GLAD_INCLUDED
+#endif
 #include "VertexBuffer.h"
 #include "VertexBufferLayout.h"
 

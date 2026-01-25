@@ -1,12 +1,13 @@
 #pragma once
-#include <string>
-#include <glm/glm.hpp>
-#include <glad/glad.h>
+
+#include "Texture2D.h"
+#include "../../external/glm/glm/glm.hpp"
+
 // ReSharper disable once CppUnusedIncludeDirective USED IN .CPP
 #include <iostream>
 #include <ostream>
 // ReSharper disable once CppUnusedIncludeDirective USED IN .CPP
-#include <glm/gtc/type_ptr.hpp>
+#include "../../external/glm/glm/gtc/type_ptr.hpp"
 
 namespace RenderEngine
 {

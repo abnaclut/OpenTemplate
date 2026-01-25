@@ -1,22 +1,9 @@
 //  main.cpp
 //  Read LICENSE.
 
-#include <imgui.h>
-#include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/vec2.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include "../../UI/GUI/gui.h"
 #include "../../Renderer/Renderer.h"
 #include "../../ResourceManager/ResourceManager.h"
 #include "../Tools/tools.h"
-#include <string>
-#include <memory>
-#include <GLFW/glfw3.h>
-#include <glm/vec2.hpp>
-#include "../../Renderer/Renderer.h"
-#include "../../ResourceManager/ResourceManager.h"
 
 //TODO: encapsulate this in a class, especially the title and default resolution;
 auto g_WindowSize = glm::ivec2(640, 480);
