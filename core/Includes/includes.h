@@ -13,6 +13,9 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <cstring>
+#include <algorithm>
+#include <type_traits>
 
 //OpenGL
 #ifndef GLAD_INCLUDED
@@ -27,7 +30,7 @@
 #include "../glm/gtc/matrix_transform.hpp"
 
 //GLFW
-#include <GLFW/glfw3.h>
+#include "../../../external/glfw/include/GLFW/glfw3.h"
 
 #define OPENTEMPLATE_INCLUDES_H
 

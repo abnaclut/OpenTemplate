@@ -1,5 +1,7 @@
 #include "Sprite.h"
 
+#include "Renderer.h"
+
 namespace RenderEngine
 {
     Sprite::Sprite(std::shared_ptr<Texture2D> pTexture,

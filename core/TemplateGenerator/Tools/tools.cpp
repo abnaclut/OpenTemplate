@@ -1,5 +1,6 @@
 #include "tools.h"
 
+//FIXME!!!: remove this garbage(unholy trash) ASAP
 namespace tools
 {
     void glfwSpecifyVersion(const int major, const int minor)
