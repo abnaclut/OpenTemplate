@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OT_SHADERPROGRAM_H
+#define OT_SHADERPROGRAM_H
+
 #include "../Includes/includes.h"
 
 namespace RenderEngine
@@ -25,3 +28,4 @@ namespace RenderEngine
         GLuint m_ID = 0;
     };
 }
+#endif // OT_SHADERPROGRAM_H

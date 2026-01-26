@@ -1,10 +1,12 @@
 #pragma once
+#ifndef OT_RENDERER_H
+#define OT_RENDERER_H
+
 #include "../Includes/includes.h"
 
 #include "VertexArray.h"
 #include "IndexBuffer.h"
 #include "ShaderProgram.h"
-#include <string>
 
 namespace RenderEngine
 {
@@ -28,3 +30,4 @@ namespace RenderEngine
     static std::string getVersionStr(); //FIXME move to specific submodule?
   };
 }
+#endif // OT_RENDERER_H

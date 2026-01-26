@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OT_TEXTURE2D_H
+#define OT_TEXTURE2D_H
+
 #include "../Includes/includes.h"
 
 namespace RenderEngine
@@ -50,3 +53,4 @@ namespace RenderEngine
         std::map<std::string, SubTexture2D> m_subTextures;
     };
 }
+#endif // OT_TEXTURE2D_H

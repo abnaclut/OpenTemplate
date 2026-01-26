@@ -1,4 +1,6 @@
 #pragma once
+#ifndef OT_INDEXBUFFER_H
+#define OT_INDEXBUFFER_H
 #include "../Includes/includes.h"
 
 namespace RenderEngine
@@ -21,3 +23,4 @@ namespace RenderEngine
     unsigned int m_count;
   };
 }
+#endif // OT_INDEXBUFFER_H

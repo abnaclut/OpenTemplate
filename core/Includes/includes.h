@@ -2,11 +2,12 @@
 // Created by abnaclut on 25.01.2026.
 //
 #pragma once
-#ifndef OPENTEMPLATE_INCLUDES_H
-
+#ifndef OT_INCLUDES_H
 // UNIVERSAL INCLUDE HEADER
 
 //standard
+#include <fstream>
+#include <filesystem>
 #include <iostream>
 #include <ostream>
 #include <map>
@@ -32,6 +33,6 @@
 //GLFW
 #include "../../../external/glfw/include/GLFW/glfw3.h"
 
-#define OPENTEMPLATE_INCLUDES_H
+#define OT_INCLUDES_H
 
-#endif //OPENTEMPLATE_INCLUDES_H
+#endif //OT_INCLUDES_H

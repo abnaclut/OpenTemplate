@@ -4,10 +4,10 @@
 // This is supposed to be a coordinating class.
 //
 #pragma once
-#ifndef OPENTEMPLATE_APPLICATION_H
-#define OPENTEMPLATE_APPLICATION_H
-
+#ifndef OT_APPLICATION_H
+#define OT_APPLICATION_H
 #include "../Includes/includes.h"
+
 #include "../ResourceManager/ResourceManager.h"
 #include "../Renderer/Renderer.h"
 #include "../TemplateGenerator/Tools/tools.h"
@@ -69,4 +69,4 @@ namespace OT
     static Application* s_instance;
   };
 }
-#endif //OPENTEMPLATE_APPLICATION_H
+#endif //OT_APPLICATION_H

@@ -1,10 +1,8 @@
 #pragma once
-#include "../Includes/includes.h"
+#ifndef OT_VERTEXBUFFER_H
+#define OT_VERTEXBUFFER_H
 
-#ifndef GLAD_INCLUDED
-#include "../../external/glad/include/glad/glad.h"
-#define GLAD_INCLUDED
-#endif
+#include "../Includes/includes.h"
 
 namespace RenderEngine
 {
@@ -25,3 +23,4 @@ namespace RenderEngine
     GLuint m_id;
   };
 }
+#endif // OT_VERTEXBUFFER_H

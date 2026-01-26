@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OT_SPRITE_H
+#define OT_SPRITE_H
+
 #include "../Includes/includes.h"
 
 #include "IndexBuffer.h"
@@ -6,7 +9,6 @@
 #include "Texture2D.h"
 #include "VertexArray.h"
 #include "VertexBuffer.h"
-#include "../TemplateGenerator/Tools/tools.h"
 
 namespace RenderEngine
 {
@@ -56,7 +58,7 @@ namespace RenderEngine
         size_t getFramesCount() const; //FIXME implement
 
     protected:
-        //*NOTE* constructor overrides {}-Initialization (safety measure)
+        //*NOTE constructor overrides {}-Initialization
         std::shared_ptr<Texture2D>      m_pTexture            ; //init to nullptr
         std::shared_ptr<ShaderProgram>  m_pShaderProgram      ; //init to nullptr
         glm::vec2                       m_position{}          ; //init to 0
@@ -76,3 +78,4 @@ namespace RenderEngine
         mutable size_t                  m_lastFrameId;
     };
 }
+#endif // OT_SPRITE_H

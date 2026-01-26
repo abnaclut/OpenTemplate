@@ -1,17 +1,13 @@
 #pragma once
+#ifndef OT_RESOURCEMANAGER_H
+#define OT_RESOURCEMANAGER_H
+
+#include "../Includes/includes.h"
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Sprite.h"
-//FIXME: check for unused/duplicate include directives
-// ReSharper disable once CppUnusedIncludeDirective USED IN .CPP for std::filesystem
-#include <fstream>
-#include <filesystem>
-#include <memory>
-#include <string>
-#include <map>
-// ReSharper disable once CppUnusedIncludeDirective STD::CERR
-#include <iostream>
+
 #define STB_IMAGE_IMPLEMENTATION
-#define STBI_ONLY_PNG
+#define STBI_ONLY_PNG //FIXME support other options
 
 namespace RenderEngine
 {
@@ -21,7 +17,7 @@ namespace RenderEngine
 }
 
 class ResourceManager
-    {
+{
 public:
     void setExecutablePath(const std::string& executablePath);
     std::string getExecutablePath();
@@ -69,3 +65,4 @@ public:
 
         std::string m_path;
     };
+#endif // OT_RESOURCEMANAGER_H

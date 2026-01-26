@@ -1,7 +1,7 @@
 #pragma once
-
-#include <iostream>
-#include <vector>
+#ifndef OT_UI_H
+#define OT_UI_H
+#include "../Includes/includes.h"
 
 namespace UI
 {
@@ -31,3 +31,4 @@ namespace UI
     std::string m_UI_mode = "text"; //for later (imgui/qt/etc)
   };
 }
+#endif // OT_UI_H

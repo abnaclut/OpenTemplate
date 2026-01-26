@@ -1,15 +1,10 @@
-//  main.cpp
-//  Read LICENSE.
+// (c) abnaclut
+// Read LICENSE.
+//
 
 #include "main.h"
-
-//TODO: encapsulate this in a class, especially the title and default resolution;
 auto g_WindowSize = glm::ivec2(640, 480);
 auto g_Title = "OpenTemplate";
-
-//TODO: this will be modified a lot in the future to support GLFW alternatives.
-
-//TODO: add proper logging
 
 //GLFWwindow* cannot be a pointer to const due to a conversion error!
 // ReSharper disable once CppParameterMayBeConstPtrOrRef

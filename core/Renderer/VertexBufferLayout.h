@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OT_VERTEXBUFFERLAYOUT_H
+#define OT_VERTEXBUFFERLAYOUT_H
+
 #include "../Includes/includes.h"
 
 namespace RenderEngine
@@ -24,3 +27,4 @@ namespace RenderEngine
     unsigned int m_stride;
   };
 }
+#endif // OT_VERTEXBUFFERLAYOUT_H

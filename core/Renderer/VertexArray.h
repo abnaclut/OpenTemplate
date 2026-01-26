@@ -1,10 +1,8 @@
 #pragma once
-#include "../Includes/includes.h"
+#ifndef OT_VERTEXARRAY_H
+#define OT_VERTEXARRAY_H
 
-#ifndef GLAD_INCLUDED
-#include "../../external/glad/include/glad/glad.h"  //FIXME tomorrow
-#define GLAD_INCLUDED
-#endif
+#include "../Includes/includes.h"
 #include "VertexBuffer.h"
 #include "VertexBufferLayout.h"
 
@@ -27,3 +25,4 @@ namespace RenderEngine
     unsigned int m_elementsCount = 0;
   };
 }
+#endif // OT_VERTEXARRAY_H
