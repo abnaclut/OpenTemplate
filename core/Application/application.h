@@ -18,10 +18,10 @@ namespace OT
   {
   public:
     Application(int argc, char** argv);
+    //Application(const Application&);
     ~Application();
-
-    int run();
-
+    int running();
+    static void init(Application& a); //FIXME ADD PARAMETERS
     // configs
     void setWindowTitle(const std::string& title);
     void setWindowSize(const glm::ivec2& size);
@@ -34,36 +34,27 @@ namespace OT
 
   private:
 
-    // init
-    bool initializeGLFW();
+    static bool initializeGLFW();
     bool createWindow();
-    bool initializeOpenGL();
+    [[nodiscard]] bool initializeOpenGL() const;
     bool initializeCallbacks();
-
-    // cleanup
     void cleanup();
-
-    // event handling
-    void processEvents();
-    void render();
+    static void processEvents();
+    void render() const;
 
     // callbacks
-    static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-
     // vars
     GLFWwindow* m_pWindow = nullptr;
-    glm::ivec2 m_windowSize;
+    glm::ivec2 m_windowSize{};
+    glm::ivec2 m_defaultWindowSize = glm::ivec2(640, 480);
     std::string m_title;
+    std::string m_defaultTitle = "OpenTemplate";
     int m_glMajorVersion = 4; //TODO: add support for other versions
     int m_glMinorVersion = 6;
 
     std::unique_ptr<ResourceManager> m_resourceManager;
     bool m_isRunning = false;
-
-    // timer
-    double m_deltaTime = 0.0;
-    double m_lastFrameTime = 0.0;
 
     // To access instance from static callbacks
     static Application* s_instance;
