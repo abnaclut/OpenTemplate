@@ -31,31 +31,31 @@ target_include_directories(imgui PUBLIC
 
 add_executable(${PROJECT_NAME}
         core/TemplateGenerator/main/main.cpp
-        core/Renderer/ShaderProgram.cpp
-        core/Renderer/ShaderProgram.h
-        core/ResourceManager/ResourceManager.cpp
-        core/ResourceManager/ResourceManager.h
-        core/ResourceManager/stb_image.h
-        core/Renderer/Texture2D.cpp
-        core/Renderer/Texture2D.h
+        core/Modules/Renderer/ShaderProgram.cpp
+        core/Modules/Renderer/ShaderProgram.h
+        core/Modules/ResourceManager/ResourceManager.cpp
+        core/Modules/ResourceManager/ResourceManager.h
+        core/Modules/ResourceManager/stb_image.h
+        core/Modules/Renderer/Texture2D.cpp
+        core/Modules/Renderer/Texture2D.h
         core/TemplateGenerator/Tools/tools.cpp
         core/TemplateGenerator/Tools/tools.h
-        core/Renderer/Sprite.cpp
-        core/Renderer/Sprite.h
-        core/Renderer/Renderer.h
-        core/Renderer/Renderer.cpp
-        core/Renderer/IndexBuffer.cpp
-        core/Renderer/IndexBuffer.h
-        core/Renderer/VertexBufferLayout.cpp
-        core/Renderer/VertexBufferLayout.h
-        core/Renderer/VertexBuffer.cpp
-        core/Renderer/VertexBuffer.h
-        core/Renderer/VertexArray.cpp
-        core/Renderer/VertexArray.h
+        core/Modules/Renderer/Sprite.cpp
+        core/Modules/Renderer/Sprite.h
+        core/Modules/Renderer/Renderer.h
+        core/Modules/Renderer/Renderer.cpp
+        core/Modules/Renderer/IndexBuffer.cpp
+        core/Modules/Renderer/IndexBuffer.h
+        core/Modules/Renderer/VertexBufferLayout.cpp
+        core/Modules/Renderer/VertexBufferLayout.h
+        core/Modules/Renderer/VertexBuffer.cpp
+        core/Modules/Renderer/VertexBuffer.h
+        core/Modules/Renderer/VertexArray.cpp
+        core/Modules/Renderer/VertexArray.h
         core/TemplateGenerator/Generator/TemplateGenerator.cpp
         core/TemplateGenerator/Generator/TemplateGenerator.h
-        core/UI/GUI/gui.cpp
-        core/UI/GUI/gui.h
+        core/Modules/GUI/gui.cpp
+        core/Modules/GUI/gui.h
         core/UI/ui.cpp
         core/UI/ui.h
         core/TemplateGenerator/main/main.h
