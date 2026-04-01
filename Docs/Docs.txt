@@ -1,0 +1,2 @@
+OpenTemplate is a cross-platform project template generator.
+TODO: make docs (doxygen)

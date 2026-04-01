@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/415/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/425/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/415/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/425/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/user/OpenTemplate/cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/snap/clion/415/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/425/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/snap/clion/415/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/425/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -386,221 +386,245 @@ core/Application/application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/core/Application/application.cpp.s
 .PHONY : core/Application/application.cpp.s
 
-core/Renderer/IndexBuffer.o: core/Renderer/IndexBuffer.cpp.o
-.PHONY : core/Renderer/IndexBuffer.o
+core/Modules/GUI/gui.o: core/Modules/GUI/gui.cpp.o
+.PHONY : core/Modules/GUI/gui.o
 
 # target to build an object file
-core/Renderer/IndexBuffer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/IndexBuffer.cpp.o
-.PHONY : core/Renderer/IndexBuffer.cpp.o
+core/Modules/GUI/gui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/GUI/gui.cpp.o
+.PHONY : core/Modules/GUI/gui.cpp.o
 
-core/Renderer/IndexBuffer.i: core/Renderer/IndexBuffer.cpp.i
-.PHONY : core/Renderer/IndexBuffer.i
+core/Modules/GUI/gui.i: core/Modules/GUI/gui.cpp.i
+.PHONY : core/Modules/GUI/gui.i
 
 # target to preprocess a source file
-core/Renderer/IndexBuffer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/IndexBuffer.cpp.i
-.PHONY : core/Renderer/IndexBuffer.cpp.i
+core/Modules/GUI/gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/GUI/gui.cpp.i
+.PHONY : core/Modules/GUI/gui.cpp.i
 
-core/Renderer/IndexBuffer.s: core/Renderer/IndexBuffer.cpp.s
-.PHONY : core/Renderer/IndexBuffer.s
+core/Modules/GUI/gui.s: core/Modules/GUI/gui.cpp.s
+.PHONY : core/Modules/GUI/gui.s
 
 # target to generate assembly for a file
-core/Renderer/IndexBuffer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/IndexBuffer.cpp.s
-.PHONY : core/Renderer/IndexBuffer.cpp.s
+core/Modules/GUI/gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/GUI/gui.cpp.s
+.PHONY : core/Modules/GUI/gui.cpp.s
 
-core/Renderer/Renderer.o: core/Renderer/Renderer.cpp.o
-.PHONY : core/Renderer/Renderer.o
+core/Modules/Renderer/IndexBuffer.o: core/Modules/Renderer/IndexBuffer.cpp.o
+.PHONY : core/Modules/Renderer/IndexBuffer.o
 
 # target to build an object file
-core/Renderer/Renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Renderer.cpp.o
-.PHONY : core/Renderer/Renderer.cpp.o
+core/Modules/Renderer/IndexBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/IndexBuffer.cpp.o
+.PHONY : core/Modules/Renderer/IndexBuffer.cpp.o
 
-core/Renderer/Renderer.i: core/Renderer/Renderer.cpp.i
-.PHONY : core/Renderer/Renderer.i
+core/Modules/Renderer/IndexBuffer.i: core/Modules/Renderer/IndexBuffer.cpp.i
+.PHONY : core/Modules/Renderer/IndexBuffer.i
 
 # target to preprocess a source file
-core/Renderer/Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Renderer.cpp.i
-.PHONY : core/Renderer/Renderer.cpp.i
+core/Modules/Renderer/IndexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/IndexBuffer.cpp.i
+.PHONY : core/Modules/Renderer/IndexBuffer.cpp.i
 
-core/Renderer/Renderer.s: core/Renderer/Renderer.cpp.s
-.PHONY : core/Renderer/Renderer.s
+core/Modules/Renderer/IndexBuffer.s: core/Modules/Renderer/IndexBuffer.cpp.s
+.PHONY : core/Modules/Renderer/IndexBuffer.s
 
 # target to generate assembly for a file
-core/Renderer/Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Renderer.cpp.s
-.PHONY : core/Renderer/Renderer.cpp.s
+core/Modules/Renderer/IndexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/IndexBuffer.cpp.s
+.PHONY : core/Modules/Renderer/IndexBuffer.cpp.s
 
-core/Renderer/ShaderProgram.o: core/Renderer/ShaderProgram.cpp.o
-.PHONY : core/Renderer/ShaderProgram.o
+core/Modules/Renderer/Renderer.o: core/Modules/Renderer/Renderer.cpp.o
+.PHONY : core/Modules/Renderer/Renderer.o
 
 # target to build an object file
-core/Renderer/ShaderProgram.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/ShaderProgram.cpp.o
-.PHONY : core/Renderer/ShaderProgram.cpp.o
+core/Modules/Renderer/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Renderer.cpp.o
+.PHONY : core/Modules/Renderer/Renderer.cpp.o
 
-core/Renderer/ShaderProgram.i: core/Renderer/ShaderProgram.cpp.i
-.PHONY : core/Renderer/ShaderProgram.i
+core/Modules/Renderer/Renderer.i: core/Modules/Renderer/Renderer.cpp.i
+.PHONY : core/Modules/Renderer/Renderer.i
 
 # target to preprocess a source file
-core/Renderer/ShaderProgram.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/ShaderProgram.cpp.i
-.PHONY : core/Renderer/ShaderProgram.cpp.i
+core/Modules/Renderer/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Renderer.cpp.i
+.PHONY : core/Modules/Renderer/Renderer.cpp.i
 
-core/Renderer/ShaderProgram.s: core/Renderer/ShaderProgram.cpp.s
-.PHONY : core/Renderer/ShaderProgram.s
+core/Modules/Renderer/Renderer.s: core/Modules/Renderer/Renderer.cpp.s
+.PHONY : core/Modules/Renderer/Renderer.s
 
 # target to generate assembly for a file
-core/Renderer/ShaderProgram.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/ShaderProgram.cpp.s
-.PHONY : core/Renderer/ShaderProgram.cpp.s
+core/Modules/Renderer/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Renderer.cpp.s
+.PHONY : core/Modules/Renderer/Renderer.cpp.s
 
-core/Renderer/Sprite.o: core/Renderer/Sprite.cpp.o
-.PHONY : core/Renderer/Sprite.o
+core/Modules/Renderer/ShaderProgram.o: core/Modules/Renderer/ShaderProgram.cpp.o
+.PHONY : core/Modules/Renderer/ShaderProgram.o
 
 # target to build an object file
-core/Renderer/Sprite.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Sprite.cpp.o
-.PHONY : core/Renderer/Sprite.cpp.o
+core/Modules/Renderer/ShaderProgram.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/ShaderProgram.cpp.o
+.PHONY : core/Modules/Renderer/ShaderProgram.cpp.o
 
-core/Renderer/Sprite.i: core/Renderer/Sprite.cpp.i
-.PHONY : core/Renderer/Sprite.i
+core/Modules/Renderer/ShaderProgram.i: core/Modules/Renderer/ShaderProgram.cpp.i
+.PHONY : core/Modules/Renderer/ShaderProgram.i
 
 # target to preprocess a source file
-core/Renderer/Sprite.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Sprite.cpp.i
-.PHONY : core/Renderer/Sprite.cpp.i
+core/Modules/Renderer/ShaderProgram.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/ShaderProgram.cpp.i
+.PHONY : core/Modules/Renderer/ShaderProgram.cpp.i
 
-core/Renderer/Sprite.s: core/Renderer/Sprite.cpp.s
-.PHONY : core/Renderer/Sprite.s
+core/Modules/Renderer/ShaderProgram.s: core/Modules/Renderer/ShaderProgram.cpp.s
+.PHONY : core/Modules/Renderer/ShaderProgram.s
 
 # target to generate assembly for a file
-core/Renderer/Sprite.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Sprite.cpp.s
-.PHONY : core/Renderer/Sprite.cpp.s
+core/Modules/Renderer/ShaderProgram.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/ShaderProgram.cpp.s
+.PHONY : core/Modules/Renderer/ShaderProgram.cpp.s
 
-core/Renderer/Texture2D.o: core/Renderer/Texture2D.cpp.o
-.PHONY : core/Renderer/Texture2D.o
+core/Modules/Renderer/Sprite.o: core/Modules/Renderer/Sprite.cpp.o
+.PHONY : core/Modules/Renderer/Sprite.o
 
 # target to build an object file
-core/Renderer/Texture2D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Texture2D.cpp.o
-.PHONY : core/Renderer/Texture2D.cpp.o
+core/Modules/Renderer/Sprite.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Sprite.cpp.o
+.PHONY : core/Modules/Renderer/Sprite.cpp.o
 
-core/Renderer/Texture2D.i: core/Renderer/Texture2D.cpp.i
-.PHONY : core/Renderer/Texture2D.i
+core/Modules/Renderer/Sprite.i: core/Modules/Renderer/Sprite.cpp.i
+.PHONY : core/Modules/Renderer/Sprite.i
 
 # target to preprocess a source file
-core/Renderer/Texture2D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Texture2D.cpp.i
-.PHONY : core/Renderer/Texture2D.cpp.i
+core/Modules/Renderer/Sprite.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Sprite.cpp.i
+.PHONY : core/Modules/Renderer/Sprite.cpp.i
 
-core/Renderer/Texture2D.s: core/Renderer/Texture2D.cpp.s
-.PHONY : core/Renderer/Texture2D.s
+core/Modules/Renderer/Sprite.s: core/Modules/Renderer/Sprite.cpp.s
+.PHONY : core/Modules/Renderer/Sprite.s
 
 # target to generate assembly for a file
-core/Renderer/Texture2D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/Texture2D.cpp.s
-.PHONY : core/Renderer/Texture2D.cpp.s
+core/Modules/Renderer/Sprite.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Sprite.cpp.s
+.PHONY : core/Modules/Renderer/Sprite.cpp.s
 
-core/Renderer/VertexArray.o: core/Renderer/VertexArray.cpp.o
-.PHONY : core/Renderer/VertexArray.o
+core/Modules/Renderer/Texture2D.o: core/Modules/Renderer/Texture2D.cpp.o
+.PHONY : core/Modules/Renderer/Texture2D.o
 
 # target to build an object file
-core/Renderer/VertexArray.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexArray.cpp.o
-.PHONY : core/Renderer/VertexArray.cpp.o
+core/Modules/Renderer/Texture2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Texture2D.cpp.o
+.PHONY : core/Modules/Renderer/Texture2D.cpp.o
 
-core/Renderer/VertexArray.i: core/Renderer/VertexArray.cpp.i
-.PHONY : core/Renderer/VertexArray.i
+core/Modules/Renderer/Texture2D.i: core/Modules/Renderer/Texture2D.cpp.i
+.PHONY : core/Modules/Renderer/Texture2D.i
 
 # target to preprocess a source file
-core/Renderer/VertexArray.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexArray.cpp.i
-.PHONY : core/Renderer/VertexArray.cpp.i
+core/Modules/Renderer/Texture2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Texture2D.cpp.i
+.PHONY : core/Modules/Renderer/Texture2D.cpp.i
 
-core/Renderer/VertexArray.s: core/Renderer/VertexArray.cpp.s
-.PHONY : core/Renderer/VertexArray.s
+core/Modules/Renderer/Texture2D.s: core/Modules/Renderer/Texture2D.cpp.s
+.PHONY : core/Modules/Renderer/Texture2D.s
 
 # target to generate assembly for a file
-core/Renderer/VertexArray.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexArray.cpp.s
-.PHONY : core/Renderer/VertexArray.cpp.s
+core/Modules/Renderer/Texture2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/Texture2D.cpp.s
+.PHONY : core/Modules/Renderer/Texture2D.cpp.s
 
-core/Renderer/VertexBuffer.o: core/Renderer/VertexBuffer.cpp.o
-.PHONY : core/Renderer/VertexBuffer.o
+core/Modules/Renderer/VertexArray.o: core/Modules/Renderer/VertexArray.cpp.o
+.PHONY : core/Modules/Renderer/VertexArray.o
 
 # target to build an object file
-core/Renderer/VertexBuffer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexBuffer.cpp.o
-.PHONY : core/Renderer/VertexBuffer.cpp.o
+core/Modules/Renderer/VertexArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexArray.cpp.o
+.PHONY : core/Modules/Renderer/VertexArray.cpp.o
 
-core/Renderer/VertexBuffer.i: core/Renderer/VertexBuffer.cpp.i
-.PHONY : core/Renderer/VertexBuffer.i
+core/Modules/Renderer/VertexArray.i: core/Modules/Renderer/VertexArray.cpp.i
+.PHONY : core/Modules/Renderer/VertexArray.i
 
 # target to preprocess a source file
-core/Renderer/VertexBuffer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexBuffer.cpp.i
-.PHONY : core/Renderer/VertexBuffer.cpp.i
+core/Modules/Renderer/VertexArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexArray.cpp.i
+.PHONY : core/Modules/Renderer/VertexArray.cpp.i
 
-core/Renderer/VertexBuffer.s: core/Renderer/VertexBuffer.cpp.s
-.PHONY : core/Renderer/VertexBuffer.s
+core/Modules/Renderer/VertexArray.s: core/Modules/Renderer/VertexArray.cpp.s
+.PHONY : core/Modules/Renderer/VertexArray.s
 
 # target to generate assembly for a file
-core/Renderer/VertexBuffer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexBuffer.cpp.s
-.PHONY : core/Renderer/VertexBuffer.cpp.s
+core/Modules/Renderer/VertexArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexArray.cpp.s
+.PHONY : core/Modules/Renderer/VertexArray.cpp.s
 
-core/Renderer/VertexBufferLayout.o: core/Renderer/VertexBufferLayout.cpp.o
-.PHONY : core/Renderer/VertexBufferLayout.o
+core/Modules/Renderer/VertexBuffer.o: core/Modules/Renderer/VertexBuffer.cpp.o
+.PHONY : core/Modules/Renderer/VertexBuffer.o
 
 # target to build an object file
-core/Renderer/VertexBufferLayout.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexBufferLayout.cpp.o
-.PHONY : core/Renderer/VertexBufferLayout.cpp.o
+core/Modules/Renderer/VertexBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexBuffer.cpp.o
+.PHONY : core/Modules/Renderer/VertexBuffer.cpp.o
 
-core/Renderer/VertexBufferLayout.i: core/Renderer/VertexBufferLayout.cpp.i
-.PHONY : core/Renderer/VertexBufferLayout.i
+core/Modules/Renderer/VertexBuffer.i: core/Modules/Renderer/VertexBuffer.cpp.i
+.PHONY : core/Modules/Renderer/VertexBuffer.i
 
 # target to preprocess a source file
-core/Renderer/VertexBufferLayout.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexBufferLayout.cpp.i
-.PHONY : core/Renderer/VertexBufferLayout.cpp.i
+core/Modules/Renderer/VertexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexBuffer.cpp.i
+.PHONY : core/Modules/Renderer/VertexBuffer.cpp.i
 
-core/Renderer/VertexBufferLayout.s: core/Renderer/VertexBufferLayout.cpp.s
-.PHONY : core/Renderer/VertexBufferLayout.s
+core/Modules/Renderer/VertexBuffer.s: core/Modules/Renderer/VertexBuffer.cpp.s
+.PHONY : core/Modules/Renderer/VertexBuffer.s
 
 # target to generate assembly for a file
-core/Renderer/VertexBufferLayout.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Renderer/VertexBufferLayout.cpp.s
-.PHONY : core/Renderer/VertexBufferLayout.cpp.s
+core/Modules/Renderer/VertexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexBuffer.cpp.s
+.PHONY : core/Modules/Renderer/VertexBuffer.cpp.s
 
-core/ResourceManager/ResourceManager.o: core/ResourceManager/ResourceManager.cpp.o
-.PHONY : core/ResourceManager/ResourceManager.o
+core/Modules/Renderer/VertexBufferLayout.o: core/Modules/Renderer/VertexBufferLayout.cpp.o
+.PHONY : core/Modules/Renderer/VertexBufferLayout.o
 
 # target to build an object file
-core/ResourceManager/ResourceManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/ResourceManager/ResourceManager.cpp.o
-.PHONY : core/ResourceManager/ResourceManager.cpp.o
+core/Modules/Renderer/VertexBufferLayout.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexBufferLayout.cpp.o
+.PHONY : core/Modules/Renderer/VertexBufferLayout.cpp.o
 
-core/ResourceManager/ResourceManager.i: core/ResourceManager/ResourceManager.cpp.i
-.PHONY : core/ResourceManager/ResourceManager.i
+core/Modules/Renderer/VertexBufferLayout.i: core/Modules/Renderer/VertexBufferLayout.cpp.i
+.PHONY : core/Modules/Renderer/VertexBufferLayout.i
 
 # target to preprocess a source file
-core/ResourceManager/ResourceManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/ResourceManager/ResourceManager.cpp.i
-.PHONY : core/ResourceManager/ResourceManager.cpp.i
+core/Modules/Renderer/VertexBufferLayout.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexBufferLayout.cpp.i
+.PHONY : core/Modules/Renderer/VertexBufferLayout.cpp.i
 
-core/ResourceManager/ResourceManager.s: core/ResourceManager/ResourceManager.cpp.s
-.PHONY : core/ResourceManager/ResourceManager.s
+core/Modules/Renderer/VertexBufferLayout.s: core/Modules/Renderer/VertexBufferLayout.cpp.s
+.PHONY : core/Modules/Renderer/VertexBufferLayout.s
 
 # target to generate assembly for a file
-core/ResourceManager/ResourceManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/ResourceManager/ResourceManager.cpp.s
-.PHONY : core/ResourceManager/ResourceManager.cpp.s
+core/Modules/Renderer/VertexBufferLayout.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/Renderer/VertexBufferLayout.cpp.s
+.PHONY : core/Modules/Renderer/VertexBufferLayout.cpp.s
+
+core/Modules/ResourceManager/ResourceManager.o: core/Modules/ResourceManager/ResourceManager.cpp.o
+.PHONY : core/Modules/ResourceManager/ResourceManager.o
+
+# target to build an object file
+core/Modules/ResourceManager/ResourceManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/ResourceManager/ResourceManager.cpp.o
+.PHONY : core/Modules/ResourceManager/ResourceManager.cpp.o
+
+core/Modules/ResourceManager/ResourceManager.i: core/Modules/ResourceManager/ResourceManager.cpp.i
+.PHONY : core/Modules/ResourceManager/ResourceManager.i
+
+# target to preprocess a source file
+core/Modules/ResourceManager/ResourceManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/ResourceManager/ResourceManager.cpp.i
+.PHONY : core/Modules/ResourceManager/ResourceManager.cpp.i
+
+core/Modules/ResourceManager/ResourceManager.s: core/Modules/ResourceManager/ResourceManager.cpp.s
+.PHONY : core/Modules/ResourceManager/ResourceManager.s
+
+# target to generate assembly for a file
+core/Modules/ResourceManager/ResourceManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/Modules/ResourceManager/ResourceManager.cpp.s
+.PHONY : core/Modules/ResourceManager/ResourceManager.cpp.s
 
 core/TemplateGenerator/Generator/TemplateGenerator.o: core/TemplateGenerator/Generator/TemplateGenerator.cpp.o
 .PHONY : core/TemplateGenerator/Generator/TemplateGenerator.o
@@ -674,30 +698,6 @@ core/TemplateGenerator/main/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/TemplateGenerator/main/main.cpp.s
 .PHONY : core/TemplateGenerator/main/main.cpp.s
 
-core/UI/GUI/gui.o: core/UI/GUI/gui.cpp.o
-.PHONY : core/UI/GUI/gui.o
-
-# target to build an object file
-core/UI/GUI/gui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/UI/GUI/gui.cpp.o
-.PHONY : core/UI/GUI/gui.cpp.o
-
-core/UI/GUI/gui.i: core/UI/GUI/gui.cpp.i
-.PHONY : core/UI/GUI/gui.i
-
-# target to preprocess a source file
-core/UI/GUI/gui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/UI/GUI/gui.cpp.i
-.PHONY : core/UI/GUI/gui.cpp.i
-
-core/UI/GUI/gui.s: core/UI/GUI/gui.cpp.s
-.PHONY : core/UI/GUI/gui.s
-
-# target to generate assembly for a file
-core/UI/GUI/gui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenTemplate.dir/build.make CMakeFiles/OpenTemplate.dir/core/UI/GUI/gui.cpp.s
-.PHONY : core/UI/GUI/gui.cpp.s
-
 core/UI/ui.o: core/UI/ui.cpp.o
 .PHONY : core/UI/ui.o
 
@@ -760,33 +760,36 @@ help:
 	@echo "... core/Application/application.o"
 	@echo "... core/Application/application.i"
 	@echo "... core/Application/application.s"
-	@echo "... core/Renderer/IndexBuffer.o"
-	@echo "... core/Renderer/IndexBuffer.i"
-	@echo "... core/Renderer/IndexBuffer.s"
-	@echo "... core/Renderer/Renderer.o"
-	@echo "... core/Renderer/Renderer.i"
-	@echo "... core/Renderer/Renderer.s"
-	@echo "... core/Renderer/ShaderProgram.o"
-	@echo "... core/Renderer/ShaderProgram.i"
-	@echo "... core/Renderer/ShaderProgram.s"
-	@echo "... core/Renderer/Sprite.o"
-	@echo "... core/Renderer/Sprite.i"
-	@echo "... core/Renderer/Sprite.s"
-	@echo "... core/Renderer/Texture2D.o"
-	@echo "... core/Renderer/Texture2D.i"
-	@echo "... core/Renderer/Texture2D.s"
-	@echo "... core/Renderer/VertexArray.o"
-	@echo "... core/Renderer/VertexArray.i"
-	@echo "... core/Renderer/VertexArray.s"
-	@echo "... core/Renderer/VertexBuffer.o"
-	@echo "... core/Renderer/VertexBuffer.i"
-	@echo "... core/Renderer/VertexBuffer.s"
-	@echo "... core/Renderer/VertexBufferLayout.o"
-	@echo "... core/Renderer/VertexBufferLayout.i"
-	@echo "... core/Renderer/VertexBufferLayout.s"
-	@echo "... core/ResourceManager/ResourceManager.o"
-	@echo "... core/ResourceManager/ResourceManager.i"
-	@echo "... core/ResourceManager/ResourceManager.s"
+	@echo "... core/Modules/GUI/gui.o"
+	@echo "... core/Modules/GUI/gui.i"
+	@echo "... core/Modules/GUI/gui.s"
+	@echo "... core/Modules/Renderer/IndexBuffer.o"
+	@echo "... core/Modules/Renderer/IndexBuffer.i"
+	@echo "... core/Modules/Renderer/IndexBuffer.s"
+	@echo "... core/Modules/Renderer/Renderer.o"
+	@echo "... core/Modules/Renderer/Renderer.i"
+	@echo "... core/Modules/Renderer/Renderer.s"
+	@echo "... core/Modules/Renderer/ShaderProgram.o"
+	@echo "... core/Modules/Renderer/ShaderProgram.i"
+	@echo "... core/Modules/Renderer/ShaderProgram.s"
+	@echo "... core/Modules/Renderer/Sprite.o"
+	@echo "... core/Modules/Renderer/Sprite.i"
+	@echo "... core/Modules/Renderer/Sprite.s"
+	@echo "... core/Modules/Renderer/Texture2D.o"
+	@echo "... core/Modules/Renderer/Texture2D.i"
+	@echo "... core/Modules/Renderer/Texture2D.s"
+	@echo "... core/Modules/Renderer/VertexArray.o"
+	@echo "... core/Modules/Renderer/VertexArray.i"
+	@echo "... core/Modules/Renderer/VertexArray.s"
+	@echo "... core/Modules/Renderer/VertexBuffer.o"
+	@echo "... core/Modules/Renderer/VertexBuffer.i"
+	@echo "... core/Modules/Renderer/VertexBuffer.s"
+	@echo "... core/Modules/Renderer/VertexBufferLayout.o"
+	@echo "... core/Modules/Renderer/VertexBufferLayout.i"
+	@echo "... core/Modules/Renderer/VertexBufferLayout.s"
+	@echo "... core/Modules/ResourceManager/ResourceManager.o"
+	@echo "... core/Modules/ResourceManager/ResourceManager.i"
+	@echo "... core/Modules/ResourceManager/ResourceManager.s"
 	@echo "... core/TemplateGenerator/Generator/TemplateGenerator.o"
 	@echo "... core/TemplateGenerator/Generator/TemplateGenerator.i"
 	@echo "... core/TemplateGenerator/Generator/TemplateGenerator.s"
@@ -796,9 +799,6 @@ help:
 	@echo "... core/TemplateGenerator/main/main.o"
 	@echo "... core/TemplateGenerator/main/main.i"
 	@echo "... core/TemplateGenerator/main/main.s"
-	@echo "... core/UI/GUI/gui.o"
-	@echo "... core/UI/GUI/gui.i"
-	@echo "... core/UI/GUI/gui.s"
 	@echo "... core/UI/ui.o"
 	@echo "... core/UI/ui.i"
 	@echo "... core/UI/ui.s"

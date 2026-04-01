@@ -1,6 +1,5 @@
 //
 // Created by abnaclut on 18.01.2026.
-//
 // This is supposed to be a coordinating class.
 //
 #pragma once
