@@ -1,4 +1,5 @@
-# CLion/CMake build directories (does not work for cmake-build-debug, hell yes)
+# CLion/CMake build directories
+build/
 cmake-build-*/
 *.cmake
 *.idea

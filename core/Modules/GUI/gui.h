@@ -1,7 +1,7 @@
 #pragma once
 #ifndef OT_GUI_H
 #define OT_GUI_H
-#include "../ui.h"
+#include "../../UI/ui.h"
 
 //FIXME name 'GUI' could be conflicting
 //FIXME an interface should be used in future, when other options are implemented.

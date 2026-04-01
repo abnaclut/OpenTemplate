@@ -5,11 +5,11 @@
 #pragma once
 #ifndef OT_APPLICATION_H
 #define OT_APPLICATION_H
-#include "../Includes/includes.h"
 
-#include "../ResourceManager/ResourceManager.h"
-#include "../Renderer/Renderer.h"
-#include "../TemplateGenerator/Tools/tools.h"
+#include "../masterInclude/masterInclude.h"
+//#include "../Modules/Renderer/Renderer.h"
+//#include "../Modules/ResourceManager/ResourceManager.h"
+//#include "../TemplateGenerator/Tools/tools.h"
 
 namespace OT
 {
@@ -22,41 +22,43 @@ namespace OT
     int running();
     static void init(Application& a); //FIXME ADD PARAMETERS
     // configs
-    void setWindowTitle(const std::string& title);
-    void setWindowSize(const glm::ivec2& size);
-    void setOpenGLVersion(int major, int minor);
+    //void setWindowTitle(const std::string& title);
+    //void setWindowSize(const glm::ivec2& size);
+    //void setOpenGLVersion(int major, int minor);
 
     // getters
-    [[nodiscard]] GLFWwindow* getWindow() const { return m_pWindow; }
-    [[nodiscard]] glm::ivec2 getWindowSize() const { return m_windowSize; }
-    [[nodiscard]] std::string getTitle() const { return m_title; }
+    //[[nodiscard]] GLFWwindow* getWindow() const { return m_pWindow; }
+    //[[nodiscard]] glm::ivec2 getWindowSize() const { return m_windowSize; }
+    //[[nodiscard]] std::string getTitle() const { return m_title; }
 
   private:
 
-    static bool initializeGLFW();
-    bool createWindow();
-    [[nodiscard]] bool initializeOpenGL() const;
-    bool initializeCallbacks();
-    void cleanup();
-    static void processEvents();
-    void render() const;
+    //static bool initializeGLFW();
+    //bool createWindow();
+    //[[nodiscard]] bool initializeOpenGL() const;
+    //bool initializeCallbacks();
+    //void cleanup();
+    //static void processEvents();
+    //void render() const;
 
     // callbacks
-    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+    //static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
     // vars
-    GLFWwindow* m_pWindow = nullptr;
-    glm::ivec2 m_windowSize{};
-    glm::ivec2 m_defaultWindowSize = glm::ivec2(640, 480);
-    std::string m_title;
-    std::string m_defaultTitle = "OpenTemplate";
-    int m_glMajorVersion = 4; //TODO: add support for other versions
-    int m_glMinorVersion = 6;
+    //GLFWwindow* m_pWindow = nullptr;
+    //glm::ivec2 m_windowSize{};
+    //glm::ivec2 m_defaultWindowSize = glm::ivec2(640, 480);
+    //std::string m_title;
+    //std::string m_defaultTitle = "OpenTemplate";
+    //int m_glMajorVersion = 4; //TODO: add support for other versions
+    //int m_glMinorVersion = 6;
 
-    std::unique_ptr<ResourceManager> m_resourceManager;
+    //std::unique_ptr<ResourceManager> m_resourceManager;
     bool m_isRunning = false;
 
     // To access instance from static callbacks
-    static Application* s_instance;
+    //static Application* s_instance;
   };
 }
 #endif //OT_APPLICATION_H
+
+//FIXME: ADD FEATURES AFTER CONFIG IS IMPLEMENTED

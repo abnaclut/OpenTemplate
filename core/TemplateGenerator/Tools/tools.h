@@ -1,7 +1,7 @@
 #pragma once
 #ifndef TOOLS_H
 #define TOOLS_H
-#include "../../Includes/includes.h"
+#include "../../masterInclude/masterInclude.h"
 namespace tools
 {
     void initLog(const std::string& Function, bool initializedSuccessfully);

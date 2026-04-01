@@ -2,7 +2,7 @@
 // Created by abnaclut on 25.01.2026.
 //
 #pragma once
-#ifndef OT_INCLUDES_H
+#ifndef OT_MASTER_INCLUDE
 // UNIVERSAL INCLUDE HEADER
 
 //standard
@@ -20,21 +20,24 @@
 
 //OpenGL
 #ifndef GLAD_INCLUDED
-#include "../../external/glad/include/glad/glad.h"
-#define GLAD_INCLUDED
+  #include "../../external/glad/include/glad/glad.h"
+  #define GLAD_INCLUDED
 #endif
 
 //glm
 #include "../../external/glm/glm/glm.hpp"
 #include "../../external/glm/glm/gtc/type_ptr.hpp"
 #include "../../external/glm/glm/vec2.hpp"
-#include "../glm/gtc/matrix_transform.hpp"
+#include "../../external/glm/glm/gtc/matrix_transform.hpp"
 
 //GLFW
-#include "../../../external/glfw/include/GLFW/glfw3.h"
+#include "../../external/glfw/include/GLFW/glfw3.h"
 
-#define OT_INCLUDES_H
+//nlohmann/json
+#include "../../external/nlohmann/json.hpp"
 
-#endif //OT_INCLUDES_H
+#define OT_MASTER_INCLUDE
 
-//TODO: rename to masterInclude and refactor
+#endif //OT_MASTER_INCLUDE
+
+//FIXME: REMOVE ME

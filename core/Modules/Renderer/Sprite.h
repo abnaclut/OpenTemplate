@@ -2,7 +2,7 @@
 #ifndef OT_SPRITE_H
 #define OT_SPRITE_H
 
-#include "../Includes/includes.h"
+#include "../../masterInclude/masterInclude.h"
 
 #include "IndexBuffer.h"
 #include "ShaderProgram.h"
