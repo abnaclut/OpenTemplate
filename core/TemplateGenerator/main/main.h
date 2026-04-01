@@ -1,7 +1,6 @@
 //
 // Created by abnaclut on 25.01.2026.
 //
-//
 
 #pragma once
 #ifndef OPENTEMPLATE_MAIN_H
