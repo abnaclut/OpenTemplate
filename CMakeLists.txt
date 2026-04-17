@@ -282,7 +282,7 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/resources")
     message(STATUS "Created resources directory: ${CMAKE_SOURCE_DIR}/resources")
 endif()
 
-# Копирование ресурсов после сборки (только если папка существует и не пуста)
+# resource copy post build (if dir exists & not empty)
 file(GLOB RESOURCE_FILES "${CMAKE_SOURCE_DIR}/resources/*")
 if(RESOURCE_FILES)
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
